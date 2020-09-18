@@ -20,7 +20,7 @@ jobs:
 
         # Generate the website
         - name: Publish
-          run: dotnet publish ../../myapp.csproj --configuration Release
+          run: dotnet publish aboutme.csproj --configuration Release
 
         # Publish the website
         - name: GitHub Pages action
