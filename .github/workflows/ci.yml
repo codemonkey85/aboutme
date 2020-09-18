@@ -20,8 +20,16 @@ jobs:
 
         # Generate the website
         - name: Publish
-          run: dotnet publish aboutme.csproj --configuration Release
+        run: dotnet publish aboutme.csproj --configuration Release
+        
+        # changes the base-tag in index.html from '/' to 'aboutme' to match GitHub Pages repository subdirectory
+        - name: Change base-tag in index.html from / to aboutme
+        run: sed -i 's/<base href="\/" \/>/<base href="\/aboutme\/" \/>/g' release/wwwroot/index.html
 
+        # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
+        - name: Add .nojekyll file
+        run: touch release/wwwroot/.nojekyll
+      
         # Publish the website
         - name: GitHub Pages action
           if: ${{ github.ref == 'refs/heads/master' }} # Publish only when the push is on master
