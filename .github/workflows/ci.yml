@@ -1,45 +1,39 @@
-name: 'Publish application'
-on: push
+name: Deploy to GitHub Pages
+
+# Run workflow on every push to the master branch
+on:
+  push:
+    branches: [ master ]
 
 jobs:
-  build:
+  deploy-to-github-pages:
+    # use ubuntu-latest image to run steps on
     runs-on: ubuntu-latest
     steps:
-        # Checkout the code
-        - uses: actions/checkout@v2
+    # uses GitHub's checkout action to checkout code form the master branch
+    - uses: actions/checkout@v2
+    
+    # sets up .NET Core SDK 3.1
+    - name: Setup .NET Core SDK
+      uses: actions/setup-dotnet@v1.6.0
+      with:
+        dotnet-version: 3.1
 
-        # Install .NET Core SDK
-        - name: Setup .NET Core
-          uses: actions/setup-dotnet@v1
-          with:
-            dotnet-version: 3.1.x
+    # publishes Blazor project to the release-folder
+    - name: Publish .NET Core Project
+      run: dotnet publish aboutme.csproj -c Release -o release --nologo
+    
+    # changes the base-tag in index.html from '/' to 'aboutme' to match GitHub Pages repository subdirectory
+    - name: Change base-tag in index.html from / to aboutme
+      run: sed -i 's/<base href="\/" \/>/<base href="\/aboutme\/" \/>/g' release/wwwroot/index.html
 
-        # Run tests
-        - name: Test
-          run: dotnet test
-
-        # Generate the website
-        - name: Publish
-          run: dotnet publish aboutme.csproj --configuration Release
-        
-        # changes the base-tag in index.html from '/' to 'aboutme' to match GitHub Pages repository subdirectory
-        - name: Change base-tag in index.html from / to aboutme
-          run: sed -i 's/<base href="\/" \/>/<base href="\/aboutme\/" \/>/g' release/wwwroot/index.html
-
-        # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
-        - name: Add .nojekyll file
-          run: touch release/wwwroot/.nojekyll
+    # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
+    - name: Add .nojekyll file
+      run: touch release/wwwroot/.nojekyll
       
-        # Publish the website
-        - name: GitHub Pages action
-          if: ${{ github.ref == 'refs/heads/master' }} # Publish only when the push is on master
-          uses: peaceiris/actions-gh-pages@v3.6.1
-          with:
-            github_token: ${{ secrets.PUBLISH_TOKEN }}
-            publish_branch: gh-pages
-            publish_dir: bin/Release/netstandard2.1/publish/wwwroot
-            allow_empty_commit: false
-            keep_files: false
-            force_orphan: true
-            # TODO uncomment the following line if you have a custom domain name
-            # cname: demo.meziantou.net
+    - name: Commit wwwroot to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@3.5.9
+      with:
+        GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: release/wwwroot
