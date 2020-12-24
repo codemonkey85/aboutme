@@ -10,6 +10,13 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Build" Version="3.2.1" PrivateAssets="all" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="3.2.1" PrivateAssets="all" />
     <PackageReference Include="System.Net.Http.Json" Version="3.2.0" />
+    <PackageReference Include="MarkdownSharp" Version="2.0.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Pages\resume.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\page-content\" />
+  </ItemGroup>
 </Project>

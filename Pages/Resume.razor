@@ -1,4 +1,4 @@
-﻿@page "/"
+﻿@page "/resume"
 @using MarkdownSharp
 @inject HttpClient HttpClient
 @inject Markdown Markdown
@@ -8,5 +8,5 @@
     private string markdownText = string.Empty;
 
     protected override async Task OnInitializedAsync() =>
-        markdownText = await HttpClient.ReadPageContentFromMd("Index.md");
+        markdownText = await HttpClient.ReadPageContentFromMd("Resume.md");
 }
