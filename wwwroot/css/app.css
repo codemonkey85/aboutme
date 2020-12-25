@@ -148,6 +148,11 @@ app {
     .main .top-row a, .main .top-row .btn-link {
         margin-left: 0;
     }
+
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
 }
 
 @media (min-width: 768px) {
