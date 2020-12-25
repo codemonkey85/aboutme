@@ -1,12 +1,54 @@
 ﻿@page "/resume"
+@using System.Text
 @using MarkdownSharp
 @inject HttpClient HttpClient
 @inject Markdown Markdown
-@((MarkupString)Markdown.Transform(markdownText))
+@inject IJSRuntime JSRuntime
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <p>@errorMessage</p>
+}
+else
+{
+    @((MarkupString)Markdown.Transform(markdownText))
+    <button @onclick="DownloadResume">Download Resume</button>
+}
 
 @code {
     private string markdownText = string.Empty;
+    private string errorMessage = string.Empty;
 
     protected override async Task OnInitializedAsync() =>
         markdownText = await HttpClient.ReadPageContentFromMd("Resume.md");
+
+    private async Task DownloadResume()
+    {
+        try
+        {
+            string html = Markdown.Transform(markdownText);
+            byte[] file = Encoding.UTF8.GetBytes(html);
+            await JSRuntime.InvokeVoidAsync("BlazorDownloadFile", "michael-bond-resume.html", "text/html", file);
+        }
+        catch (Exception ex)
+        {
+            OnError(ex);
+        }
+    }
+
+    private void OnError(Exception ex)
+    {
+        StringBuilder errorBuilder = new StringBuilder();
+        BuildErrorMessage(errorBuilder, ex);
+        errorMessage = errorBuilder.ToString();
+    }
+
+    private void BuildErrorMessage(StringBuilder errorBuilder, Exception ex)
+    {
+        errorBuilder.AppendLine($"{ex.Message}{Environment.NewLine}{ex.StackTrace}");
+        if (ex.InnerException != null)
+        {
+            BuildErrorMessage(errorBuilder, ex.InnerException);
+        }
+    }
 }
