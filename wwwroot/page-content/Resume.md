@@ -1,9 +1,9 @@
 # Michael Bond
 Web / Windows / C# / ASP / .NET Developer
 
-[codemonkey8510@icloud.com](mailto:codemonkey8510@icloud.com)
+[codemonkey8510@icloud.com](mailto:codemonkey8510@icloud.com?subject=Resume)
 
-### SKILLS
+## SKILLS
 
 #### DEVELOPMENT PLATFORMS
 Microsoft .NET environment - Visual Studio (VB.Net, C#), ASP.Net / Blazor / Razor pages and web APIs, C++
@@ -16,9 +16,9 @@ SQL / MS SQL Server / SQLite, Entity Framework
 Windows, Android, iOS, C++, C#, Java, GUI design
 
 #### PORTFOLIO
-Samples of personal projects done over the past 10+ years utilizing Microsoft .NET (C#, Visual Studio), Blazor, Web APIs, SQLite, Qt - https://github.com/codemonkey85/
+Samples of personal projects done over the past 10+ years utilizing Microsoft .NET (C#, Visual Studio), Blazor, Web APIs, SQLite, Qt - [https://github.com/codemonkey85/](https://github.com/codemonkey85/)
 
-### WORK EXPERIENCE
+## WORK EXPERIENCE
 #### Software Developer
 February 2015 - Present
 3 Story Software
@@ -37,7 +37,7 @@ Fairfax Data Systems
 - Developed Datacap applications based on specific client requirements
 - Configured FileNet and WorkplaceXT for client to search and modify documents
 
-### EDUCATION
+## EDUCATION
 
 Some College Coursework Completed - Computer Science, Liberal Arts
 Naugatuck Valley Community College
