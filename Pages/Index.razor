@@ -2,11 +2,11 @@
 @using MarkdownSharp
 @inject HttpClient HttpClient
 @inject Markdown Markdown
-@((MarkupString)Markdown.Transform(markdownText))
+@((MarkupString)html)
 
 @code {
-    private string markdownText = string.Empty;
+    private string html = string.Empty;
 
     protected override async Task OnInitializedAsync() =>
-        markdownText = await HttpClient.ReadPageContentFromMd("Index.md");
+        html = Markdown.Transform(await HttpClient.ReadPageContentFromMd("Index.md"));
 }

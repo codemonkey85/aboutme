@@ -13,19 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Pages\resume.md" />
-    <None Remove=".DS_Store" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="wwwroot\page-content\" />
     <Folder Include="wwwroot\page-content\images\" />
     <Folder Include="wwwroot\js\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Remove="wwwroot\page-content\.DS_Store" />
-    <Content Remove="wwwroot\.DS_Store" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System.Drawing.Common, Version=0.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
   </ItemGroup>
 </Project>

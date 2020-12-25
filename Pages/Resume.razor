@@ -11,22 +11,21 @@
 }
 else
 {
-    @((MarkupString)Markdown.Transform(markdownText))
+    @((MarkupString)html)
     <button @onclick="DownloadResume">Download Resume</button>
 }
 
 @code {
-    private string markdownText = string.Empty;
+    private string html = string.Empty;
     private string errorMessage = string.Empty;
 
     protected override async Task OnInitializedAsync() =>
-        markdownText = await HttpClient.ReadPageContentFromMd("Resume.md");
+        html = Markdown.Transform(await HttpClient.ReadPageContentFromMd("Resume.md"));
 
     private async Task DownloadResume()
     {
         try
         {
-            string html = Markdown.Transform(markdownText);
             byte[] file = Encoding.UTF8.GetBytes(html);
             await JSRuntime.InvokeVoidAsync("BlazorDownloadFile", "michael-bond-resume.html", "text/html", file);
         }
