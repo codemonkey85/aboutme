@@ -1,4 +1,5 @@
 ﻿@page "/resume"
+@using System.Net.Mime
 @using System.Text
 @using MarkdownSharp
 @inject HttpClient HttpClient
@@ -26,8 +27,7 @@ else
     {
         try
         {
-            byte[] file = Encoding.UTF8.GetBytes(html);
-            await JSRuntime.InvokeVoidAsync("BlazorDownloadFile", "michael-bond-resume.html", "text/html", file);
+            await JSRuntime.DownloadFile("michael-bond-resume.html", MediaTypeNames.Text.Html, Encoding.UTF8.GetBytes(html));
         }
         catch (Exception ex)
         {
