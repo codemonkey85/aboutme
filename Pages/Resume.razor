@@ -1,7 +1,5 @@
 ﻿@page "/resume"
-@using aboutme.Components
-<MarkdownToHtmlComponent MarkdownFileName="Resume.md"
-                         AllowPageDownload="true"
-                         DownloadPageButtonText="Download Resume"
-                         DownloadPageFileName="michael-bond-resume">
-</MarkdownToHtmlComponent>
+<aboutme.Components.MarkdownToHtmlComponent MarkdownContentFileName="page-content/Resume.md"
+                                            AllowPageDownload="true"
+                                            DownloadPageButtonText="Download Resume"
+                                            DownloadPageFileName="michael-bond-resume" />

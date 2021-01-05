@@ -13,7 +13,7 @@ namespace aboutme.Components
     public partial class MarkdownToHtmlComponent : ComponentBase
     {
         [Parameter]
-        public string MarkdownFileName
+        public string MarkdownContentFileName
         {
             get; set;
         }
@@ -43,8 +43,18 @@ namespace aboutme.Components
         protected string html = string.Empty;
         protected string errorMessage = string.Empty;
 
-        protected override async Task OnInitializedAsync() =>
-            html = Markdown.Transform(await HttpClient.ReadPageContentFromMd(MarkdownFileName));
+        protected override async Task OnInitializedAsync()
+        {
+            html = string.Empty;
+            try
+            {
+                html = Markdown.Transform(await HttpClient.ReadPageContentFromMd(MarkdownContentFileName));
+            }
+            catch (Exception ex)
+            {
+                OnError(ex);
+            }
+        }
 
         protected void OnError(Exception ex)
         {

@@ -1,5 +1,8 @@
 ﻿@((MarkupString)html)
 @if (AllowPageDownload)
 {
-    <button @onclick="DownloadPage">@DownloadPageButtonText</button>
+    <button @onclick="DownloadPage"
+            title="@DownloadPageButtonText">
+        @DownloadPageButtonText
+    </button>
 }
