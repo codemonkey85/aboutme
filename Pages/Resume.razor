@@ -1,53 +1,7 @@
 ﻿@page "/resume"
-@using System.Net.Mime
-@using System.Text
-@using MarkdownSharp
-@inject HttpClient HttpClient
-@inject Markdown Markdown
-@inject IJSRuntime JSRuntime
-
-@if (!string.IsNullOrEmpty(errorMessage))
-{
-    <p>@errorMessage</p>
-}
-else
-{
-    @((MarkupString)html)
-    <button @onclick="DownloadResume">Download Resume</button>
-}
-
-@code {
-    private string html = string.Empty;
-    private string errorMessage = string.Empty;
-
-    protected override async Task OnInitializedAsync() =>
-        html = Markdown.Transform(await HttpClient.ReadPageContentFromMd("Resume.md"));
-
-    private async Task DownloadResume()
-    {
-        try
-        {
-            await JSRuntime.DownloadFile("michael-bond-resume.html", MediaTypeNames.Text.Html, Encoding.UTF8.GetBytes(html));
-        }
-        catch (Exception ex)
-        {
-            OnError(ex);
-        }
-    }
-
-    private void OnError(Exception ex)
-    {
-        StringBuilder errorBuilder = new StringBuilder();
-        BuildErrorMessage(errorBuilder, ex);
-        errorMessage = errorBuilder.ToString();
-    }
-
-    private void BuildErrorMessage(StringBuilder errorBuilder, Exception ex)
-    {
-        errorBuilder.AppendLine($"{ex.Message}{Environment.NewLine}{ex.StackTrace}");
-        if (ex.InnerException != null)
-        {
-            BuildErrorMessage(errorBuilder, ex.InnerException);
-        }
-    }
-}
+@using aboutme.Components
+<MarkdownToHtmlComponent MarkdownFileName="Resume.md"
+                         AllowPageDownload="true"
+                         DownloadPageButtonText="Download Resume"
+                         DownloadPageFileName="michael-bond-resume">
+</MarkdownToHtmlComponent>

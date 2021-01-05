@@ -1,12 +1,4 @@
 ﻿@page "/"
-@using MarkdownSharp
-@inject HttpClient HttpClient
-@inject Markdown Markdown
-@((MarkupString)html)
-
-@code {
-    private string html = string.Empty;
-
-    protected override async Task OnInitializedAsync() =>
-        html = Markdown.Transform(await HttpClient.ReadPageContentFromMd("Index.md"));
-}
+@using aboutme.Components
+<MarkdownToHtmlComponent MarkdownFileName="Index.md">
+</MarkdownToHtmlComponent>
