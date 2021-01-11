@@ -15,6 +15,8 @@ namespace aboutme.Shared
         {
             new MarkdownPage("", "Index", NavLinkMatch.All, "oi oi-home"),
             new MarkdownPage("resume", "Resume", NavLinkMatch.All, "oi oi-document"),
+            new MarkdownPage("music", "Music I Like", NavLinkMatch.All, "oi oi-document"),
+            new MarkdownPage("pokemon", "Pokémon", NavLinkMatch.All, "oi oi-document"),
         };
     }
 
