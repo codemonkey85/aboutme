@@ -1,4 +1,4 @@
-﻿function BlazorDownloadFile(filename, contentType, content) {
+﻿function blazorDownloadFile(filename, contentType, content) {
     // Blazor marshall byte[] to a base64 string, so we first need to convert the string (content) to a Uint8Array to create the File
 
     const data = base64DecToArr(content);
@@ -45,9 +45,17 @@ function base64DecToArr(sBase64, nBlocksSize) {
     return taBytes;
 }
 
-function ChangeTheme(isDark) {
+function changeTheme(isDark) {
     if (isDark)
         document.body.classList.add('dark-theme');
     else
         document.body.classList.remove('dark-theme');
+};
+
+function addToLocalStorage(key, value) {
+    localStorage[key] = value;
+};
+
+function readFromLocalStorage(key, valueIfMissing) {
+    return localStorage[key] ?? valueIfMissing;
 };

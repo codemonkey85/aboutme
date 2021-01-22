@@ -26,7 +26,7 @@
       "System.IO.Pipelines.dll": "sha256-o\/PdJLBGKSgIYSBLq6l+GUStgsQ7K0l+eLIHhkVU1o0=",
       "System.Security.Cryptography.ProtectedData.dll": "sha256-44DirwICdjXC7rqtyQBPwEoBvsEmZGn\/gLNvcpaVBSo=",
       "System.Security.Permissions.dll": "sha256-TbmvkKV1XqKAjZVVi1OCUdUE2xJPyyWuJ5JMw5eAB1s=",
-      "aboutme.dll": "sha256-iVjUll5TK3yqfqSmwbRlZDZ0aCPRnUUjsKqSc\/tSDrU=",
+      "aboutme.dll": "sha256-VXHWcV0ZcEt1Yv4rt0sHbDtZKSSivkfvXjBk2NSZ69g=",
       "System.Collections.Concurrent.dll": "sha256-lIMocOFUUxKraJn2VkmNU04\/1zzF2zWRqWSh4BydVyk=",
       "System.Collections.Immutable.dll": "sha256-zw8vWzOS7lNWxYD77BqvQLifwN9HpZLemLKiPu\/59gs=",
       "System.Collections.NonGeneric.dll": "sha256-AsP1PwfynWNX1ysoPbmQFF0rHmUA9mPN6+bagTJWbrk=",
@@ -63,7 +63,7 @@
       "System.Text.Json.dll": "sha256-JR94WdIundRg5I\/Gz\/cJLlV6JsBiib+wqsBVButo5cU=",
       "System.Text.RegularExpressions.dll": "sha256-VhaL6gX+\/iwMNUvKCYb1ehaoa\/dfk6vZ6eUbuvPr\/tQ=",
       "System.Threading.dll": "sha256-B8l203sxuVARY26VSvnA\/jPRCYMt\/WQjT3FEO8fbC8E=",
-      "System.Private.CoreLib.dll": "sha256-L8FH\/ubeyi8B29RZFnSXBTllqykO6pSV9VpvvsUDiTg="
+      "System.Private.CoreLib.dll": "sha256-+uaxw79tpHd\/KJtw5vDh2ELlawcdb9XcIIt\/A34yx8U="
     },
     "lazyAssembly": null,
     "pdb": null,
