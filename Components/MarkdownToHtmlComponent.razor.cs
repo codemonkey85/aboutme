@@ -1,12 +1,12 @@
-﻿using System;
+﻿using aboutme.Shared;
+using MarkdownSharp;
+using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
+using System;
 using System.Net.Http;
 using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
-using aboutme.Shared;
-using MarkdownSharp;
-using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
 
 namespace aboutme.Components
 {
@@ -36,9 +36,29 @@ namespace aboutme.Components
             get; set;
         }
 
-        [Inject] public HttpClient HttpClient { get; set; }
-        [Inject] public Markdown Markdown { get; set; }
-        [Inject] public IJSRuntime JSRuntime { get; set; }
+        [Inject]
+        public HttpClient HttpClient
+        {
+            get; set;
+        }
+
+        [Inject]
+        public Markdown Markdown
+        {
+            get; set;
+        }
+
+        [Inject]
+        public IJSRuntime JSRuntime
+        {
+            get; set;
+        }
+
+        [Inject]
+        private IRefreshService RefreshService
+        {
+            get; set;
+        }
 
         protected string html = string.Empty;
         protected string errorMessage = string.Empty;
@@ -46,6 +66,7 @@ namespace aboutme.Components
         protected override async Task OnInitializedAsync()
         {
             html = string.Empty;
+            RefreshService.RefreshRequested += StateHasChanged;
             try
             {
                 html = Markdown.Transform(await HttpClient.ReadPageContentFromMd(MarkdownContentFileName));

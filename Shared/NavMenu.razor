@@ -6,6 +6,7 @@
 </div>
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <button @onclick="SwitchTheme">Toggle Theme</button>
     @if ((Pages?.Count() ?? 0) > 0)
     {
         <ul class="nav flex-column">
