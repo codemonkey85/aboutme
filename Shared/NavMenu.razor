@@ -1,4 +1,6 @@
-﻿<div class="top-row pl-4 navbar navbar-dark">
+﻿@using aboutme.Components;
+
+<div class="top-row pl-4 navbar navbar-dark">
     <a class="navbar-brand" href="">Michael Bond</a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
@@ -6,7 +8,7 @@
 </div>
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <button @onclick="SwitchTheme">Toggle Theme</button>
+    <ThemeToggleButton />
     @if ((Pages?.Count() ?? 0) > 0)
     {
         <ul class="nav flex-column">
