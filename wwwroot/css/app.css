@@ -1,21 +1,42 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
-:root {
+/*:root {*/
     /* light theme */
-    --background: white;
+    /*--background: white;
     --font-color: black;
     --highlight: #f7f7f7;
     --highlight-2: #e2e3e5;
     --link: #0366d6;
+}*/
+
+@media (prefers-color-scheme: light) {
+    body {
+        --background: white;
+        --font-color: black;
+        --highlight: #f7f7f7;
+        --highlight-2: #e2e3e5;
+        --link: #0366d6;
+    }
 }
 
-.dark-theme {
+@media (prefers-color-scheme: dark) {
+    body {
+        --background: #2d2d2d;
+        --font-color: white;
+        --highlight: #393939;
+        --highlight-2: #414648;
+        --link: #3ca4ff;
+    }
+}
+
+/*.dark-theme {
     --background: #2d2d2d;
     --font-color: white;
     --highlight: #393939;
     --highlight-2: #414648;
     --link: #3ca4ff;
 }
+*/
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
