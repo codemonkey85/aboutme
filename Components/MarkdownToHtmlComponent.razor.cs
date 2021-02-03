@@ -3,6 +3,7 @@ using MarkdownSharp;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using System;
+using System.IO;
 using System.Net.Http;
 using System.Net.Mime;
 using System.Text;
@@ -59,6 +60,11 @@ namespace aboutme.Components
         {
             get; set;
         }
+
+        protected string ContentFileName =>
+            !(string.IsNullOrEmpty(DownloadPageFileName) || string.IsNullOrWhiteSpace(DownloadPageFileName))
+                ? DownloadPageFileName
+                : new FileInfo(MarkdownContentFileName)?.Name?.Replace(".md", ".txt") ?? MarkdownContentFileName;
 
         protected string html = string.Empty;
         protected string errorMessage = string.Empty;
