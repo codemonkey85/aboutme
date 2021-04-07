@@ -85,7 +85,7 @@ namespace aboutme.Components
 
         protected void OnError(Exception ex)
         {
-            StringBuilder errorBuilder = new StringBuilder();
+            StringBuilder errorBuilder = new();
             BuildErrorMessage(errorBuilder, ex);
             errorMessage = errorBuilder.ToString();
         }
