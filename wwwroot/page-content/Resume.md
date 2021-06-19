@@ -6,14 +6,13 @@ Web / Windows / C# / ASP / .NET Developer
 ## SKILLS
 
 #### DEVELOPMENT PLATFORMS
-Microsoft .NET environment - Visual Studio (VB.Net, C#), ASP.Net / Blazor / Razor pages and web APIs, C++
-Java, JavaScript, jQuery, some Angular
+Microsoft .NET environment - Visual Studio (C#), ASP.Net / Blazor / Razor components and web APIs (MVC), JavaScript, jQuery, some Angular
 
 #### DATABASES
 SQL / MS SQL Server / SQLite, Entity Framework
 
 #### INTERESTS
-Windows, Android, iOS, C++, C#, Java, GUI design
+Blazor, Xamarin Forms / .NET MAUI, Windows, Android, iOS, C#, HTML, CSS, JavaScript, Typescript, GUI design
 
 #### PORTFOLIO
 Samples of personal projects done over the past 10+ years utilizing Microsoft .NET (C#, Visual Studio), Blazor, Web APIs, SQLite, Qt - [https://github.com/codemonkey85/](https://github.com/codemonkey85/)
