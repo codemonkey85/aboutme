@@ -3,7 +3,9 @@ Web / Windows / C# / ASP / .NET Developer
 
 [codemonkey8510@icloud.com](mailto:codemonkey8510@icloud.com?subject=Resume)
 
-## SKILLS
+See my Indeed profile: [https://my.indeed.com/p/michaelb-9265a79](https://my.indeed.com/p/michaelb-9265a79)
+
+## SKILLS SUMMARY
 
 #### DEVELOPMENT PLATFORMS
 Microsoft .NET environment - Visual Studio (C#), ASP.Net / Blazor / Razor components and web APIs (MVC), JavaScript, jQuery, some Angular
