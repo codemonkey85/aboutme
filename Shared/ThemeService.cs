@@ -1,5 +1,4 @@
-﻿using Microsoft.JSInterop;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace aboutme.Shared
 {
@@ -8,26 +7,30 @@ namespace aboutme.Shared
         private bool isDarkTheme = false;
         private const string isDarkThemeKey = @"isDarkTheme";
 
-        public async Task ReadThemeFromLocalStorage(IJSRuntime jSRuntime) =>
-            isDarkTheme = int.Parse(await jSRuntime.ReadFromLocalStorage(isDarkThemeKey, "0")) == 1;
+        private JsInterop JsInterop { get; set; }
 
-        public async Task WriteThemeToLocalStorage(IJSRuntime jSRuntime) =>
-            await jSRuntime.AddToLocalStorage(isDarkThemeKey, isDarkTheme ? 1 : 0);
+        public ThemeService(JsInterop jsInterop) => JsInterop = jsInterop;
 
-        public async Task SetTheme(IJSRuntime jSRuntime, IRefreshService refreshService, bool isDark)
+        public async Task ReadThemeFromLocalStorage() =>
+            isDarkTheme = int.TryParse(await JsInterop.ReadFromLocalStorage(isDarkThemeKey, "0"), out int result) && result == 1;
+
+        public async Task WriteThemeToLocalStorage() =>
+            await JsInterop.AddToLocalStorage(isDarkThemeKey, isDarkTheme ? 1 : 0);
+
+        public async Task SetTheme(IRefreshService refreshService, bool isDark)
         {
             isDarkTheme = isDark;
-            await WriteThemeToLocalStorage(jSRuntime);
-            await ApplyTheme(jSRuntime, refreshService);
+            await WriteThemeToLocalStorage();
+            await ApplyTheme(refreshService);
         }
 
-        public async Task ApplyTheme(IJSRuntime jSRuntime, IRefreshService refreshService)
+        public async Task ApplyTheme(IRefreshService refreshService)
         {
-            await jSRuntime.ChangeTheme(isDarkTheme);
+            await JsInterop.ChangeTheme(isDarkTheme);
             refreshService.CallRequestRefresh();
         }
 
-        public async Task SwitchTheme(IJSRuntime jSRuntime, IRefreshService refreshService) =>
-            await SetTheme(jSRuntime, refreshService, !isDarkTheme);
+        public async Task SwitchTheme(IRefreshService refreshService) =>
+            await SetTheme(refreshService, !isDarkTheme);
     }
 }

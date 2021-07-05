@@ -8,14 +8,14 @@
 </div>
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    @if ((Pages?.Count() ?? 0) > 0)
+    @if (NavPages?.Any() ?? false)
     {
         <ul class="nav flex-column">
-            @foreach (MarkdownPage page in Pages)
+            @foreach (MarkdownPage navPage in NavPages)
             {
                 <li class="nav-item px-3">
-                    <NavLink class="nav-link" href="@(page.PagePath)" Match="page.NavLinkMatch">
-                        <span class="@(page.SpanClass)" aria-hidden="true"></span> @(page.PageName)
+                    <NavLink class="nav-link" href="@navPage.PagePath" Match="navPage.NavLinkMatch">
+                        <span class="@navPage.SpanClass" aria-hidden="true" /> @(navPage.PageName)
                     </NavLink>
                 </li>
             }

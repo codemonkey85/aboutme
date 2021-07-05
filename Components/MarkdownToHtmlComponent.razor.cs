@@ -50,7 +50,7 @@ namespace aboutme.Components
         }
 
         [Inject]
-        public IJSRuntime JSRuntime
+        public JsInterop JsInterop
         {
             get; set;
         }
@@ -103,7 +103,7 @@ namespace aboutme.Components
         {
             try
             {
-                await JSRuntime.DownloadFile($"{DownloadPageFileName}.html", MediaTypeNames.Text.Html, Encoding.UTF8.GetBytes(html));
+                await JsInterop.DownloadFile($"{DownloadPageFileName}.html", MediaTypeNames.Text.Html, Encoding.UTF8.GetBytes(html));
             }
             catch (Exception ex)
             {

@@ -11,13 +11,14 @@ namespace aboutme.Shared
 
         protected void ToggleNavMenu() => collapseNavMenu = !collapseNavMenu;
 
-        protected MarkdownPage[] Pages =
+        protected MarkdownPage[] NavPages =
         {
-            new MarkdownPage("", "Index", NavLinkMatch.All, "oi oi-home"),
-            new MarkdownPage("resume", "Resume", NavLinkMatch.All, "oi oi-document"),
-            new MarkdownPage("music", "Music I Like", NavLinkMatch.All, "oi oi-document"),
-            new MarkdownPage("pokemon", "Pokémon", NavLinkMatch.All, "oi oi-document"),
-            new MarkdownPage("contact", "Contact Me", NavLinkMatch.All, "oi oi-document"),
+            new (string.Empty, "Index", NavLinkMatch.All, "oi oi-home"),
+            new ("resume", "Resume", NavLinkMatch.All, "oi oi-document"),
+            new ("projects", "My Projects", NavLinkMatch.All, "oi oi-document"),
+            new ("music", "Music I Like", NavLinkMatch.All, "oi oi-document"),
+            new ("pokemon", "Pokémon", NavLinkMatch.All, "oi oi-document"),
+            new ("contact", "Contact Me", NavLinkMatch.All, "oi oi-document"),
         };
     }
 

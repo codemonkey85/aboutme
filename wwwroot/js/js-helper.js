@@ -1,4 +1,4 @@
-﻿function blazorDownloadFile(filename, contentType, content) {
+﻿export function blazorDownloadFile(filename, contentType, content) {
     // Blazor marshall byte[] to a base64 string, so we first need to convert the string (content) to a Uint8Array to create the File
 
     const data = base64DecToArr(content);
@@ -21,11 +21,11 @@
 
 // Convert a base64 string to a Uint8Array. This is needed to create a blob object from the base64 string.
 // The code comes from: https://developer.mozilla.org/fr/docs/Web/API/WindowBase64/D%C3%A9coder_encoder_en_base64
-function b64ToUint6(nChr) {
+export function b64ToUint6(nChr) {
     return nChr > 64 && nChr < 91 ? nChr - 65 : nChr > 96 && nChr < 123 ? nChr - 71 : nChr > 47 && nChr < 58 ? nChr + 4 : nChr === 43 ? 62 : nChr === 47 ? 63 : 0;
 }
 
-function base64DecToArr(sBase64, nBlocksSize) {
+export function base64DecToArr(sBase64, nBlocksSize) {
     var
         sB64Enc = sBase64.replace(/[^A-Za-z0-9\+\/]/g, ""),
         nInLen = sB64Enc.length,
@@ -45,17 +45,17 @@ function base64DecToArr(sBase64, nBlocksSize) {
     return taBytes;
 }
 
-function changeTheme(isDark) {
+export function changeTheme(isDark) {
     if (isDark)
         document.body.classList.add('dark-theme');
     else
         document.body.classList.remove('dark-theme');
 };
 
-function addToLocalStorage(key, value) {
+export function addToLocalStorage(key, value) {
     localStorage[key] = value;
 };
 
-function readFromLocalStorage(key, valueIfMissing) {
+export function readFromLocalStorage(key, valueIfMissing) {
     return localStorage[key] ?? valueIfMissing;
 };

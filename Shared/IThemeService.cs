@@ -1,18 +1,17 @@
-﻿using Microsoft.JSInterop;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace aboutme.Shared
 {
     public interface IThemeService
     {
-        Task ReadThemeFromLocalStorage(IJSRuntime jSRuntime);
+        Task ReadThemeFromLocalStorage();
 
-        Task WriteThemeToLocalStorage(IJSRuntime jSRuntime);
+        Task WriteThemeToLocalStorage();
 
-        Task SetTheme(IJSRuntime JSRuntime, IRefreshService RefreshService, bool isDark);
+        Task SetTheme(IRefreshService RefreshService, bool isDark);
 
-        Task ApplyTheme(IJSRuntime jSRuntime, IRefreshService refreshService);
+        Task ApplyTheme(IRefreshService refreshService);
 
-        Task SwitchTheme(IJSRuntime JSRuntime, IRefreshService RefreshService);
+        Task SwitchTheme(IRefreshService RefreshService);
     }
 }
