@@ -1,14 +1,5 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
-/*:root {*/
-    /* light theme */
-    /*--background: white;
-    --font-color: black;
-    --highlight: #f7f7f7;
-    --highlight-2: #e2e3e5;
-    --link: #0366d6;
-}*/
-
 @media (prefers-color-scheme: light) {
     body {
         --background: white;
@@ -28,15 +19,6 @@
         --link: #3ca4ff;
     }
 }
-
-/*.dark-theme {
-    --background: #2d2d2d;
-    --font-color: white;
-    --highlight: #393939;
-    --highlight-2: #414648;
-    --link: #3ca4ff;
-}
-*/
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -83,14 +65,16 @@ app {
 }
 
     .main .top-row {
-        background-color: #f7f7f7;
+        background-color: var(--background);
+        color: var(--font-color);
         border-bottom: 1px solid #d6d5d5;
         justify-content: flex-end;
     }
 
         .main .top-row > a, .main .top-row .btn-link {
-            white-space: nowrap;
+            /*            white-space: nowrap;
             margin-left: 1.5rem;
+*/
         }
 
         .main .top-row a:first-child {
@@ -198,7 +182,8 @@ app {
     }
 
     .main .top-row a, .main .top-row .btn-link {
-        margin-left: 0;
+        /*        margin-left: 0;
+*/
     }
 
     .profile-image {
@@ -242,4 +227,13 @@ app {
         width: 200px;
         height: 200px;
     }
+}
+
+body {
+    --link-margin: 0.35rem;
+}
+
+.top-row-link {
+    margin-left: var(--link-margin);
+    margin-right: var(--link-margin);
 }
