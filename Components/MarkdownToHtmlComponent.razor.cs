@@ -1,7 +1,6 @@
 ﻿using aboutme.Shared;
 using MarkdownSharp;
 using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
 using System;
 using System.IO;
 using System.Net.Http;
@@ -33,30 +32,6 @@ namespace aboutme.Components
 
         [Parameter]
         public string DownloadPageFileName
-        {
-            get; set;
-        }
-
-        [Inject]
-        public HttpClient HttpClient
-        {
-            get; set;
-        }
-
-        [Inject]
-        public Markdown Markdown
-        {
-            get; set;
-        }
-
-        [Inject]
-        public JsInterop JsInterop
-        {
-            get; set;
-        }
-
-        [Inject]
-        private IRefreshService RefreshService
         {
             get; set;
         }

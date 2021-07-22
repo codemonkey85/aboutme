@@ -1,23 +1,10 @@
-﻿using aboutme.Shared;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using System.Threading.Tasks;
 
 namespace aboutme.Components
 {
     public partial class ThemeToggleButton : ComponentBase
     {
-        [Inject]
-        private IRefreshService RefreshService
-        {
-            get; set;
-        }
-
-        [Inject]
-        private IThemeService ThemeService
-        {
-            get; set;
-        }
-
         protected override async Task OnInitializedAsync()
         {
             await ThemeService.ReadThemeFromLocalStorage();
