@@ -8,7 +8,7 @@ See my Indeed profile: [https://my.indeed.com/p/michaelb-9265a79](https://my.ind
 ## SKILLS SUMMARY
 
 #### DEVELOPMENT PLATFORMS
-Microsoft .NET environment - Visual Studio (C#), ASP.Net / Blazor / Razor components and web APIs (MVC), JavaScript, jQuery, some Angular
+Microsoft .NET environment - .NET Framework and .NET Core / Visual Studio (C#), ASP.Net / Blazor / Razor components and web APIs (MVC), JavaScript, jQuery, some Angular / TypeScript
 
 #### DATABASES
 SQL / MS SQL Server / SQLite, Entity Framework
@@ -20,16 +20,25 @@ Blazor, Xamarin Forms / .NET MAUI, Windows, Android, iOS, C#, HTML, CSS, JavaScr
 Samples of personal projects done over the past 10+ years utilizing Microsoft .NET (C#, Visual Studio), Blazor, Web APIs, SQLite, Qt - [https://github.com/codemonkey85/](https://github.com/codemonkey85/)
 
 ## WORK EXPERIENCE
-#### Software Developer
+### Software Developer
 February 2015 - Present
 3 Story Software
 
 - Developed workforce management web application, supported across the globe
-- Full stack developer: worked on back-end C# and SQL Server, front-end HTML, CSS, JavaScript, jQuery, and Angular
+- Full stack developer: worked on back-end .NET Framework / .NET Core / C# and SQL Server, Entity Framework, Azure-hosted app, web and SQL servers, front-end HTML, CSS, JavaScript, jQuery, and Angular / TypeScript
+    - .NET Framework / C#: developed core logic / framework code, client specific code, app extensions etc.
+    - .NET Core / C# / Entity Framework: developed in-house tooling
+    - SQL Server: developed schema update scripts, views, stored procedures, etc.
+    - Azure: worked with Azure-hosted app, web and SQL servers
+    - HTML / CSS: created and edited static templates and styling
+    - JavaScript: developed front-end functionality that talks with C# back-end
+    - jQuery: included in JS for manipulating DOM
+    - Angular / TypeScript: used to develop more modern UI
 - Developed and improved tools used to design pages / sections / mappers / forms that form our web application
 - Handled debugging for support cases, diagnosing and fixing bugs, fixing data in SQL Server, deploying patches to production sites
 
-#### Programmer Analyst
+
+### Programmer Analyst
 May 2013 - October 2014
 Fairfax Data Systems
 
