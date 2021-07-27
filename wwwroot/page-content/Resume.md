@@ -24,19 +24,23 @@ Samples of personal projects done over the past 10+ years utilizing Microsoft .N
 February 2015 - Present
 3 Story Software
 
-- Developed workforce management web application, supported across the globe
+Achievements
+- Designed optimizations for using dynamic parameters for SQL queries executed in our C# code base
+- Designed, coded, and tested a user-facing feature for uploading PDF docs for the on-boarding process that allowed them to define and configure their own business rules for when docs should appear for workers
+General Duties
+- Designed and developed workforce management web application, supported across the globe
+- Designed high-level solutions as well as in-depth technical requirements for new feature requests and bug fixes
+- Reviewed code written by other developers in peer review, pointing out potential bugs, optimizations, and styling fixes
 - Full stack developer: worked on back-end .NET Framework / .NET Core / C# and SQL Server, Entity Framework, Azure-hosted app, web and SQL servers, front-end HTML, CSS, JavaScript, jQuery, and Angular / TypeScript
-    - .NET Framework / C#: developed core logic / framework code, client specific code, app extensions etc.
-    - .NET Core / C# / Entity Framework: developed in-house tooling
-    - SQL Server: developed schema update scripts, views, stored procedures, etc.
-    - Azure: worked with Azure-hosted app, web and SQL servers
-    - HTML / CSS: created and edited static templates and styling
-    - JavaScript: developed front-end functionality that talks with C# back-end
-    - jQuery: included in JS for manipulating DOM
-    - Angular / TypeScript: used to develop more modern UI
-- Developed and improved tools used to design pages / sections / mappers / forms that form our web application
+    - Developed core logic / framework code, client specific code, app extensions etc.
+    - Developed and improved tools used to design pages / sections / mappers / forms that form our web application, including designing and coding brand new modules to our tools
+    - Developed schema update scripts, views, stored procedures, etc.
+    - Azure: worked with Azure-hosted app, web, and SQL servers
+    - Designed and coded static HTML templates and CSS styling
+    - Developed JavaScript front-end functionality that communicates with C# back-end
+    - Developed and tested jQuery included in JS for manipulating DOM
+    - Designed and developed more modern / updated UI using Angular and TypeScript
 - Handled debugging for support cases, diagnosing and fixing bugs, fixing data in SQL Server, deploying patches to production sites
-
 
 ### Programmer Analyst
 May 2013 - October 2014
