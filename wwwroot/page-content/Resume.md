@@ -20,16 +20,23 @@ Blazor, Xamarin Forms / .NET MAUI, Windows, Android, iOS, C#, HTML, CSS, JavaScr
 Samples of personal projects done over the past 10+ years utilizing Microsoft .NET (C#, Visual Studio), Blazor, Web APIs, SQLite, Qt - [https://github.com/codemonkey85/](https://github.com/codemonkey85/)
 
 ## WORK EXPERIENCE
-#### Software Developer
+### Software Developer
 February 2015 - Present
 3 Story Software
 
 - Developed workforce management web application, supported across the globe
-- Full stack developer: worked on back-end C# and SQL Server, front-end HTML, CSS, JavaScript, jQuery, and Angular
+- Full stack developer: worked on back-end C# and SQL Server, front-end HTML, CSS, JavaScript, jQuery, and Angular / TypeScript
+    - C#: developed core logic / framework code, client specific code, app extensions etc.
+    - SQL Server: developed schema update scripts, views, stored procedures, etc.
+    - HTML / CSS: created and edited static templates and styling
+    - JavaScript: developed front-end functionality that talks with C# back-end
+    - jQuery: included in JS for manipulating DOM
+    - Angular / TypeScript: used to develop more modern UI
 - Developed and improved tools used to design pages / sections / mappers / forms that form our web application
 - Handled debugging for support cases, diagnosing and fixing bugs, fixing data in SQL Server, deploying patches to production sites
 
-#### Programmer Analyst
+
+### Programmer Analyst
 May 2013 - October 2014
 Fairfax Data Systems
 
