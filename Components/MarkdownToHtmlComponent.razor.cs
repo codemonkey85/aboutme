@@ -12,29 +12,13 @@ namespace aboutme.Components
 {
     public partial class MarkdownToHtmlComponent : ComponentBase
     {
-        [Parameter]
-        public string MarkdownContentFileName
-        {
-            get; set;
-        }
+        [Parameter] public string MarkdownContentFileName { get; set; }
 
-        [Parameter]
-        public bool AllowPageDownload
-        {
-            get; set;
-        } = false;
+        [Parameter] public bool AllowPageDownload { get; set; } = false;
 
-        [Parameter]
-        public string DownloadPageButtonText
-        {
-            get; set;
-        }
+        [Parameter] public string DownloadPageButtonText { get; set; }
 
-        [Parameter]
-        public string DownloadPageFileName
-        {
-            get; set;
-        }
+        [Parameter] public string DownloadPageFileName { get; set; }
 
         protected string ContentFileName =>
             !(string.IsNullOrEmpty(DownloadPageFileName) || string.IsNullOrWhiteSpace(DownloadPageFileName))
