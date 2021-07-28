@@ -25,9 +25,12 @@ February 2015 - Present
 3 Story Software
 
 Achievements
+
 - Designed optimizations for using dynamic parameters for SQL queries executed in our C# code base
 - Designed, coded, and tested a user-facing feature for uploading PDF docs for the on-boarding process that allowed them to define and configure their own business rules for when docs should appear for workers
+
 General Duties
+
 - Designed and developed workforce management web application, supported across the globe
 - Designed high-level solutions as well as in-depth technical requirements for new feature requests and bug fixes
 - Reviewed code written by other developers in peer review, pointing out potential bugs, optimizations, and styling fixes
