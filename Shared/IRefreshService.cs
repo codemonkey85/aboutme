@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace aboutme.Shared
+﻿namespace aboutme.Shared
 {
     public interface IRefreshService
     {

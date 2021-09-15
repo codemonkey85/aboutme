@@ -1,7 +1,4 @@
-﻿using System.Net.Http;
-using System.Threading.Tasks;
-
-namespace aboutme.Shared
+﻿namespace aboutme.Shared
 {
     public static class SharedMethods
     {

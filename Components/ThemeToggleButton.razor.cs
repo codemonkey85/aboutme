@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
-using System.Threading.Tasks;
-
-namespace aboutme.Components
+﻿namespace aboutme.Components
 {
     public partial class ThemeToggleButton
     {

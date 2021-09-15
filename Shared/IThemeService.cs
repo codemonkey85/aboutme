@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace aboutme.Shared
+﻿namespace aboutme.Shared
 {
     public interface IThemeService
     {
