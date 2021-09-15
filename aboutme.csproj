@@ -7,9 +7,7 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.0-rc.1.21452.15" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.0-rc.1.21452.15" PrivateAssets="all" />
-        <PackageReference Include="System.Net.Http.Json" Version="6.0.0-rc.1.21451.13" />
         <PackageReference Include="MarkdownSharp" Version="2.0.5" />
-        <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0-rc.1.21451.13" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="wwwroot\page-content\images\" />
