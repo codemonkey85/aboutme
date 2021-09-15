@@ -15,7 +15,7 @@ jobs:
     
     # sets up .NET SDK 5.0.101
     - name: Setup .NET Core SDK
-      uses: actions/setup-dotnet@v1.7.2
+      uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '6.0.x'
         include-prerelease: true
