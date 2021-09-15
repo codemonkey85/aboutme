@@ -1,7 +1,4 @@
-﻿using aboutme.Shared;
-using MarkdownSharp;
-using Microsoft.AspNetCore.Components;
-using System.Net.Mime;
+﻿using System.Net.Mime;
 using System.Text;
 
 namespace aboutme.Components

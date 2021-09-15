@@ -1,6 +1,3 @@
-using aboutme;
-using aboutme.Shared;
-using MarkdownSharp;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 

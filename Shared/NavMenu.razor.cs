@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Routing;
+﻿using Microsoft.AspNetCore.Components.Routing;
 
 namespace aboutme.Shared
 {
