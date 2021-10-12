@@ -1,15 +1,14 @@
-﻿namespace aboutme.Shared
+﻿namespace aboutme.Shared;
+
+public interface IThemeService
 {
-    public interface IThemeService
-    {
-        Task ReadThemeFromLocalStorage();
+    Task ReadThemeFromLocalStorage();
 
-        Task WriteThemeToLocalStorage();
+    Task WriteThemeToLocalStorage();
 
-        Task SetTheme(IRefreshService RefreshService, bool isDark);
+    Task SetTheme(IRefreshService RefreshService, bool isDark);
 
-        Task ApplyTheme(IRefreshService refreshService);
+    Task ApplyTheme(IRefreshService refreshService);
 
-        Task SwitchTheme(IRefreshService RefreshService);
-    }
+    Task SwitchTheme(IRefreshService RefreshService);
 }

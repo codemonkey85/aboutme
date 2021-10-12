@@ -1,9 +1,8 @@
-﻿namespace aboutme.Shared
-{
-    public class RefreshService : IRefreshService
-    {
-        public event Action RefreshRequested;
+﻿namespace aboutme.Shared;
 
-        public void CallRequestRefresh() => RefreshRequested?.Invoke();
-    }
+public class RefreshService : IRefreshService
+{
+    public event Action RefreshRequested;
+
+    public void CallRequestRefresh() => RefreshRequested?.Invoke();
 }
