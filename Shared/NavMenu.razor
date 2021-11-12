@@ -1,6 +1,4 @@
-﻿@using aboutme.Components;
-
-<div class="top-row pl-4 navbar navbar-dark">
+﻿<div class="top-row pl-4 navbar navbar-dark">
     <a class="navbar-brand" href="">Michael Bond</a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
@@ -8,17 +6,36 @@
 </div>
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    @if (NavPages?.Any() ?? false)
-    {
-        <ul class="nav flex-column">
-            @foreach (MarkdownPage navPage in NavPages)
-            {
-                <li class="nav-item px-3">
-                    <NavLink class="nav-link" href="@navPage.PagePath" Match="navPage.NavLinkMatch">
-                        <span class="@navPage.SpanClass" aria-hidden="true" /> @(navPage.PageName)
-                    </NavLink>
-                </li>
-            }
-        </ul>
-    }
+    <ul class="nav flex-column">
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="/" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true" /> Home
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="/resume" Match="NavLinkMatch.All">
+                <span class="oi oi-document" aria-hidden="true" /> Résumé
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="/projects" Match="NavLinkMatch.All">
+                <span class="oi oi-document" aria-hidden="true" /> Projects
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="/music" Match="NavLinkMatch.All">
+                <span class="oi oi-document" aria-hidden="true" /> Music
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="/pokemon" Match="NavLinkMatch.All">
+                <span class="oi oi-document" aria-hidden="true" /> Pokémon
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="/contact" Match="NavLinkMatch.All">
+                <span class="oi oi-document" aria-hidden="true" /> Contact
+            </NavLink>
+        </li>
+    </ul>
 </div>
