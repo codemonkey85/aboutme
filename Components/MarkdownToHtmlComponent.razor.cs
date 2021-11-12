@@ -3,19 +3,20 @@ using System.Text;
 
 namespace aboutme.Components;
 
-public partial class MarkdownToHtmlComponent : ComponentBase
+public partial class MarkdownToHtmlComponent
 {
-    [Parameter] public string MarkdownContentFileName { get; set; }
+    [Parameter] public string? MarkdownContentFileName { get; set; }
 
     [Parameter] public bool AllowPageDownload { get; set; } = false;
 
-    [Parameter] public string DownloadPageButtonText { get; set; }
+    [Parameter] public string? DownloadPageButtonText { get; set; }
 
-    [Parameter] public string DownloadPageFileName { get; set; }
+    [Parameter] public string? DownloadPageFileName { get; set; }
 
-    protected string ContentFileName =>
-        !(string.IsNullOrEmpty(DownloadPageFileName) || string.IsNullOrWhiteSpace(DownloadPageFileName))
-            ? DownloadPageFileName
+    protected string? ContentFileName => !(string.IsNullOrEmpty(DownloadPageFileName) || string.IsNullOrWhiteSpace(DownloadPageFileName))
+        ? DownloadPageFileName
+        : MarkdownContentFileName == null
+            ? null
             : new FileInfo(MarkdownContentFileName)?.Name?.Replace(".md", ".txt") ?? MarkdownContentFileName;
 
     protected string html = string.Empty;
@@ -27,7 +28,7 @@ public partial class MarkdownToHtmlComponent : ComponentBase
         RefreshService.RefreshRequested += StateHasChanged;
         try
         {
-            html = Markdown.Transform(await HttpClient.ReadPageContentFromMd(MarkdownContentFileName));
+            html = MarkdownContentFileName == null ? string.Empty : Markdown.Transform(await HttpClient.ReadPageContentFromMd(MarkdownContentFileName));
         }
         catch (Exception ex)
         {

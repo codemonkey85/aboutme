@@ -14,7 +14,9 @@ public class JsInterop : IAsyncDisposable
            "import", $"./_content/js/js-helper.js").AsTask());
     }
 
+#pragma warning disable CA1816 // Dispose methods should call SuppressFinalize
     public async ValueTask DisposeAsync()
+#pragma warning restore CA1816 // Dispose methods should call SuppressFinalize
     {
         if (moduleTask.IsValueCreated)
         {
@@ -27,12 +29,6 @@ public class JsInterop : IAsyncDisposable
 
     #region Private methods
 
-    private async Task<T> InvokeAsync<T>(string method, params object[] args)
-    {
-        IJSObjectReference module = await moduleTask.Value;
-        return await module.InvokeAsync<T>(method, args);
-    }
-
     private async Task InvokeVoidAsync(string method, params object[] args)
     {
         IJSObjectReference module = await moduleTask.Value;
@@ -43,13 +39,4 @@ public class JsInterop : IAsyncDisposable
 
     public async Task DownloadFile(string fileName, string mimeType, byte[] file) =>
         await InvokeVoidAsync("blazorDownloadFile", fileName, mimeType, file);
-
-    public async Task ChangeTheme(bool isDark) =>
-        await InvokeVoidAsync("changeTheme", isDark);
-
-    public async Task AddToLocalStorage<T>(string key, T value) =>
-        await InvokeVoidAsync("addToLocalStorage", key, value);
-
-    public async Task<string> ReadFromLocalStorage(string key, string valueIfMissing = null) =>
-        await InvokeAsync<string>("readFromLocalStorage", key, valueIfMissing);
 }
