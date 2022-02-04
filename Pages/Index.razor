@@ -1,6 +1,14 @@
 ﻿@page "/"
 <h1>Welcome to my web page!</h1>
 <h3>Things are in progress.</h3>
-<img src="images/mbond.png"
-     class="profile-image"
-     title="Michael Bond" />
+
+<picture>
+    <source srcset="images/mbond.png"
+            type="image/png"
+            media="(min-width: 800px)"
+            class="profile-image" />
+    <img src="images/mbond.png"
+         class="profile-image"
+         alt="Michael Bond"
+         title="Michael Bond" />
+</picture>
