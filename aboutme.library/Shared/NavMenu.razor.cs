@@ -1,4 +1,4 @@
-﻿namespace aboutme.Shared;
+﻿namespace aboutme.library.Shared;
 
 public partial class NavMenu
 {
