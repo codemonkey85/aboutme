@@ -2,9 +2,9 @@
 
 public partial class NavMenu
 {
-    protected bool collapseNavMenu = true;
+    protected bool CollapseNavMenu = true;
 
-    protected string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    protected string? NavMenuCssClass => CollapseNavMenu ? "collapse" : null;
 
-    protected void ToggleNavMenu() => collapseNavMenu = !collapseNavMenu;
+    protected void ToggleNavMenu() => CollapseNavMenu = !CollapseNavMenu;
 }
