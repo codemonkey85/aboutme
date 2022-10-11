@@ -49,4 +49,3 @@ jobs:
           BRANCH: gh-pages
           FOLDER: release/wwwroot
           cname: bondcodes.com
-z
