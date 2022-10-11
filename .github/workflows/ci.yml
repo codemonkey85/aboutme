@@ -42,3 +42,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
           BRANCH: gh-pages
           FOLDER: release/wwwroot
+          cname: bondcodes.com
