@@ -7,7 +7,20 @@
 <h2>Nintendo Switch Friend Code:</h2>
 SW-4666-0665-3400
 
-I have <strong>Pokémon Shield</strong>, in-game name: Mike (male)
+<p>I have <strong>Pokémon Violet</strong>, in-game name: Mike</p>
+
+<p>I am looking for the following Pokémon:</p>
+
+@foreach (var group in MissingPokemon.GroupBy(p => p.GroupName))
+{
+    <h4>@group.First().GroupName</h4>
+    <ul>
+        @foreach (var pkm in group)
+        {
+            <li><a href="@($"https://serebii.net/pokedex-sv/{pkm.Name.ToLower().Replace(" ", string.Empty).Replace("é", "e")}")">#@pkm.Id.ToString("000") @pkm.Name</a></li>
+        }
+    </ul>
+}
 
 <h2>Pokemon Home Friend Code:</h2>
 UFBJTSXDLGJG (or scan the below QR code)
