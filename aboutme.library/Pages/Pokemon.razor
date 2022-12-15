@@ -13,7 +13,7 @@ SW-4666-0665-3400
 
 @foreach (var group in MissingPokemon.GroupBy(p => p.GroupName))
 {
-    <h4>@group.First().GroupName</h4>
+    <h4>@group.Key</h4>
     <ul>
         @foreach (var pkm in group)
         {
