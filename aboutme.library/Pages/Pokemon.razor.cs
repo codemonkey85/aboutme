@@ -1,4 +1,4 @@
-namespace aboutme.library.Pages;
+ï»¿namespace aboutme.library.Pages;
 
 // ReSharper disable once ClassNeverInstantiated.Global
 public partial class Pokemon
@@ -9,16 +9,16 @@ public partial class Pokemon
         new PokemonData(292, "Palafin", "General"),
 
         new PokemonData(078, "Slakoth", "Breed"),
-        new PokemonData(145, "Flabébé", "Breed"),
+        new PokemonData(145, "FlabÃ©bÃ©", "Breed"),
         new PokemonData(234, "Gothita", "Breed"),
         new PokemonData(258, "Pineco", "Breed"),
 
         new PokemonData(261, "Scizor", "Trade Evolutions"),
         new PokemonData(326, "Slowking", "Trade Evolutions"),
 
-        new PokemonData(386, "Iron Moth", "Paradox Pokémon"),
-        new PokemonData(387, "Iron Thorns", "Paradox Pokémon"),
-        new PokemonData(398, "Iron Valiant", "Paradox Pokémon"),
+        new PokemonData(386, "Iron Moth", "Paradox PokÃ©mon"),
+        new PokemonData(387, "Iron Thorns", "Paradox PokÃ©mon"),
+        new PokemonData(398, "Iron Valiant", "Paradox PokÃ©mon"),
 
         new PokemonData(393, "Wo-Chien", "Legendaries"),
         new PokemonData(394, "Chien-Pao", "Legendaries"),
@@ -34,13 +34,13 @@ public partial class Pokemon
         new PokemonData(337, "Skrelp", "Scarlet Exclusive"),
         new PokemonData(338, "Dragalge", "Scarlet Exclusive"),
 
-        new PokemonData(376, "Great Tusk", "Scarlet Paradox Pokémon"),
-        new PokemonData(378, "Brute Bonnet", "Scarlet Paradox Pokémon"),
-        new PokemonData(379, "Flutter Mane", "Scarlet Paradox Pokémon"),
-        new PokemonData(380, "Slither Wing", "Scarlet Paradox Pokémon"),
-        new PokemonData(381, "Sandy Shocks", "Scarlet Paradox Pokémon"),
-        new PokemonData(397, "Roaring Moon", "Scarlet Paradox Pokémon"),
-        new PokemonData(399, "Koraidon", "Scarlet Paradox Pokémon"),
+        new PokemonData(376, "Great Tusk", "Scarlet Paradox PokÃ©mon"),
+        new PokemonData(378, "Brute Bonnet", "Scarlet Paradox PokÃ©mon"),
+        new PokemonData(379, "Flutter Mane", "Scarlet Paradox PokÃ©mon"),
+        new PokemonData(380, "Slither Wing", "Scarlet Paradox PokÃ©mon"),
+        new PokemonData(381, "Sandy Shocks", "Scarlet Paradox PokÃ©mon"),
+        new PokemonData(397, "Roaring Moon", "Scarlet Paradox PokÃ©mon"),
+        new PokemonData(399, "Koraidon", "Scarlet Paradox PokÃ©mon"),
     };
 }
 
