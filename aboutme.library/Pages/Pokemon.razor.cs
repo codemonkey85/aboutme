@@ -11,7 +11,6 @@ public partial class Pokemon
         new PokemonData(078, "Slakoth", "Breed"),
         new PokemonData(145, "Flabébé", "Breed"),
         new PokemonData(234, "Gothita", "Breed"),
-        new PokemonData(258, "Pineco", "Breed"),
 
         new PokemonData(261, "Scizor", "Trade Evolutions"),
         new PokemonData(326, "Slowking", "Trade Evolutions"),
