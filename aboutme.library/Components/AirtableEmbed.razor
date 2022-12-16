@@ -1,0 +1,10 @@
+﻿@if (AirtableEmbedId is { Length: > 0 })
+{
+    <iframe class="airtable-embed"
+            src="@($"https://airtable.com/embed/{AirtableEmbedId}?backgroundColor=blue")"
+            frameborder="0"
+            onmousewheel=""
+            width="100%"
+            height="533">
+    </iframe>
+}

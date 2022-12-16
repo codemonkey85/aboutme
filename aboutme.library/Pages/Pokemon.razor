@@ -11,16 +11,7 @@ SW-4666-0665-3400
 
 <p>I am looking for the following Pokémon:</p>
 
-@foreach (var group in MissingPokemon.GroupBy(p => p.GroupName))
-{
-    <h4>@group.Key</h4>
-    <ul>
-        @foreach (var pkm in group)
-        {
-            <li><a href="@($"https://serebii.net/pokedex-sv/{pkm.Name.ToLower().Replace(" ", string.Empty).Replace("é", "e")}")">#@pkm.Id.ToString("000") @pkm.Name</a></li>
-        }
-    </ul>
-}
+<AirtableEmbed AirtableEmbedId="shriCvZiuVoIQvllW" />
 
 <h2>Pokemon Home Friend Code:</h2>
 UFBJTSXDLGJG (or scan the below QR code)
