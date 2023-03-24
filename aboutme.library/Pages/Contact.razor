@@ -1,8 +1,20 @@
 ﻿@page "/contact"
 
-<PageTitle>Michael Bond - Contact</PageTitle>
+<PageTitle>
+    Michael Bond - Contact
+</PageTitle>
 
-<h1>Contact Me</h1>
-<ul>
-    <li><a rel="me" href="https://mastodon.social/@@codemonkey85">Follow me on Mastodon</a></li>
-</ul>
+<MudText Typo="@Typo.h3">
+    Contact Me
+</MudText>
+
+<MudText Typo="@Typo.subtitle1">
+    <MudLink Href="@mastodonUrl"
+             title="Follow Michael Bond on Mastodon">
+        Follow me on Mastodon!
+    </MudLink>
+</MudText>
+
+@code {
+    const string mastodonUrl = @"https://mastodon.social/@codemonkey85/";
+}

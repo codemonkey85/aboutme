@@ -1,43 +1,25 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">Michael Bond</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</div>
+﻿<MudNavMenu>
+    <MudNavLink Href="/" Match="NavLinkMatch.All">
+        Home
+    </MudNavLink>
 
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="resume" Match="NavLinkMatch.All">
-                <span class="oi oi-document" aria-hidden="true"></span> Résumé
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="projects" Match="NavLinkMatch.All">
-                <span class="oi oi-document" aria-hidden="true"></span> Projects
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="music" Match="NavLinkMatch.All">
-                <span class="oi oi-document" aria-hidden="true"></span> Music
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="pokemon" Match="NavLinkMatch.All">
-                <span class="oi oi-document" aria-hidden="true"></span> Pokémon
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="contact" Match="NavLinkMatch.All">
-                <span class="oi oi-document" aria-hidden="true"></span> Contact
-            </NavLink>
-        </div>
-    </nav>
-</div>
+    <MudNavLink Href="/resume" Match="NavLinkMatch.All">
+        Résumé
+    </MudNavLink>
+
+    <MudNavLink Href="/projects" Match="NavLinkMatch.All">
+        Projects
+    </MudNavLink>
+
+    <MudNavLink Href="/music" Match="NavLinkMatch.All">
+        Music
+    </MudNavLink>
+
+    <MudNavLink Href="/pokemon" Match="NavLinkMatch.All">
+        Pokémon
+    </MudNavLink>
+
+    <MudNavLink Href="/contact" Match="NavLinkMatch.All">
+        Contact
+    </MudNavLink>
+</MudNavMenu>
