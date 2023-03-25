@@ -9,12 +9,9 @@
 </MudText>
 
 <MudText Typo="@Typo.subtitle1">
-    <MudLink Href="@mastodonUrl"
+    <MudLink Href="@Constants.MastodonUrl"
+             Target="_blank"
              title="Follow Michael Bond on Mastodon">
         Follow me on Mastodon!
     </MudLink>
 </MudText>
-
-@code {
-    const string mastodonUrl = @"https://mastodon.social/@codemonkey85/";
-}
