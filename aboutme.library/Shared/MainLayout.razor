@@ -1,17 +1,33 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page">
-    <div class="sidebar">
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar>
+        <MudIconButton Icon="@Icons.Material.Filled.Menu"
+                       Color="@Color.Inherit"
+                       Edge="@Edge.Start"
+                       OnClick="@DrawerToggle" />
+        <MudText>
+            Michael Bond
+        </MudText>
+        <MudSpacer />
+        <MudButton EndIcon="@Icons.Custom.Brands.GitHub"
+                   Href="https://github.com/codemonkey85/aboutme"
+                   Target="_blank"
+                   Color="@Color.Inherit"
+                   Variant="@Variant.Outlined">
+            Source code on GitHub
+        </MudButton>
+    </MudAppBar>
+    <MudDrawer @bind-Open="@_drawerOpen">
         <NavMenu />
-    </div>
-
-    <main>
-        <div class="top-row px-4">
-            This page is made with <a href="https://dotnet.microsoft.com/apps/aspnet" target="_blank" class="top-row-link">ASP.NET</a> and <a href="http://blazor.net" target="_blank" class="top-row-link">Blazor</a>
-        </div>
-
-        <article class="content px-4">
+    </MudDrawer>
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.False">
             @Body
-        </article>
-    </main>
-</div>
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>

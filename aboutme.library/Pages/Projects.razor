@@ -1,10 +1,53 @@
 ﻿@page "/projects"
 
-<PageTitle>Michael Bond - Projects</PageTitle>
+<PageTitle>
+    Michael Bond - Projects
+</PageTitle>
 
-<h1>My Projects</h1>
-<ul>
-    <li>Four Is The Magic Number!: <a href="https://black-sea-00acdf50f.azurestaticapps.net/">https://black-sea-00acdf50f.azurestaticapps.net/</a></li>
-    <li>Tic Tac Toe Blazor: <a href="https://codemonkey85.github.io/TicTacToeBlazor/">https://codemonkey85.github.io/TicTacToeBlazor/</a></li>
-    <li>Sound Test: <a href="https://polite-wave-0e108230f.azurestaticapps.net/">https://polite-wave-0e108230f.azurestaticapps.net/</a></li>
-</ul>
+<MudText Typo="@Typo.h3">
+    My Projects
+</MudText>
+
+<MudText Typo="@Typo.subtitle1">
+    <MudLink Href="https://www.github.com/codemonkey85/"
+             Target="_blank"
+             title="Michael Bond's GitHub">
+    Find more on my GitHub!
+    </MudLink>
+</MudText>
+
+<MudStack>
+    @foreach (var project in ProjectsList)
+    {
+        <MudCard>
+            <MudCardHeader>
+                <MudText Typo="@Typo.h5">
+                    @project.Name
+                </MudText>
+                @if(project.Description is { Length: > 0 })
+                {
+                    <MudText Typo="@Typo.body2">
+                        @project.Description
+                    </MudText>
+                }
+            </MudCardHeader>
+            @if(project.ScreenshotUrl is { Length: > 0 })
+            {
+                <MudCardMedia Image="@project.ScreenshotUrl"
+                              Title="@project.Name"/>
+            }
+            <MudCardActions Class="d-flex gap-4">
+                <MudIconButton Icon="@Icons.Material.Filled.OpenInBrowser"
+                               Variant="Variant.Filled"
+                               Title="@($"'{@project.Name}' on the web")"
+                               Href="@project.WebUrl"
+                               Target="_blank" />
+                <MudIconButton Icon="@Icons.Custom.Brands.GitHub"
+                               Variant="Variant.Filled"
+                               Title="@($"'{@project.Name}' on GitHub")"
+                               Href="@project.GitHubUrl"
+                               Target="_blank" />
+            </MudCardActions>
+        </MudCard>
+    }
+</MudStack>

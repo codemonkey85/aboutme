@@ -1,21 +1,33 @@
 ﻿@page "/"
 
-<PageTitle>Michael Bond</PageTitle>
+<PageTitle>
+    Michael Bond
+</PageTitle>
 
-<h1>Michael Bond</h1>
+<MudText Typo="@Typo.h3">
+    My name is Michael Bond.
+</MudText>
 
-<picture>
-    <source srcset="_content/aboutme.library/images/mbond.png"
-            type="image/png"
-            media="(min-width: 800px)"
-            class="profile-image" />
-    <img src="_content/aboutme.library/images/mbond.png"
-         class="profile-image"
-         alt="Michael Bond"
-         title="Michael Bond" />
-</picture>
+<MudImage Src="_content/aboutme.library/images/mbond.png"
+          Alt="Michael Bond"
+          Width="200" />
 
-<p>Autistic obsessive software developer and Pokémon fan.<br />He / Him (<a href="https://pronoun.is/he">https://pronoun.is/he</a>).</p>
-<p>
-    <a rel="me" href="https://mastodon.social/@@codemonkey85">Follow me on Mastodon</a>
-</p>
+<MudText Typo="@Typo.body1">
+    I'm an autistic obsessive software developer and Pokémon fan.
+</MudText>
+
+<MudText Typo="@Typo.body1">
+    My pronouns are He / Him (
+    <MudLink Href="https://pronoun.is/he"
+             Target="_blank"
+             title="My pronouns are He / Him">
+        https://pronoun.is/he
+    </MudLink>
+    ).
+</MudText>
+
+<MudLink Href="@Constants.MastodonUrl"
+         Target="_blank"
+         title="Follow Michael Bond on Mastodon">
+    Follow me on Mastodon!
+</MudLink>
