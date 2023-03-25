@@ -8,63 +8,110 @@
     My Résumé
 </MudText>
 
-<h1>Michael Bond</h1>
-<p>Web / Windows / C# / ASP / .NET Developer</p>
-<p><a href="mailto:michael@bondcodes.com?subject=Resume">michael@bondcodes.com</a></p>
-<p>See my Indeed profile: <a href="https://my.indeed.com/p/michaelb-9265a79">https://my.indeed.com/p/michaelb-9265a79</a></p>
-<h2>SKILLS SUMMARY</h2>
-<h4>DEVELOPMENT PLATFORMS</h4>
-<p>Microsoft .NET environment - .NET Framework and .NET Core / Visual Studio (C#), ASP.Net / Blazor / Razor components and web APIs (MVC), JavaScript, jQuery, some Angular / TypeScript</p>
-<h4>DATABASES</h4>
-<p>SQL / MS SQL Server / SQLite, Entity Framework</p>
-<h4>INTERESTS</h4>
-<p>Blazor, Xamarin Forms / .NET MAUI, Windows, Android, iOS, C#, HTML, CSS, JavaScript, Typescript, GUI design</p>
-<h4>PORTFOLIO</h4>
-<p>Samples of personal projects done over the past 10+ years utilizing Microsoft .NET (C#, Visual Studio), Blazor, Web APIs, SQLite, Qt - <a href="https://github.com/codemonkey85/">https://github.com/codemonkey85/</a></p>
-<h2>WORK EXPERIENCE</h2>
-<h3>Software Developer</h3>
-<p>
-    February 2015 - Present
-    3 Story Software
-</p>
-<p>Achievements</p>
-<ul>
-    <li>Designed optimizations for using dynamic parameters for SQL queries executed in our C# code base</li>
-    <li>Designed, coded, and tested a user-facing feature for uploading PDF docs for the on-boarding process that allowed them to define and configure their own business rules for when docs should appear for workers</li>
-</ul>
-<p>General Duties</p>
-<ul>
-    <li>Designed and developed workforce management web application, supported across the globe</li>
-    <li>Designed high-level solutions as well as in-depth technical requirements for new feature requests and bug fixes</li>
-    <li>Reviewed code written by other developers in peer review, pointing out potential bugs, optimizations, and styling fixes</li>
-    <li>
-        Full stack developer: worked on back-end .NET Framework / .NET Core / C# and SQL Server, Entity Framework, Azure-hosted app, web and SQL servers, front-end HTML, CSS, JavaScript, jQuery, and Angular / TypeScript
-        <ul>
-            <li>Developed core logic / framework code, client specific code, app extensions etc.</li>
-            <li>Developed and improved tools used to design pages / sections / mappers / forms that form our web application, including designing and coding brand new modules to our tools</li>
-            <li>Developed schema update scripts, views, stored procedures, etc.</li>
-            <li>Azure: worked with Azure-hosted app, web, and SQL servers</li>
-            <li>Designed and coded static HTML templates and CSS styling</li>
-            <li>Developed JavaScript front-end functionality that communicates with C# back-end</li>
-            <li>Developed and tested jQuery included in JS for manipulating DOM</li>
-            <li>Designed and developed more modern / updated UI using Angular and TypeScript</li>
-        </ul>
-    </li>
-    <li>Handled debugging for support cases, diagnosing and fixing bugs, fixing data in SQL Server, deploying patches to production sites</li>
-</ul>
-<h3>Programmer Analyst</h3>
-<p>
-    May 2013 - October 2014
-    Fairfax Data Systems
-</p>
-<ul>
-    <li>Developed custom DLLs, scripts within Microsoft .NET environment (C#, VB.NET, VBScript) to supplement Datacap / FileNet OOTB solutions, worked with custom FileNet objects</li>
-    <li>Provided client with custom DLLs developed with C#, and accompanying documentation</li>
-    <li>Developed Datacap applications based on specific client requirements</li>
-    <li>Configured FileNet and WorkplaceXT for client to search and modify documents</li>
-</ul>
-<h2>EDUCATION</h2>
-<p>
-    Some College Coursework Completed - Computer Science, Liberal Arts
-    Naugatuck Valley Community College
-</p>
+@if (resumeModel is not null)
+{
+    <MudText Typo="@Typo.h5">
+        @resumeModel.Name
+    </MudText>
+
+    <MudText Typo="@Typo.body1">
+        @resumeModel.Summary
+    </MudText>
+
+    <MudLink Href="@($"mailto:{resumeModel.Email}?subject=Resume")">
+        @resumeModel.Email
+    </MudLink>
+
+    <MudText Typo="@Typo.body1">
+        <MudButton Href="https://github.com/codemonkey85/"
+                   Target="_blank"
+                   Variant="Variant.Filled"
+                   Color="@Color.Primary"
+                   EndIcon="@Icons.Custom.Brands.GitHub">
+            Follow me on GitHub
+        </MudButton>
+    </MudText>
+
+    <MudDivider DividerType="@DividerType.FullWidth"
+                Class="my-2" />
+
+    @if (resumeModel.Skills is { Count: > 0 })
+    {
+        <MudText Typo="@Typo.h5"
+                 Class="mb-3">
+            Skills
+        </MudText>
+        <MudGrid Class="mb-3"
+                 Spacing="0">
+            @foreach (var skill in resumeModel.Skills.OrderBy(skill => skill.Name))
+            {
+                <MudItem>
+                    <MudChip>
+                        @skill.Name
+                    </MudChip>
+                </MudItem>
+            }
+        </MudGrid>
+    }
+
+    @if (resumeModel.Jobs is { Count: > 0 })
+    {
+        <MudText Typo="@Typo.h5"
+                 Class="mb-3">
+            Experience
+        </MudText>
+        <MudStack Spacing="3"
+          Class="mb-3">
+            @foreach (var job in resumeModel.Jobs
+                                .OrderByDescending(job => job.PresentlyEmployed)
+                                .ThenByDescending(job => job.EndDate))
+            {
+                <MudCard>
+                    <MudCardHeader>
+                        <MudStack Spacing="0">
+                            <MudText Typo="@Typo.h5">
+                                @job.Title
+                            </MudText>
+                            <MudText Typo="@Typo.subtitle1">
+                                @job.Company
+                            </MudText>
+                            <MudText Typo="@Typo.body2">
+                                @($"{job.StartDate:MMM yyyy} - {(job.EndDate is null ? "Present" : $"{job.EndDate:MMM yyyy}")}")
+                            </MudText>
+                        </MudStack>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        @if (job.Summary is { Length: > 0 })
+                        {
+                            <MudText Typo="@Typo.body1"
+                                     Class="mb-3">
+                                @job.Summary
+                            </MudText>
+                        }
+                        @if (job.Duties is { Count: > 0 })
+                        {
+                            <ul>
+                                @foreach(var duty in job.Duties)
+                                {
+                                    if (duty.Description is { Length: > 0 })
+                                    {
+                                        <li>
+                                            @duty.Description
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        }
+                    </MudCardContent>
+                </MudCard>
+            }
+        </MudStack>
+    }
+}
+
+<style>
+    ul, li {
+        list-style: initial;
+        margin-left: 0.5rem;
+    }
+</style>

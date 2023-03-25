@@ -7,12 +7,20 @@
 <MudLayout>
     <MudAppBar>
         <MudIconButton Icon="@Icons.Material.Filled.Menu"
-                       Color="Color.Inherit"
-                       Edge="Edge.Start"
+                       Color="@Color.Inherit"
+                       Edge="@Edge.Start"
                        OnClick="@DrawerToggle" />
         <MudText>
             Michael Bond
         </MudText>
+        <MudSpacer />
+        <MudButton EndIcon="@Icons.Custom.Brands.GitHub"
+                   Href="https://github.com/codemonkey85/aboutme"
+                   Target="_blank"
+                   Color="@Color.Inherit"
+                   Variant="@Variant.Outlined">
+            Source code on GitHub
+        </MudButton>
     </MudAppBar>
     <MudDrawer @bind-Open="@_drawerOpen">
         <NavMenu />
@@ -23,18 +31,3 @@
         </MudContainer>
     </MudMainContent>
 </MudLayout>
-
-
-@*
-<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">
-            Michael Bond
-            </a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon">
-            </span>
-        </button>
-    </div>
-</div>
-*@
