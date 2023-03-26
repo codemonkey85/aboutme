@@ -19,12 +19,23 @@
                        Color="Color.Primary"
                        Label="@(_isDarkMode ? "Dark" : "Light")" />
 
-            <MudIconButton Icon="@Icons.Custom.Brands.GitHub"
+            <MudButton Class="d-none d-md-flex"
+                       EndIcon="@Icons.Custom.Brands.GitHub"
+                       Href="https://github.com/codemonkey85/aboutme"
+                       Target="_blank"
+                       title="Source code on GitHub"
+                       Color="@Color.Inherit"
+                       Variant="@Variant.Outlined">
+                    Source code on GitHub
+            </MudButton>
+
+            <MudIconButton Class="d-md-none"
+                           Icon="@Icons.Custom.Brands.GitHub"
                            Href="https://github.com/codemonkey85/aboutme"
                            Target="_blank"
+                           Title="Source code on GitHub"
                            Color="@Color.Inherit"
-                           Variant="@Variant.Outlined">
-            </MudIconButton>
+                           Variant="@Variant.Outlined" />
         </MudStack>
     </MudAppBar>
     <MudDrawer @bind-Open="@_drawerOpen">
