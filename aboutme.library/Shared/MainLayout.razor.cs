@@ -2,24 +2,26 @@ namespace aboutme.library.Shared;
 
 public partial class MainLayout
 {
-    protected bool _drawerOpen = true;
-    private bool _isDarkMode;
-    private MudThemeProvider? _mudThemeProvider;
+    protected bool drawerOpen = true;
+    private bool isDarkMode;
+    private MudThemeProvider? mudThemeProvider;
 
-    protected void DrawerToggle() => _drawerOpen = !_drawerOpen;
+    protected void DrawerToggle() => drawerOpen = !drawerOpen;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if (firstRender && _mudThemeProvider is not null)
+        if (firstRender && mudThemeProvider is not null)
         {
-            _isDarkMode = await _mudThemeProvider.GetSystemPreference();
-            await _mudThemeProvider.WatchSystemPreference(OnSystemPreferenceChanged);
+            isDarkMode = await mudThemeProvider.GetSystemPreference();
+            await mudThemeProvider.WatchSystemPreference(OnSystemPreferenceChanged);
             StateHasChanged();
         }
     }
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
     private async Task OnSystemPreferenceChanged(bool newValue)
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
     {
-        _isDarkMode = newValue;
+        isDarkMode = newValue;
         StateHasChanged();
     }
 }
