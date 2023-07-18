@@ -12,7 +12,7 @@
     <MudLink Href="https://www.github.com/codemonkey85/"
              Target="_blank"
              title="Michael Bond's GitHub">
-    Find more on my GitHub!
+        Find more on my GitHub!
     </MudLink>
 </MudText>
 
@@ -24,29 +24,33 @@
                 <MudText Typo="@Typo.h5">
                     @project.Name
                 </MudText>
-                @if(project.Description is { Length: > 0 })
+                @if (project.Description is { Length: > 0 })
                 {
                     <MudText Typo="@Typo.body2">
                         @project.Description
                     </MudText>
                 }
             </MudCardHeader>
-            @if(project.ScreenshotUrl is { Length: > 0 })
+            @if (project.ScreenshotUrl is { Length: > 0 })
             {
                 <MudCardMedia Image="@project.ScreenshotUrl"
-                              Title="@project.Name"/>
+                              Title="@project.Name" />
             }
             <MudCardActions Class="d-flex gap-4">
-                <MudIconButton Icon="@Icons.Material.Filled.OpenInBrowser"
-                               Variant="Variant.Filled"
-                               Title="@($"'{@project.Name}' on the web")"
-                               Href="@project.WebUrl"
-                               Target="_blank" />
-                <MudIconButton Icon="@Icons.Custom.Brands.GitHub"
-                               Variant="Variant.Filled"
-                               Title="@($"'{@project.Name}' on GitHub")"
-                               Href="@project.GitHubUrl"
-                               Target="_blank" />
+                <MudButton StartIcon="@Icons.Material.Filled.OpenInBrowser"
+                           Variant="Variant.Filled"
+                           title="@($"'{@project.Name}' on the web")"
+                           Href="@project.WebUrl"
+                           Target="_blank">
+                    Open
+                </MudButton>
+                <MudButton StartIcon="@Icons.Custom.Brands.GitHub"
+                           Variant="Variant.Filled"
+                           title="@($"'{@project.Name}' on GitHub")"
+                           Href="@project.GitHubUrl"
+                           Target="_blank">
+                    See source
+                </MudButton>
             </MudCardActions>
         </MudCard>
     }

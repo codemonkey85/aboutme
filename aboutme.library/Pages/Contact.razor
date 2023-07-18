@@ -8,10 +8,24 @@
     Contact Me
 </MudText>
 
-<MudText Typo="@Typo.subtitle1">
-    <MudLink Href="@Constants.MastodonUrl"
-             Target="_blank"
-             title="Follow Michael Bond on Mastodon">
-        Follow me on Mastodon!
-    </MudLink>
-</MudText>
+<MudStack>
+    @foreach (var contactUrl in ContactUrlsList)
+    {
+        <MudCard>
+            <MudCardHeader>
+                <MudText Typo="@Typo.h5">
+                    @contactUrl.Name
+                </MudText>
+            </MudCardHeader>
+            <MudCardActions Class="d-flex gap-4">
+                <MudButton StartIcon="@Icons.Material.Filled.OpenInBrowser"
+                           Variant="Variant.Filled"
+                           title="@contactUrl.Title"
+                           Href="@contactUrl.Url"
+                           Target="_blank">
+                    Open
+                </MudButton>
+            </MudCardActions>
+        </MudCard>
+    }
+</MudStack>

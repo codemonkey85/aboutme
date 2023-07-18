@@ -6,10 +6,18 @@ public partial class Projects
     {
         new()
         {
-            Name = "Four Is The Magic Number!",
+            Name = "PKMDS Blazor",
             Description = "",
-            WebUrl = "https://black-sea-00acdf50f.azurestaticapps.net/",
-            GitHubUrl = "https://github.com/codemonkey85/FourMagicNumberGame",
+            WebUrl = "https://delightful-grass-0e57f8c0f.2.azurestaticapps.net/",
+            GitHubUrl = "https://github.com/codemonkey85/PKMDS-Blazor",
+            ScreenshotUrl = "",
+        },
+        new()
+        {
+            Name = "Sound Test",
+            Description = "",
+            WebUrl = "https://polite-wave-0e108230f.azurestaticapps.net/",
+            GitHubUrl = "https://github.com/codemonkey85/SoundTest",
             ScreenshotUrl = "",
         },
         new()
@@ -22,10 +30,10 @@ public partial class Projects
         },
         new()
         {
-            Name = "Sound Test",
+            Name = "Four Is The Magic Number!",
             Description = "",
-            WebUrl = "https://polite-wave-0e108230f.azurestaticapps.net/",
-            GitHubUrl = "https://github.com/codemonkey85/SoundTest",
+            WebUrl = "https://black-sea-00acdf50f.azurestaticapps.net/",
+            GitHubUrl = "https://github.com/codemonkey85/FourMagicNumberGame",
             ScreenshotUrl = "",
         },
     };
