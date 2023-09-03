@@ -126,6 +126,10 @@ public partial class Resume
                     {
                         Description = "Handled debugging for support cases, diagnosing and fixing bugs, fixing data in SQL Server, deploying patches to production sites",
                     },
+                    new Duty
+                    {
+                        Description = "SQL Server, deploying patches to production sites",
+                    },
                 },
                 StartDate = new DateTime(year: 2015, month: 02, day: 1),
                 EndDate = new DateTime(year: 2021, month: 09, day: 1),
@@ -166,7 +170,23 @@ public partial class Resume
                 {
                     new Duty
                     {
-                        Description = "",
+                        Description = "Develop services backend using AWS Lambda, Amplify, ASP.NET Core",
+                    },
+                    new Duty
+                    {
+                        Description = "Develop web frontend using React",
+                    },
+                    new Duty
+                    {
+                        Description = "Collaborate using Jira, Azure DevOps, and Git",
+                    },
+                    new Duty
+                    {
+                        Description = "Manage code branches, merges, and cherry-picks",
+                    },
+                    new Duty
+                    {
+                        Description = "Review code submitted by other developers",
                     },
                 },
                 StartDate = new DateTime(year: 2022, month: 04, day: 1),
@@ -196,7 +216,7 @@ public partial class Resume
                 {
                     new Duty
                     {
-                        Description = "",
+                        Description = "Developed full stack lease management application, including client, web API / services, and database, written with C# / VB.NET, MS SQL Server, and WPF / XAML.",
                     },
                 },
                 StartDate = new DateTime(year: 2021, month: 08, day: 1),
