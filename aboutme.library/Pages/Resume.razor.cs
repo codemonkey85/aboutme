@@ -187,6 +187,21 @@ public partial class Resume
                 StartDate = new DateTime(year: 2022, month: 09, day: 1),
                 PresentlyEmployed = true,
             },
+            new Job
+            {
+                Title = "Senior Software Engineer",
+                Company = "LTi Technology Solutions",
+                Summary = "",
+                Duties = new List<Duty>
+                {
+                    new Duty
+                    {
+                        Description = "",
+                    },
+                },
+                StartDate = new DateTime(year: 2021, month: 08, day: 1),
+                EndDate = new DateTime(year: 2022, month: 03, day: 1),
+            },
         },
     };
 

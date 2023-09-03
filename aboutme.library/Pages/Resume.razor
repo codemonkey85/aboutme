@@ -46,7 +46,7 @@
             @foreach (var skill in resumeModel.Skills.OrderBy(skill => skill.Name))
             {
                 <MudItem>
-                    <MudChip>
+                    <MudChip title="@skill.Name">
                         @skill.Name
                     </MudChip>
                 </MudItem>

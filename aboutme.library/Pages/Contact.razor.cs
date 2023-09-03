@@ -6,17 +6,33 @@ public partial class Contact
     {
         new()
         {
+            Name = "GitHub",
+            Url = "https://github.com/codemonkey85",
+            Title = "codemonkey85 on GitHub",
+        },
+        new()
+        {
             Name = "Mastodon",
             Url = "https://mastodon.social/@codemonkey85",
             Title = "codemonkey85@mastodon.social on Mastodon",
-            Icon = Icons.Material.Filled.OpenInBrowser,
         },
         new()
         {
             Name = "Threads",
             Url = "https://www.threads.net/@codemonkey85",
-            Title = "Michael Bond (@codemonkey85) on Threads",
-            Icon = Icons.Material.Filled.OpenInBrowser,
+            Title = "codemonkey85 on Threads",
+        },
+        new()
+        {
+            Name = "Twitter / X",
+            Url = "https://twitter.com/codemonkey85",
+            Title = "codemonkey85 on Twitter / X",
+        },
+        new()
+        {
+            Name = "Bluesky",
+            Url = "https://bsky.app/profile/codemonkey85.bsky.social",
+            Title = "codemonkey85.bsky.social on BlueSky",
         },
     };
 
