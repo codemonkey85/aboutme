@@ -219,8 +219,8 @@ public partial class Resume
                         Description = "Developed full stack lease management application, including client, web API / services, and database, written with C# / VB.NET, MS SQL Server, and WPF / XAML.",
                     },
                 },
-                StartDate = new DateTime(year: 2021, month: 08, day: 1),
-                EndDate = new DateTime(year: 2022, month: 03, day: 1),
+                StartDate = new DateTime(year: 2021, month: 09, day: 1),
+                EndDate = new DateTime(year: 2022, month: 04, day: 1),
             },
         },
     };
