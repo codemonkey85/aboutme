@@ -1,5 +1,4 @@
-namespace aboutme.library.Shared;
-
+namespace AboutMe.Components.Layout;
 public partial class MainLayout
 {
     protected bool drawerOpen = true;

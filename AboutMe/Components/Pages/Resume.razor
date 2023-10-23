@@ -61,10 +61,10 @@
             Experience
         </MudText>
         <MudStack Spacing="3"
-          Class="mb-3">
+                  Class="mb-3">
             @foreach (var job in resumeModel.Jobs
-                                .OrderByDescending(job => job.PresentlyEmployed)
-                                .ThenByDescending(job => job.EndDate))
+           .OrderByDescending(job => job.PresentlyEmployed)
+           .ThenByDescending(job => job.EndDate))
             {
                 <MudCard>
                     <MudCardHeader>
@@ -91,7 +91,7 @@
                         @if (job.Duties is { Count: > 0 })
                         {
                             <ul>
-                                @foreach(var duty in job.Duties)
+                                @foreach (var duty in job.Duties)
                                 {
                                     if (duty.Description is { Length: > 0 })
                                     {

@@ -1,5 +1,5 @@
 # About Me
 
-![Deploy to GitHub Pages](https://github.com/codemonkey85/aboutme/workflows/Deploy%20to%20GitHub%20Pages/badge.svg?branch=master)
+[![Build and deploy ASP.Net Core app to Azure Web App - aboutcodemonkey85](https://github.com/codemonkey85/aboutme/actions/workflows/main_aboutcodemonkey85.yml/badge.svg)](https://github.com/codemonkey85/aboutme/actions/workflows/main_aboutcodemonkey85.yml)
 
-Deployed to: https://codemonkey85.github.io/aboutme/
+Deployed to: https://aboutcodemonkey85.azurewebsites.net/

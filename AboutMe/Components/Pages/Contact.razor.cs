@@ -1,4 +1,4 @@
-namespace aboutme.library.Pages;
+namespace AboutMe.Components.Pages;
 
 public partial class Contact
 {
