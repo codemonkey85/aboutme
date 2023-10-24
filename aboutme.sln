@@ -9,7 +9,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		global.json = global.json
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AboutMe", "AboutMe\AboutMe\AboutMe.csproj", "{09C5EB35-92D1-4A2B-B744-F50065652B0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AboutMe.Client", "AboutMe\AboutMe.Client\AboutMe.Client.csproj", "{282C0879-82AF-40DD-9569-D4813FE17E7B}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09C5EB35-92D1-4A2B-B744-F50065652B0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09C5EB35-92D1-4A2B-B744-F50065652B0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09C5EB35-92D1-4A2B-B744-F50065652B0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09C5EB35-92D1-4A2B-B744-F50065652B0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{282C0879-82AF-40DD-9569-D4813FE17E7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{282C0879-82AF-40DD-9569-D4813FE17E7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{282C0879-82AF-40DD-9569-D4813FE17E7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{282C0879-82AF-40DD-9569-D4813FE17E7B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
