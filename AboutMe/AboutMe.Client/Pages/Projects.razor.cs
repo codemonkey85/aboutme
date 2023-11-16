@@ -2,8 +2,8 @@ namespace AboutMe.Client.Pages;
 
 public partial class Projects
 {
-    private List<Project> ProjectsList { get; set; } = new()
-    {
+    private List<Project> ProjectsList { get; set; } =
+    [
         new()
         {
             Name = "PKMDS Blazor",
@@ -36,14 +36,18 @@ public partial class Projects
             GitHubUrl = "https://github.com/codemonkey85/FourMagicNumberGame",
             ScreenshotUrl = "",
         },
-    };
+    ];
 
     private class Project
     {
         public string? Name { get; set; }
+
         public string? Description { get; set; }
+
         public string? WebUrl { get; set; }
+
         public string? GitHubUrl { get; set; }
+
         public string? ScreenshotUrl { get; set; }
     }
 }

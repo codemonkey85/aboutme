@@ -7,8 +7,8 @@ public partial class Resume
         Name = "Michael Bond",
         Email = "michael@bondcodes.com",
         Summary = "Web / Windows / C# / ASP / .NET Developer",
-        Skills = new List<Skill>
-        {
+        Skills =
+        [
             new Skill
             {
                 Name = ".NET Core",
@@ -64,16 +64,16 @@ public partial class Resume
                 Name = "JavaScript",
                 Description = "",
             },
-        },
-        Jobs = new List<Job>
-        {
+        ],
+        Jobs =
+        [
             new Job
             {
                 Title = "Software Developer",
                 Company = "3 Story Software",
                 Summary = "",
-                Duties = new List<Duty>
-                {
+                Duties =
+                [
                     new Duty
                     {
                         Description = "Designed and developed workforce management web application, supported across the globe",
@@ -130,7 +130,7 @@ public partial class Resume
                     {
                         Description = "SQL Server, deploying patches to production sites",
                     },
-                },
+                ],
                 StartDate = new DateTime(year: 2015, month: 02, day: 1),
                 EndDate = new DateTime(year: 2021, month: 09, day: 1),
             },
@@ -139,8 +139,8 @@ public partial class Resume
                 Title = "Programmer Analyst",
                 Company = "Fairfax Data Systems",
                 Summary = "",
-                Duties = new List<Duty>
-                {
+                Duties =
+                [
                     new Duty
                     {
                         Description = "Developed custom DLLs, scripts within Microsoft .NET environment (C#, VB.NET, VBScript) to supplement Datacap / FileNet OOTB solutions, worked with custom FileNet objects",
@@ -157,7 +157,7 @@ public partial class Resume
                     {
                         Description = "Configured FileNet and WorkplaceXT for client to search and modify documents",
                     },
-                },
+                ],
                 StartDate = new DateTime(year: 2013, month: 05, day: 1),
                 EndDate = new DateTime(year: 2014, month: 10, day: 1),
             },
@@ -166,8 +166,8 @@ public partial class Resume
                 Title = "Senior Blazor Developer",
                 Company = "AmericanEagle.com",
                 Summary = "",
-                Duties = new List<Duty>
-                {
+                Duties =
+                [
                     new Duty
                     {
                         Description = "Develop services backend using AWS Lambda, Amplify, ASP.NET Core",
@@ -188,7 +188,7 @@ public partial class Resume
                     {
                         Description = "Review code submitted by other developers",
                     },
-                },
+                ],
                 StartDate = new DateTime(year: 2022, month: 04, day: 1),
                 EndDate = new DateTime(year: 2022, month: 09, day: 1),
             },
@@ -197,13 +197,13 @@ public partial class Resume
                 Title = "Full Stack Developer",
                 Company = "Fusion Worldwide",
                 Summary = "",
-                Duties = new List<Duty>
-                {
+                Duties =
+                [
                     new Duty
                     {
                         Description = "",
                     },
-                },
+                ],
                 StartDate = new DateTime(year: 2022, month: 09, day: 1),
                 PresentlyEmployed = true,
             },
@@ -212,45 +212,59 @@ public partial class Resume
                 Title = "Senior Software Engineer",
                 Company = "LTi Technology Solutions",
                 Summary = "",
-                Duties = new List<Duty>
-                {
+                Duties =
+                [
                     new Duty
                     {
                         Description = "Developed full stack lease management application, including client, web API / services, and database, written with C# / VB.NET, MS SQL Server, and WPF / XAML.",
                     },
-                },
+                ],
                 StartDate = new DateTime(year: 2021, month: 09, day: 1),
                 EndDate = new DateTime(year: 2022, month: 04, day: 1),
             },
-        },
+        ],
     };
 
     private class ResumeModel
     {
         public string? Name { get; set; }
+
         public string? Email { get; set; }
+
         public string? Summary { get; set; }
+
         public List<Skill>? Skills { get; set; }
+
         public List<Job>? Jobs { get; set; }
     }
 
     private class Skill
     {
         public string? Name { get; set; }
+
         public string? Description { get; set; }
     }
 
     private class Job
     {
         public string? Email { get; set; }
+
         public string? Phone { get; set; }
+
         public string? Address { get; set; }
+
         public string? Summary { get; set; }
+
         public string? Title { get; set; }
+
         public string? Company { get; set; }
+
         public DateTime? StartDate { get; set; }
+
         public DateTime? EndDate { get; set; }
+
         public List<Duty>? Duties { get; set; }
+
         public bool PresentlyEmployed { get; set; }
     }
 
