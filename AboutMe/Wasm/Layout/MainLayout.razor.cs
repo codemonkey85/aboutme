@@ -1,4 +1,4 @@
-namespace AboutMe.Client.Layout;
+namespace AboutMe.Wasm.Layout;
 
 public partial class MainLayout
 {

@@ -1,56 +1,51 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
+name: Deploy to GitHub Pages
 
-name: Build and deploy ASP.Net Core app to Azure Web App - aboutcodemonkey85
-
+# Run workflow on every push to the main branch
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch:
+    branches: [main]
 
 jobs:
-  build:
-    runs-on: windows-latest
-
+  deploy-to-github-pages:
+    # use ubuntu-latest image to run steps on
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      # uses GitHub's checkout action to checkout code form the main branch
+      - uses: actions/checkout@v3
 
-      - name: Set up .NET Core
-        uses: actions/setup-dotnet@v2
+      # sets up .NET SDK
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.x'
+          dotnet-version: "7.x"
+          include-prerelease: true
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
+      - name: Install WASM workload
+        run: dotnet workload install wasm-tools
 
-      - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+      - name: Test
+        run: dotnet test
 
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v3
+      # publishes Blazor project to the release-folder
+      - name: Publish .NET Core Project
+        run: dotnet publish aboutme.wasm/aboutme.wasm.csproj -c Release -o release --nologo
+
+      # changes the base-tag in index.html from '/' to 'aboutme' to match GitHub Pages repository subdirectory
+      - name: Change base-tag in index.html from / to aboutme
+        run: sed -i 's/<base href="\/" \/>/<base href="\/aboutme\/" \/>/g' release/wwwroot/index.html
+
+      # copy index.html to 404.html to serve the same file when a file is not found
+      - name: copy index.html to 404.html
+        run: cp release/wwwroot/index.html release/wwwroot/404.html
+
+      # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
+      - name: Add .nojekyll file
+        run: touch release/wwwroot/.nojekyll
+
+      - name: Commit wwwroot to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
-          name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
-
-  deploy:
-    runs-on: windows-latest
-    needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v3
-        with:
-          name: .net-app
-
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'aboutcodemonkey85'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ED07275BD98B490D978B7D8EDC174F60 }}
-          package: .
+          GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: release/wwwroot
+          cname: bondcodes.com

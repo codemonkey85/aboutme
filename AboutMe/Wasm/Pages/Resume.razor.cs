@@ -1,4 +1,4 @@
-namespace AboutMe.Client.Pages;
+namespace AboutMe.Wasm.Pages;
 
 public partial class Resume
 {
