@@ -7,34 +7,34 @@ public partial class Projects
         new()
         {
             Name = "PKMDS Blazor",
-            Description = "",
+            Description = "A port of PKHeX for web, built wih Blazor",
             WebUrl = "https://delightful-grass-0e57f8c0f.2.azurestaticapps.net/",
             GitHubUrl = "https://github.com/codemonkey85/PKMDS-Blazor",
-            ScreenshotUrl = "",
+            Screenshots = [],
         },
         new()
         {
             Name = "Sound Test",
-            Description = "",
+            Description = "Messing around with the JavaScript tone APIs in Blazor",
             WebUrl = "https://polite-wave-0e108230f.azurestaticapps.net/",
             GitHubUrl = "https://github.com/codemonkey85/SoundTest",
-            ScreenshotUrl = "",
+            Screenshots = [],
         },
         new()
         {
             Name = "Tic Tac Toe Blazor",
-            Description = "",
+            Description = "A Tic Tac Toe game for web, built with Blazor",
             WebUrl = "https://codemonkey85.github.io/TicTacToeBlazor/",
             GitHubUrl = "https://github.com/codemonkey85/TicTacToeBlazor",
-            ScreenshotUrl = "",
+            Screenshots = [],
         },
         new()
         {
             Name = "Four Is The Magic Number!",
-            Description = "",
+            Description = "A neat party trick, built with Blazor",
             WebUrl = "https://black-sea-00acdf50f.azurestaticapps.net/",
             GitHubUrl = "https://github.com/codemonkey85/FourMagicNumberGame",
-            ScreenshotUrl = "",
+            Screenshots = [],
         },
     ];
 
@@ -48,6 +48,13 @@ public partial class Projects
 
         public string? GitHubUrl { get; set; }
 
-        public string? ScreenshotUrl { get; set; }
+        public List<ProductImage> Screenshots { get; set; } = [];
+    }
+
+    private class ProductImage
+    {
+        required public string Url { get; set; }
+
+        required public string Title { get; set; }
     }
 }
