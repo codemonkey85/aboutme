@@ -9,61 +9,17 @@ public partial class Resume
         Summary = "Web / Windows / C# / ASP / .NET Developer",
         Skills =
         [
-            new Skill
-            {
-                Name = ".NET Core",
-                Description = "",
-            },
-            new Skill
-            {
-                Name = "Visual Studio",
-                Description = "",
-            },
-            new Skill
-            {
-                Name = "ASP.Net",
-                Description = "",
-            },
-            new Skill
-            {
-                Name = "Blazor",
-                Description = "",
-            },
-            new Skill
-            {
-                Name = "MudBlazor",
-                Description = "",
-            },
-            new Skill
-            {
-                Name = ".NET MAUI",
-                Description = "",
-            },
-            new Skill
-            {
-                Name = "MS SQL Server",
-                Description = "",
-            },
-            new Skill
-            {
-                Name = "SQL",
-                Description = "",
-            },
-            new Skill
-            {
-                Name = "HTML",
-                Description = "",
-            },
-            new Skill
-            {
-                Name = "CSS",
-                Description = "",
-            },
-            new Skill
-            {
-                Name = "JavaScript",
-                Description = "",
-            },
+            Skills.DotNetCore,
+            Skills.VisualStudio,
+            Skills.AspNet,
+            Skills.Blazor,
+            Skills.MudBlazor,
+            Skills.DotNetMaui,
+            Skills.MsSqlServer,
+            Skills.Sql,
+            Skills.Html,
+            Skills.Css,
+            Skills.JavaScript,
         ],
         Jobs =
         [
@@ -74,46 +30,14 @@ public partial class Resume
                 Summary = "",
                 SkillsUsed =
                 [
-                    new Skill
-                    {
-                        Name = ".NET Core",
-                        Description = "",
-                    },
-                    new Skill
-                    {
-                        Name = "Visual Studio",
-                        Description = "",
-                    },
-                    new Skill
-                    {
-                        Name = "ASP.Net",
-                        Description = "",
-                    },
-                    new Skill
-                    {
-                        Name = "MS SQL Server",
-                        Description = "",
-                    },
-                    new Skill
-                    {
-                        Name = "SQL",
-                        Description = "",
-                    },
-                    new Skill
-                    {
-                        Name = "HTML",
-                        Description = "",
-                    },
-                    new Skill
-                    {
-                        Name = "CSS",
-                        Description = "",
-                    },
-                    new Skill
-                    {
-                        Name = "JavaScript",
-                        Description = "",
-                    },
+                    Skills.DotNetCore,
+                    Skills.VisualStudio,
+                    Skills.AspNet,
+                    Skills.MsSqlServer,
+                    Skills.Sql,
+                    Skills.Html,
+                    Skills.Css,
+                    Skills.JavaScript,
                 ],
                 Duties =
                 [
@@ -320,5 +244,74 @@ public partial class Resume
     private class Duty
     {
         public string? Description { get; set; }
+    }
+
+    private static class Skills
+    {
+        public static Skill DotNetCore = new()
+        {
+            Name = ".NET Core",
+            Description = "",
+        };
+
+        public static Skill VisualStudio = new()
+        {
+            Name = "Visual Studio",
+            Description = "",
+        };
+
+        public static Skill AspNet = new()
+        {
+            Name = "ASP.Net",
+            Description = "",
+        };
+
+        public static Skill Blazor = new()
+        {
+            Name = "Blazor",
+            Description = "",
+        };
+
+        public static Skill MudBlazor = new()
+        {
+            Name = "MudBlazor",
+            Description = "",
+        };
+
+        public static Skill DotNetMaui = new()
+        {
+            Name = ".NET MAUI",
+            Description = "",
+        };
+
+        public static Skill MsSqlServer = new()
+        {
+            Name = "MS SQL Server",
+            Description = "",
+        };
+
+        public static Skill Sql = new()
+        {
+            Name = "SQL",
+            Description = "",
+        };
+
+        public static Skill Html = new()
+        {
+            Name = "HTML",
+            Description = "",
+        };
+
+        public static Skill Css = new()
+        {
+            Name = "CSS",
+            Description = "",
+        };
+
+        public static Skill JavaScript = new()
+        {
+            Name = "JavaScript",
+            Description = "",
+        };
     }
 }
