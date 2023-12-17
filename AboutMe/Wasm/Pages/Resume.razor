@@ -111,19 +111,16 @@
 </style>
 
 @code {
-    private RenderFragment SkillFragment(Skill skill) =>
-    @<MudChip title="@skill.Name">
-        @skill.Name
-    </MudChip>;
-
     private RenderFragment SkillsFragment(IEnumerable<Skill> skills) =>
     @<MudGrid Class="mb-3"
               Spacing="0">
-            @foreach (var skill in skills.OrderBy(skill => skill.Name))
-            {
-                <MudItem>
-                    @SkillFragment(skill)
-                </MudItem>
-            }
+        @foreach (var skill in skills.OrderBy(skill => skill.Name))
+        {
+            <MudItem>
+                <MudChip title="@skill.Name">
+                    @skill.Name
+                </MudChip>
+            </MudItem>
+        }
     </MudGrid>;
 }
