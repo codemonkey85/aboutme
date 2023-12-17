@@ -41,17 +41,7 @@
                  Class="mb-3">
             Skills
         </MudText>
-        <MudGrid Class="mb-3"
-                 Spacing="0">
-            @foreach (var skill in resumeModel.Skills.OrderBy(skill => skill.Name))
-            {
-                <MudItem>
-                    <MudChip title="@skill.Name">
-                        @skill.Name
-                    </MudChip>
-                </MudItem>
-            }
-        </MudGrid>
+        @SkillsFragment(resumeModel.Skills)
     }
 
     @if (resumeModel.Jobs is { Count: > 0 })
@@ -88,6 +78,10 @@
                                 @job.Summary
                             </MudText>
                         }
+                        @if (job.SkillsUsed is { Count: > 0 })
+                        {
+                            @SkillsFragment(job.SkillsUsed)
+                        }
                         @if (job.Duties is { Count: > 0 })
                         {
                             <ul>
@@ -115,3 +109,21 @@
         margin-left: 0.5rem;
     }
 </style>
+
+@code {
+    private RenderFragment SkillFragment(Skill skill) =>
+    @<MudChip title="@skill.Name">
+        @skill.Name
+    </MudChip>;
+
+    private RenderFragment SkillsFragment(IEnumerable<Skill> skills) =>
+    @<MudGrid Class="mb-3"
+              Spacing="0">
+            @foreach (var skill in skills.OrderBy(skill => skill.Name))
+            {
+                <MudItem>
+                    @SkillFragment(skill)
+                </MudItem>
+            }
+    </MudGrid>;
+}

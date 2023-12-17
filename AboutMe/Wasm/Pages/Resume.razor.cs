@@ -72,6 +72,7 @@ public partial class Resume
                 Title = "Software Developer",
                 Company = "3 Story Software",
                 Summary = "",
+                SkillsUsed = [],
                 Duties =
                 [
                     new Duty
@@ -139,6 +140,7 @@ public partial class Resume
                 Title = "Programmer Analyst",
                 Company = "Fairfax Data Systems",
                 Summary = "",
+                SkillsUsed = [],
                 Duties =
                 [
                     new Duty
@@ -166,6 +168,7 @@ public partial class Resume
                 Title = "Senior Blazor Developer",
                 Company = "AmericanEagle.com",
                 Summary = "",
+                SkillsUsed = [],
                 Duties =
                 [
                     new Duty
@@ -197,6 +200,7 @@ public partial class Resume
                 Title = "Full Stack Developer",
                 Company = "Fusion Worldwide",
                 Summary = "",
+                SkillsUsed = [],
                 Duties =
                 [
                     new Duty
@@ -212,6 +216,7 @@ public partial class Resume
                 Title = "Senior Software Engineer",
                 Company = "LTi Technology Solutions",
                 Summary = "",
+                SkillsUsed = [],
                 Duties =
                 [
                     new Duty
@@ -262,6 +267,8 @@ public partial class Resume
         public DateTime? StartDate { get; set; }
 
         public DateTime? EndDate { get; set; }
+
+        public List<Skill>? SkillsUsed { get; set; }
 
         public List<Duty>? Duties { get; set; }
 
