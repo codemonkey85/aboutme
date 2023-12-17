@@ -264,7 +264,7 @@ public partial class Resume
         public required List<Job> Jobs { get; set; } = [];
     }
 
-    private class Skill
+    private struct Skill
     {
         public required string Name { get; set; }
 
@@ -393,4 +393,6 @@ public partial class Resume
             Description = string.Empty,
         };
     }
+
+    private List<Skill> SelectedSkills { get; set; } = [];
 }

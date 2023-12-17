@@ -53,6 +53,7 @@
         <MudStack Spacing="3"
                   Class="mb-3">
             @foreach (var job in resumeModel.Jobs
+           .Where(job => !SelectedSkills.Any() || SelectedSkills.All(job.SkillsUsed.Contains))
            .OrderByDescending(job => job.PresentlyEmployed)
            .ThenByDescending(job => job.EndDate))
             {
@@ -113,14 +114,34 @@
 @code {
     private RenderFragment SkillsFragment(IEnumerable<Skill> skills) =>
     @<MudGrid Class="mb-3"
-              Spacing="0">
+                  Spacing="0">
         @foreach (var skill in skills.OrderBy(skill => skill.Name))
-        {
-            <MudItem>
-                <MudChip title="@skill.Name">
-                    @skill.Name
-                </MudChip>
-            </MudItem>
-        }
+    {
+        <MudItem>
+            <MudChip title="@skill.Name"
+                     OnClick="@(() => OnSelectSkill(skill))"
+                     Color="@GetSkillColor(skill)">
+                @skill.Name
+            </MudChip>
+        </MudItem>
+    }
     </MudGrid>;
+}
+@code {
+    void OnSelectSkill(Skill skill)
+    {
+        if (SelectedSkills.Contains(skill))
+        {
+            SelectedSkills.Remove(skill);
+        }
+        else
+        {
+            SelectedSkills.Add(skill);
+        }
+    }
+
+    Color GetSkillColor(Skill skill)
+    {
+        return SelectedSkills.Contains(skill) ? Color.Primary : Color.Default;
+    }
 }
