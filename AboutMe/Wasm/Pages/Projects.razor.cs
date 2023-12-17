@@ -11,7 +11,7 @@ public partial class Projects
             WebUrl = "https://delightful-grass-0e57f8c0f.2.azurestaticapps.net/",
             GitHubUrl = "https://github.com/codemonkey85/PKMDS-Blazor",
             Screenshots = [],
-        },
+        }, // PKMDS Blazor
         new()
         {
             Name = "Sound Test",
@@ -19,7 +19,7 @@ public partial class Projects
             WebUrl = "https://polite-wave-0e108230f.azurestaticapps.net/",
             GitHubUrl = "https://github.com/codemonkey85/SoundTest",
             Screenshots = [],
-        },
+        }, // Sound Test
         new()
         {
             Name = "Tic Tac Toe Blazor",
@@ -27,7 +27,7 @@ public partial class Projects
             WebUrl = "https://codemonkey85.github.io/TicTacToeBlazor/",
             GitHubUrl = "https://github.com/codemonkey85/TicTacToeBlazor",
             Screenshots = [],
-        },
+        }, // Tic Tac Toe Blazor
         new()
         {
             Name = "Four Is The Magic Number!",
@@ -35,12 +35,12 @@ public partial class Projects
             WebUrl = "https://black-sea-00acdf50f.azurestaticapps.net/",
             GitHubUrl = "https://github.com/codemonkey85/FourMagicNumberGame",
             Screenshots = [],
-        },
+        }, // Four Is The Magic Number!
     ];
 
     private class Project
     {
-        public string? Name { get; set; }
+        public required string Name { get; set; }
 
         public string? Description { get; set; }
 
@@ -53,8 +53,8 @@ public partial class Projects
 
     private class ProductImage
     {
-        required public string Url { get; set; }
+        public required string Url { get; set; }
 
-        required public string Title { get; set; }
+        public required string Title { get; set; }
     }
 }

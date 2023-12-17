@@ -20,14 +20,49 @@ public partial class Resume
             Skills.Html,
             Skills.Css,
             Skills.JavaScript,
+            Skills.Git,
+            Skills.AzureDevOps,
+            Skills.TelerikBlazor,
+            Skills.DotNetFramework,
         ],
         Jobs =
         [
             new Job
             {
+                Title = "Full Stack Developer",
+                Company = "Fusion Worldwide",
+                Summary = string.Empty,
+                Email = null,
+                Phone = null,
+                Address = null,
+                SkillsUsed =
+                [
+                    Skills.AzureDevOps,
+                    Skills.DotNetCore,
+                    Skills.VisualStudio,
+                    Skills.MsSqlServer,
+                    Skills.Sql,
+                    Skills.Html,
+                    Skills.Css,
+                    Skills.JavaScript,
+                    Skills.Git,
+                    Skills.Blazor,
+                    Skills.MudBlazor,
+                    Skills.TelerikBlazor,
+                ],
+                Duties = [],
+                StartDate = new DateTime(year: 2022, month: 09, day: 1),
+                EndDate = null,
+                PresentlyEmployed = true,
+            }, // Fusion Worldwide
+            new Job
+            {
                 Title = "Software Developer",
                 Company = "3 Story Software",
-                Summary = "",
+                Summary = string.Empty,
+                Email = null,
+                Phone = null,
+                Address = null,
                 SkillsUsed =
                 [
                     Skills.DotNetCore,
@@ -38,6 +73,7 @@ public partial class Resume
                     Skills.Html,
                     Skills.Css,
                     Skills.JavaScript,
+                    Skills.Git,
                 ],
                 Duties =
                 [
@@ -79,11 +115,11 @@ public partial class Resume
                     },
                     new Duty
                     {
-                        Description = "Developed JavaScript front-end functionality that communicates with C# back-end\r\n",
+                        Description = "Developed JavaScript front-end functionality that communicates with C# back-end",
                     },
                     new Duty
                     {
-                        Description = "Developed and tested jQuery included in JS for manipulating DOM\r\n",
+                        Description = "Developed and tested jQuery included in JS for manipulating DOM",
                     },
                     new Duty
                     {
@@ -100,41 +136,27 @@ public partial class Resume
                 ],
                 StartDate = new DateTime(year: 2015, month: 02, day: 1),
                 EndDate = new DateTime(year: 2021, month: 09, day: 1),
-            },
-            new Job
-            {
-                Title = "Programmer Analyst",
-                Company = "Fairfax Data Systems",
-                Summary = "",
-                SkillsUsed = [],
-                Duties =
-                [
-                    new Duty
-                    {
-                        Description = "Developed custom DLLs, scripts within Microsoft .NET environment (C#, VB.NET, VBScript) to supplement Datacap / FileNet OOTB solutions, worked with custom FileNet objects",
-                    },
-                    new Duty
-                    {
-                        Description = "Provided client with custom DLLs developed with C#, and accompanying documentation",
-                    },
-                    new Duty
-                    {
-                        Description = "Developed Datacap applications based on specific client requirements",
-                    },
-                    new Duty
-                    {
-                        Description = "Configured FileNet and WorkplaceXT for client to search and modify documents",
-                    },
-                ],
-                StartDate = new DateTime(year: 2013, month: 05, day: 1),
-                EndDate = new DateTime(year: 2014, month: 10, day: 1),
-            },
+                PresentlyEmployed = false,
+            }, // 3 Story Software
             new Job
             {
                 Title = "Senior Blazor Developer",
                 Company = "AmericanEagle.com",
-                Summary = "",
-                SkillsUsed = [],
+                Summary = string.Empty,
+                Email = null,
+                Phone = null,
+                Address = null,
+                SkillsUsed =
+                [
+                    Skills.AspNet,
+                    Skills.DotNetCore,
+                    Skills.VisualStudio,
+                    Skills.Html,
+                    Skills.Css,
+                    Skills.JavaScript,
+                    Skills.Git,
+                    Skills.AzureDevOps,
+                ],
                 Duties =
                 [
                     new Duty
@@ -160,29 +182,25 @@ public partial class Resume
                 ],
                 StartDate = new DateTime(year: 2022, month: 04, day: 1),
                 EndDate = new DateTime(year: 2022, month: 09, day: 1),
-            },
-            new Job
-            {
-                Title = "Full Stack Developer",
-                Company = "Fusion Worldwide",
-                Summary = "",
-                SkillsUsed = [],
-                Duties =
-                [
-                    new Duty
-                    {
-                        Description = "",
-                    },
-                ],
-                StartDate = new DateTime(year: 2022, month: 09, day: 1),
-                PresentlyEmployed = true,
-            },
+                PresentlyEmployed = false,
+            }, // AmericanEagle.com
             new Job
             {
                 Title = "Senior Software Engineer",
                 Company = "LTi Technology Solutions",
-                Summary = "",
-                SkillsUsed = [],
+                Summary = string.Empty,
+                Email = null,
+                Phone = null,
+                Address = null,
+                SkillsUsed =
+                [
+                    Skills.Git,
+                    Skills.DotNetCore,
+                    Skills.VisualStudio,
+                    Skills.Sql,
+                    Skills.MsSqlServer,
+                    Skills.AzureDevOps,
+                ],
                 Duties =
                 [
                     new Duty
@@ -192,26 +210,63 @@ public partial class Resume
                 ],
                 StartDate = new DateTime(year: 2021, month: 09, day: 1),
                 EndDate = new DateTime(year: 2022, month: 04, day: 1),
-            },
+                PresentlyEmployed = false,
+            }, // LTi Technology Solutions
+            new Job
+            {
+                Title = "Programmer Analyst",
+                Company = "Fairfax Data Systems",
+                Summary = string.Empty,
+                Email = null,
+                Phone = null,
+                Address = null,
+                SkillsUsed =
+                [
+                    Skills.VisualStudio,
+                    Skills.DotNetFramework,
+                ],
+                Duties =
+                [
+                    new Duty
+                    {
+                        Description = "Developed custom DLLs, scripts within Microsoft .NET environment (C#, VB.NET, VBScript) to supplement Datacap / FileNet OOTB solutions, worked with custom FileNet objects",
+                    },
+                    new Duty
+                    {
+                        Description = "Provided client with custom DLLs developed with C#, and accompanying documentation",
+                    },
+                    new Duty
+                    {
+                        Description = "Developed Datacap applications based on specific client requirements",
+                    },
+                    new Duty
+                    {
+                        Description = "Configured FileNet and WorkplaceXT for client to search and modify documents",
+                    },
+                ],
+                StartDate = new DateTime(year: 2013, month: 05, day: 1),
+                EndDate = new DateTime(year: 2014, month: 10, day: 1),
+                PresentlyEmployed = false,
+            }, // Fairfax Data Systems
         ],
     };
 
     private class ResumeModel
     {
-        public string? Name { get; set; }
+        public required string Name { get; set; }
 
-        public string? Email { get; set; }
+        public required string Email { get; set; }
 
-        public string? Summary { get; set; }
+        public required string Summary { get; set; }
 
-        public List<Skill>? Skills { get; set; }
+        public required List<Skill> Skills { get; set; } = [];
 
-        public List<Job>? Jobs { get; set; }
+        public required List<Job> Jobs { get; set; } = [];
     }
 
     private class Skill
     {
-        public string? Name { get; set; }
+        public required string Name { get; set; }
 
         public string? Description { get; set; }
     }
@@ -224,26 +279,26 @@ public partial class Resume
 
         public string? Address { get; set; }
 
-        public string? Summary { get; set; }
+        public required string Summary { get; set; }
 
-        public string? Title { get; set; }
+        public required string Title { get; set; }
 
-        public string? Company { get; set; }
+        public required string Company { get; set; }
 
-        public DateTime? StartDate { get; set; }
+        public required DateTime StartDate { get; set; }
 
         public DateTime? EndDate { get; set; }
 
-        public List<Skill>? SkillsUsed { get; set; }
+        public List<Skill> SkillsUsed { get; set; } = [];
 
-        public List<Duty>? Duties { get; set; }
+        public required List<Duty> Duties { get; set; } = [];
 
         public bool PresentlyEmployed { get; set; }
     }
 
     private class Duty
     {
-        public string? Description { get; set; }
+        public required string Description { get; set; }
     }
 
     private static class Skills
@@ -251,67 +306,91 @@ public partial class Resume
         public static Skill DotNetCore = new()
         {
             Name = ".NET Core",
-            Description = "",
+            Description = string.Empty,
         };
 
         public static Skill VisualStudio = new()
         {
             Name = "Visual Studio",
-            Description = "",
+            Description = string.Empty,
         };
 
         public static Skill AspNet = new()
         {
             Name = "ASP.Net",
-            Description = "",
+            Description = string.Empty,
         };
 
         public static Skill Blazor = new()
         {
             Name = "Blazor",
-            Description = "",
+            Description = string.Empty,
         };
 
         public static Skill MudBlazor = new()
         {
             Name = "MudBlazor",
-            Description = "",
+            Description = string.Empty,
         };
 
         public static Skill DotNetMaui = new()
         {
             Name = ".NET MAUI",
-            Description = "",
+            Description = string.Empty,
         };
 
         public static Skill MsSqlServer = new()
         {
             Name = "MS SQL Server",
-            Description = "",
+            Description = string.Empty,
         };
 
         public static Skill Sql = new()
         {
             Name = "SQL",
-            Description = "",
+            Description = string.Empty,
         };
 
         public static Skill Html = new()
         {
             Name = "HTML",
-            Description = "",
+            Description = string.Empty,
         };
 
         public static Skill Css = new()
         {
             Name = "CSS",
-            Description = "",
+            Description = string.Empty,
         };
 
         public static Skill JavaScript = new()
         {
             Name = "JavaScript",
-            Description = "",
+            Description = string.Empty,
+        };
+
+        public static Skill Git = new()
+        {
+            Name = "Git",
+            Description = string.Empty,
+        };
+
+        public static Skill AzureDevOps = new()
+        {
+            Name = "Azure DevOps",
+            Description = string.Empty,
+        };
+
+        public static Skill TelerikBlazor = new()
+        {
+            Name = "Telerik Blazor",
+            Description = string.Empty,
+        };
+
+        public static Skill DotNetFramework = new()
+        {
+            Name = ".NET Framework",
+            Description = string.Empty,
         };
     }
 }
