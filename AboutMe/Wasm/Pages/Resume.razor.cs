@@ -72,7 +72,49 @@ public partial class Resume
                 Title = "Software Developer",
                 Company = "3 Story Software",
                 Summary = "",
-                SkillsUsed = [],
+                SkillsUsed =
+                [
+                    new Skill
+                    {
+                        Name = ".NET Core",
+                        Description = "",
+                    },
+                    new Skill
+                    {
+                        Name = "Visual Studio",
+                        Description = "",
+                    },
+                    new Skill
+                    {
+                        Name = "ASP.Net",
+                        Description = "",
+                    },
+                    new Skill
+                    {
+                        Name = "MS SQL Server",
+                        Description = "",
+                    },
+                    new Skill
+                    {
+                        Name = "SQL",
+                        Description = "",
+                    },
+                    new Skill
+                    {
+                        Name = "HTML",
+                        Description = "",
+                    },
+                    new Skill
+                    {
+                        Name = "CSS",
+                        Description = "",
+                    },
+                    new Skill
+                    {
+                        Name = "JavaScript",
+                        Description = "",
+                    },
+                ],
                 Duties =
                 [
                     new Duty
