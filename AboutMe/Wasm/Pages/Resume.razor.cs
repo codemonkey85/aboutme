@@ -2,6 +2,21 @@ namespace AboutMe.Wasm.Pages;
 
 public partial class Resume
 {
+    private List<Skill> SelectedSkills { get; set; } = [];
+
+    private void OnSelectSkill(Skill skill)
+    {
+        if (!SelectedSkills.Remove(skill))
+        {
+            SelectedSkills.Add(skill);
+        }
+    }
+
+    private Color GetSkillColor(Skill skill) =>
+        SelectedSkills.Contains(skill) ? Color.Primary : Color.Default;
+
+    private void ClearSelectedSkills() => SelectedSkills.Clear();
+
     private readonly ResumeModel? resumeModel = new()
     {
         Name = "Michael Bond",
@@ -393,6 +408,4 @@ public partial class Resume
             Description = string.Empty,
         };
     }
-
-    private List<Skill> SelectedSkills { get; set; } = [];
 }
