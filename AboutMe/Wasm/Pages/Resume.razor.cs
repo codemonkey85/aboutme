@@ -39,6 +39,8 @@ public partial class Resume
             Skills.AzureDevOps,
             Skills.TelerikBlazor,
             Skills.DotNetFramework,
+            Skills.WindowsForms,
+            Skills.TailwindCss,
         ],
         Jobs =
         [
@@ -64,8 +66,37 @@ public partial class Resume
                     Skills.Blazor,
                     Skills.MudBlazor,
                     Skills.TelerikBlazor,
+                    Skills.DotNetFramework,
+                    Skills.WindowsForms,
+                    Skills.TailwindCss,
                 ],
-                Duties = [],
+                Duties =
+                [
+                    new Duty
+                    {
+                        Description = "Read and convert .NET Framework code from WinForms app and translate logic to apply to ASP.NET Core web app using Blazor",
+                    },
+                    new Duty
+                    {
+                        Description = "Reviewed code written by other developers in peer review, pointing out potential bugs, optimizations, and styling fixes",
+                    },
+                    new Duty
+                    {
+                        Description = "Azure: worked with Azure-hosted app, web, and SQL servers",
+                    },
+                    new Duty
+                    {
+                        Description = "Work in an agile development environment, managing feature branches and feature flags",
+                    },
+                    new Duty
+                    {
+                        Description = "Created new APIs, extensions, and source generators to streamline code and simplify tasks",
+                    },
+                    new Duty
+                    {
+                        Description = "Use MudBlazor and Tailwind CSS to design a pleasant and responsive user experience",
+                    },
+                ],
                 StartDate = new DateTime(year: 2022, month: 09, day: 1),
                 EndDate = null,
                 PresentlyEmployed = true,
@@ -94,6 +125,10 @@ public partial class Resume
                 [
                     new Duty
                     {
+                        Description = "Full stack developer: worked on back-end .NET Framework / .NET Core / C# and SQL Server, Entity Framework, Azure-hosted app, web and SQL servers, front-end HTML, CSS, JavaScript, jQuery, and Angular / TypeScript",
+                    },
+                    new Duty
+                    {
                         Description = "Designed and developed workforce management web application, supported across the globe",
                     },
                     new Duty
@@ -103,10 +138,6 @@ public partial class Resume
                     new Duty
                     {
                         Description = "Reviewed code written by other developers in peer review, pointing out potential bugs, optimizations, and styling fixes",
-                    },
-                    new Duty
-                    {
-                        Description = "Full stack developer: worked on back-end .NET Framework / .NET Core / C# and SQL Server, Entity Framework, Azure-hosted app, web and SQL servers, front-end HTML, CSS, JavaScript, jQuery, and Angular / TypeScript",
                     },
                     new Duty
                     {
@@ -405,6 +436,18 @@ public partial class Resume
         public static Skill DotNetFramework = new()
         {
             Name = ".NET Framework",
+            Description = string.Empty,
+        };
+
+        public static Skill WindowsForms = new()
+        {
+            Name = "Windows Forms",
+            Description = string.Empty,
+        };
+
+        public static Skill TailwindCss = new()
+        {
+            Name = "Tailwind CSS",
             Description = string.Empty,
         };
     }
