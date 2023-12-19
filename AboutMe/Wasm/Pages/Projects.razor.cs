@@ -36,6 +36,14 @@ public partial class Projects
             GitHubUrl = "https://github.com/codemonkey85/FourMagicNumberGame",
             Screenshots = [],
         }, // Four Is The Magic Number!
+        new()
+        {
+            Name = "Barcode Helper",
+            Description = "Solve the missing digit in a UPC-12",
+            WebUrl = "https://codemonkey85.github.io/BarcodeHelper/",
+            GitHubUrl = "https://github.com/codemonkey85/BarcodeHelper",
+            Screenshots = [],
+        }, // Barcode Helper
     ];
 
     private class Project
