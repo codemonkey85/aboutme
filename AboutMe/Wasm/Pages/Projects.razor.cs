@@ -8,7 +8,7 @@ public partial class Projects
         {
             Name = "PKMDS Blazor",
             Description = "A port of PKHeX for web, built wih Blazor",
-            WebUrl = "https://delightful-grass-0e57f8c0f.2.azurestaticapps.net/",
+            WebUrl = "https://codemonkey85.github.io/PKMDS-Blazor/",
             GitHubUrl = "https://github.com/codemonkey85/PKMDS-Blazor",
             Screenshots = [],
         }, // PKMDS Blazor
