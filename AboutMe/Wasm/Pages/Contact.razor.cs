@@ -2,8 +2,9 @@ namespace AboutMe.Wasm.Pages;
 
 public partial class Contact
 {
-    private List<ContactUrl> ContactUrlsList { get; set; } =
+    private List<SocialLink> SocialLinksList { get; set; } =
     [
+        SocialLink.EmailMe,
         new()
         {
             Name = "GitHub",
@@ -43,9 +44,9 @@ public partial class Contact
         },
         new()
         {
-            Name = "Twitter / X",
+            Name = "X (Formerly Twitter)",
             Url = "https://twitter.com/codemonkey85",
-            Title = "codemonkey85 on Twitter / X",
+            Title = "codemonkey85 on X (Formerly Twitter)",
             Icon = Icons.Custom.Brands.Twitter,
         },
         new()
@@ -55,15 +56,4 @@ public partial class Contact
             Title = "codemonkey85.bsky.social on BlueSky",
         },
     ];
-
-    private class ContactUrl
-    {
-        public string? Name { get; set; }
-
-        public string? Url { get; set; }
-
-        public string? Title { get; set; }
-
-        public string Icon { get; set; } = Icons.Material.Filled.OpenInBrowser;
-    }
 }

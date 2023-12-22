@@ -9,24 +9,8 @@
 </MudText>
 
 <MudStack>
-    @foreach (var contactUrl in ContactUrlsList)
+    @foreach (var socialLink in SocialLinksList)
     {
-        <MudCard>
-            <MudCardHeader>
-                <MudText Typo="@Typo.h5">
-                    @contactUrl.Name
-                </MudText>
-            </MudCardHeader>
-            <MudCardActions Class="d-flex gap-4">
-                <MudButton StartIcon="@contactUrl.Icon"
-                           Variant="Variant.Filled"
-                           Color="Color.Primary"
-                           title="@contactUrl.Title"
-                           Href="@contactUrl.Url"
-                           Target="_blank">
-                    Open
-                </MudButton>
-            </MudCardActions>
-        </MudCard>
+        <SocialLinkComponent SocialLink="@socialLink" />
     }
 </MudStack>
