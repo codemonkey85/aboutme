@@ -39,6 +39,20 @@
     </MudAppBar>
     <MudDrawer @bind-Open="@drawerOpen">
         <NavMenu />
+        <MudSpacer />
+        <MudContainer Class="mx-0 my-3 mb-1">
+            <MudText Typo="@Typo.body1">
+                This site is built with <MudLink Href="https://blazor.net"
+                                                 Target="_blank"
+                                                 title="Blazor">
+                    Blazor
+                </MudLink> and <MudLink Href="https://mudblazor.com"
+                                        Target="_blank"
+                                        title="MudBlazor">
+                    MudBlazor
+                </MudLink>
+            </MudText>
+        </MudContainer>
     </MudDrawer>
     <MudMainContent>
         <MudContainer MaxWidth="MaxWidth.False">
