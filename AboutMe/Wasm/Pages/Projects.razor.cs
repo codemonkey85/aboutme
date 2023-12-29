@@ -44,6 +44,14 @@ public partial class Projects
             GitHubUrl = "https://github.com/codemonkey85/BarcodeHelper",
             Screenshots = [],
         }, // Barcode Helper
+        new()
+        {
+            Name = "Tired Doctor Manhattan",
+            Description = "Doctor Manhattan is tired of stuff",
+            WebUrl = "https://codemonkey85.github.io/TiredDoctorManhattan/",
+            GitHubUrl = "https://github.com/codemonkey85/TiredDoctorManhattan",
+            Screenshots = [],
+        }, // Tired Doctor Manhattan
     ];
 
     private class Project
