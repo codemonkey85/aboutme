@@ -52,6 +52,14 @@ public partial class Projects
             GitHubUrl = "https://github.com/codemonkey85/TiredDoctorManhattan",
             Screenshots = [],
         }, // Tired Doctor Manhattan
+        new()
+        {
+            Name = "Minecraft Command Builder",
+            Description = "A tool to help build Minecraft commands",
+            WebUrl = "https://codemonkey85.github.io/MinecraftCommandBuilder/",
+            GitHubUrl = "https://github.com/codemonkey85/MinecraftCommandBuilder",
+            Screenshots = [],
+        }, // Minecraft Command Builder
     ];
 
     private class Project
