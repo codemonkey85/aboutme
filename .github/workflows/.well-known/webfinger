@@ -1,0 +1,28 @@
+{
+  "subject": "acct:codemonkey85@mastodon.social",
+  "aliases": [
+    "https://mastodon.social/@codemonkey85",
+    "https://mastodon.social/users/codemonkey85"
+  ],
+  "links": [
+    {
+      "rel": "http://webfinger.net/rel/profile-page",
+      "type": "text/html",
+      "href": "https://mastodon.social/@codemonkey85"
+    },
+    {
+      "rel": "self",
+      "type": "application/activity+json",
+      "href": "https://mastodon.social/users/codemonkey85"
+    },
+    {
+      "rel": "http://ostatus.org/schema/1.0/subscribe",
+      "template": "https://mastodon.social/authorize_interaction?uri={uri}"
+    },
+    {
+      "rel": "http://webfinger.net/rel/avatar",
+      "type": "image/png",
+      "href": "https://files.mastodon.social/accounts/avatars/000/487/130/original/fc5f9755bb3183a4.png"
+    }
+  ]
+}
