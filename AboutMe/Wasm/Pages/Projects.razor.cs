@@ -16,7 +16,7 @@ public partial class Projects
         {
             Name = "Sound Test",
             Description = "Messing around with the JavaScript tone APIs in Blazor",
-            WebUrl = "https://polite-wave-0e108230f.azurestaticapps.net/",
+            WebUrl = "https://codemonkey85.github.io/SoundTest/",
             GitHubUrl = "https://github.com/codemonkey85/SoundTest",
             Screenshots = [],
         }, // Sound Test
@@ -32,7 +32,7 @@ public partial class Projects
         {
             Name = "Four Is The Magic Number!",
             Description = "A neat party trick, built with Blazor",
-            WebUrl = "https://black-sea-00acdf50f.azurestaticapps.net/",
+            WebUrl = "https://codemonkey85.github.io/FourMagicNumberGame/",
             GitHubUrl = "https://github.com/codemonkey85/FourMagicNumberGame",
             Screenshots = [],
         }, // Four Is The Magic Number!
