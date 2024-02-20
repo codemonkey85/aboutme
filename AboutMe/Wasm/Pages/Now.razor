@@ -5,5 +5,27 @@
 </PageTitle>
 
 <MudText Typo="@Typo.h3">
-    Now
+    What I'm Doing Now
 </MudText>
+
+@if (NowThings is { Count: > 0 })
+{
+    <MudStack Spacing="3"
+              Class="mb-3">
+        @foreach (var nowThing in NowThings)
+        {
+            <MudCard>
+                <MudCardHeader>
+                    <MudText Typo="@Typo.h5">
+                        @nowThing.Title
+                    </MudText>
+                </MudCardHeader>
+                <MudCardContent>
+                    <MudText Typo="@Typo.body1">
+                        @nowThing.Description
+                    </MudText>
+                </MudCardContent>
+            </MudCard>
+        }
+    </MudStack>
+}
