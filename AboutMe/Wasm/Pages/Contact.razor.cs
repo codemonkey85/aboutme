@@ -69,7 +69,7 @@ public partial class Contact
             Name = "X (Formerly Twitter)",
             Url = "https://twitter.com/codemonkey85",
             Title = "codemonkey85 on X (Formerly Twitter)",
-            Icon = Icons.Custom.Brands.Twitter,
+            Icon = Icons.Custom.Brands.X,
         },
         new()
         {
