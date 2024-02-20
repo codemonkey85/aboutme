@@ -26,13 +26,13 @@
                     </MudText>
                 </MudCardContent>
                 <MudCardActions Class="d-flex gap-4">
-                    @if (nowThing.Link is { Length: > 0 })
+                    @if (nowThing.Url is { Length: > 0 })
                     {
                         <MudButton StartIcon="@Icons.Material.Filled.OpenInBrowser"
                                    Variant="Variant.Filled"
                                    Color="Color.Primary"
                                    title="@($"'{@nowThing.Title}' on the web")"
-                                   Href="@nowThing.Link"
+                                   Href="@nowThing.Url"
                                    Target="_blank">
                             Open
                         </MudButton>

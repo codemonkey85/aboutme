@@ -11,6 +11,6 @@ public partial class Now
 
         public string Description { get; set; }
 
-        public string? Link { get; set; }
+        public string? Url { get; set; }
     }
 }
