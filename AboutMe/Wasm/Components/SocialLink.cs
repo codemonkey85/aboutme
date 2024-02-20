@@ -1,7 +1,11 @@
 ﻿namespace AboutMe.Wasm.Components;
 
-public class SocialLink
+public struct SocialLink
 {
+    public SocialLink()
+    {
+    }
+
     public string? Name { get; set; }
 
     public string? Url { get; set; }

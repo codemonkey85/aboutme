@@ -62,7 +62,7 @@ public partial class Projects
         }, // Minecraft Command Builder
     ];
 
-    private class Project
+    private struct Project
     {
         public required string Name { get; set; }
 
@@ -72,10 +72,10 @@ public partial class Projects
 
         public string? GitHubUrl { get; set; }
 
-        public List<ProductImage> Screenshots { get; set; } = [];
+        public List<ProductImage> Screenshots { get; set; }
     }
 
-    private class ProductImage
+    private struct ProductImage
     {
         public required string Url { get; set; }
 

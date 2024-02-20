@@ -1,11 +1,8 @@
-﻿@if (SocialLink is not null)
-{
-    @SocialLinkFragment(SocialLink)
-}
+﻿@SocialLinkFragment(SocialLink)
 
 @code {
     [Parameter, EditorRequired]
-    public SocialLink? SocialLink { get; set; }
+    public SocialLink SocialLink { get; set; }
 
     private static RenderFragment SocialLinkFragment(SocialLink contactUrl) =>
     @<MudCard>

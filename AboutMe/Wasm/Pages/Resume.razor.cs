@@ -17,7 +17,7 @@ public partial class Resume
 
     private void ClearSelectedSkills() => SelectedSkills.Clear();
 
-    private readonly ResumeModel? resumeModel = new()
+    private readonly ResumeModel resumeModel = new()
     {
         Name = "Michael Bond",
         Email = "michael@bondcodes.com",
@@ -297,7 +297,7 @@ public partial class Resume
         ],
     };
 
-    private class ResumeModel
+    private struct ResumeModel
     {
         public required string Name { get; set; }
 
@@ -305,9 +305,9 @@ public partial class Resume
 
         public required string Summary { get; set; }
 
-        public required List<Skill> Skills { get; set; } = [];
+        public required List<Skill> Skills { get; set; }
 
-        public required List<Job> Jobs { get; set; } = [];
+        public required List<Job> Jobs { get; set; }
     }
 
     private struct Skill
@@ -317,7 +317,7 @@ public partial class Resume
         public string? Description { get; set; }
     }
 
-    private class Job
+    private struct Job
     {
         public string? Email { get; set; }
 
@@ -335,14 +335,14 @@ public partial class Resume
 
         public DateTime? EndDate { get; set; }
 
-        public List<Skill> SkillsUsed { get; set; } = [];
+        public List<Skill> SkillsUsed { get; set; }
 
-        public required List<Duty> Duties { get; set; } = [];
+        public required List<Duty> Duties { get; set; }
 
         public bool PresentlyEmployed { get; set; }
     }
 
-    private class Duty
+    private struct Duty
     {
         public required string Description { get; set; }
     }
