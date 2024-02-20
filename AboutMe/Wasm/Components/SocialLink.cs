@@ -1,4 +1,4 @@
-﻿namespace AboutMe.Wasm;
+﻿namespace AboutMe.Wasm.Components;
 
 public class SocialLink
 {
