@@ -8,7 +8,7 @@ public partial class Projects
         {
             Name = "PKMDS Blazor",
             Description = "A port of PKHeX for web, built wih Blazor",
-            WebUrl = "https://www.pkmds.app/",
+            Url = "https://www.pkmds.app/",
             GitHubUrl = "https://github.com/codemonkey85/PKMDS-Blazor",
             Screenshots = [],
         }, // PKMDS Blazor
@@ -16,7 +16,7 @@ public partial class Projects
         {
             Name = "Sound Test",
             Description = "Messing around with the JavaScript tone APIs in Blazor",
-            WebUrl = "https://codemonkey85.github.io/SoundTest/",
+            Url = "https://codemonkey85.github.io/SoundTest/",
             GitHubUrl = "https://github.com/codemonkey85/SoundTest",
             Screenshots = [],
         }, // Sound Test
@@ -24,7 +24,7 @@ public partial class Projects
         {
             Name = "Tic Tac Toe Blazor",
             Description = "A Tic Tac Toe game for web, built with Blazor",
-            WebUrl = "https://codemonkey85.github.io/TicTacToeBlazor/",
+            Url = "https://codemonkey85.github.io/TicTacToeBlazor/",
             GitHubUrl = "https://github.com/codemonkey85/TicTacToeBlazor",
             Screenshots = [],
         }, // Tic Tac Toe Blazor
@@ -32,7 +32,7 @@ public partial class Projects
         {
             Name = "Four Is The Magic Number!",
             Description = "A neat party trick, built with Blazor",
-            WebUrl = "https://codemonkey85.github.io/FourMagicNumberGame/",
+            Url = "https://codemonkey85.github.io/FourMagicNumberGame/",
             GitHubUrl = "https://github.com/codemonkey85/FourMagicNumberGame",
             Screenshots = [],
         }, // Four Is The Magic Number!
@@ -40,7 +40,7 @@ public partial class Projects
         {
             Name = "Barcode Helper",
             Description = "Solve the missing digit in a UPC-12",
-            WebUrl = "https://codemonkey85.github.io/BarcodeHelper/",
+            Url = "https://codemonkey85.github.io/BarcodeHelper/",
             GitHubUrl = "https://github.com/codemonkey85/BarcodeHelper",
             Screenshots = [],
         }, // Barcode Helper
@@ -48,7 +48,7 @@ public partial class Projects
         {
             Name = "Tired Doctor Manhattan",
             Description = "Doctor Manhattan is tired of stuff",
-            WebUrl = "https://codemonkey85.github.io/TiredDoctorManhattan/",
+            Url = "https://codemonkey85.github.io/TiredDoctorManhattan/",
             GitHubUrl = "https://github.com/codemonkey85/TiredDoctorManhattan",
             Screenshots = [],
         }, // Tired Doctor Manhattan
@@ -56,7 +56,7 @@ public partial class Projects
         {
             Name = "Minecraft Command Builder",
             Description = "A tool to help build Minecraft commands",
-            WebUrl = "https://codemonkey85.github.io/MinecraftCommandBuilder/",
+            Url = "https://codemonkey85.github.io/MinecraftCommandBuilder/",
             GitHubUrl = "https://github.com/codemonkey85/MinecraftCommandBuilder",
             Screenshots = [],
         }, // Minecraft Command Builder
@@ -68,7 +68,7 @@ public partial class Projects
 
         public string? Description { get; set; }
 
-        public string? WebUrl { get; set; }
+        public string? Url { get; set; }
 
         public string? GitHubUrl { get; set; }
 
