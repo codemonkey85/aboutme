@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "AboutMe.Wasm",
   "resources": {
-    "hash": "sha256-8QwEtKzYU7fEtUHJNRCMHKmUCxtNLWniCId4L1ZCoUQ=",
+    "hash": "sha256-fKD5I2v86nFg8fzNgW4YVdsoOQWqe7nVdpMbceKeFCs=",
     "jsModuleNative": {
       "dotnet.native.8.0.2.g491b6lkp1.js": "sha256-MS1BleyZ6qEUIQ/AZGuKvvrDlI16truq1Zux4J7In2Y="
     },
@@ -9,7 +9,7 @@
       "dotnet.runtime.8.0.2.xpxg2k6ml2.js": "sha256-54KSaoOArNfygQbV+r4B5y3ys53v2tnvFIyZcZiUmi0="
     },
     "wasmNative": {
-      "dotnet.native.wasm": "sha256-PZuFNfNYSD3xo1z6l+KHBe94C93cBcYlsczzsuvaLMk="
+      "dotnet.native.wasm": "sha256-5LGBKCY37cSg5p6trApcqzXhpdCNBzWvWjO/ZTQKfNs="
     },
     "icu": {
       "icudt_CJK.dat": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
@@ -17,7 +17,7 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "AboutMe.Wasm.wasm": "sha256-yf+1OsI5KhNxfYi/Z3SWw0Ziayd8nngsjNi3EkLTr4I=",
+      "AboutMe.Wasm.wasm": "sha256-a6vdAx1P7VZCTczrGBHcpTpq6RxXf0uDJt+alX8kH7o=",
       "Microsoft.AspNetCore.Components.Forms.wasm": "sha256-HmzLzLW/wNN6dzLwpIQO++L72TzDel867f4sbij3BIU=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-WWqa+WSwWS2N0mX+0t7Ac1F5y/hj+guM3BY5x8p782k=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-tHc7Atg0Pfp1Q+lFfCDVQOlURPTljVH/Fox3gAKmXEE=",
@@ -46,11 +46,11 @@
       "System.Linq.wasm": "sha256-7MLdZvDO6g3k5rRD2tykwUWcXQuBrPXWQG+zA9PhqXs=",
       "System.Memory.wasm": "sha256-+LHgMdWYaSoLa2U4rqnKWCc2mA++RxYgAaUvntjjejY=",
       "System.ObjectModel.wasm": "sha256-CKu8PgnwDRVrz7Jm9HpYaG/Queu6TjomBkbqS1JtdMA=",
-      "System.Private.CoreLib.wasm": "sha256-3Pqn3IbSfixuSWihOiw5GhZChpdrAt9WbXEMAXzobrc=",
+      "System.Private.CoreLib.wasm": "sha256-kD5rD7eZIGgmcyqkCcyDOx2+qmFeNFoWgY+KDKuu3Mc=",
       "System.Private.Uri.wasm": "sha256-1gpO4/5QdSVLor58lrbx3Ke1peAUwDEP98Rv6uf1Jxs=",
       "System.Runtime.InteropServices.JavaScript.wasm": "sha256-T2K6ERDBbMcqpAsu8oflYpcGJKbPM0Cq0I1c9Z+WaPs=",
       "System.Runtime.InteropServices.wasm": "sha256-GQ08SCun/u+NbwHfdQe+DAHnLngRG2p++nnlFLx5QQQ=",
-      "System.Runtime.wasm": "sha256-5KTSnbxizeqSjf9C4WnOIeB5ENV30tjOQSllI5T4VGU=",
+      "System.Runtime.wasm": "sha256-bWJC6MkofAX9n0zsgT8O/M9eLU9LYH1iyWr7ac4KKlo=",
       "System.Text.Encodings.Web.wasm": "sha256-NHHyiTHMrh6yP9JurgfLbfTgeFs5FWfaLiKJ1flipkI=",
       "System.Text.Json.wasm": "sha256-8R9/Q+TxMABuSB0JCvDBdBkfBko/Cibb7+8ZxRDuyDM=",
       "System.Text.RegularExpressions.wasm": "sha256-g37JZZGWS6LK/Dhde0aHkzXKMxE/xwZwC2Ci4rgcwFc="
