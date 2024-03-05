@@ -1,26 +1,48 @@
-﻿@SocialLinkFragment(SocialLink)
+﻿@SocialLinkFragment(SocialLink, CompactMode, NameOverride, TitleOverride)
 
 @code {
     [Parameter, EditorRequired]
     public SocialLink SocialLink { get; set; }
 
-    private static RenderFragment SocialLinkFragment(SocialLink contactUrl) =>
+    [Parameter]
+    public bool CompactMode { get; set; }
+
+    [Parameter]
+    public string? NameOverride { get; set; } = null;
+
+    [Parameter]
+    public string? TitleOverride { get; set; } = null;
+
+    private static RenderFragment SocialLinkFragmentExpanded(SocialLink socialLink, string? nameOverride = null, string? titleOverride = null) =>
     @<MudCard>
         <MudCardHeader>
             <MudText Typo="@Typo.h5">
-                @contactUrl.Name
+                @(nameOverride ?? socialLink.Name)
             </MudText>
         </MudCardHeader>
         <MudCardActions Class="d-flex gap-4">
-            <MudButton StartIcon="@contactUrl.Icon"
+            <MudButton Href="@socialLink.Url"
+                       Target="_blank"
+                       title="@(titleOverride ?? socialLink.Title)"
                        Variant="Variant.Filled"
                        Color="Color.Primary"
-                       title="@contactUrl.Title"
-                       Href="@contactUrl.Url"
-                       Target="_blank">
+                       StartIcon="@socialLink.Icon">
                 Open
             </MudButton>
         </MudCardActions>
     </MudCard>
+        ;
+
+    private static RenderFragment SocialLinkFragmentCompact(SocialLink socialLink, string? nameOverride = null, string? titleOverride = null) =>
+    @<MudText Typo="@Typo.body1">
+        <MudButton Href="@socialLink.Url"
+                   Target="_blank"
+                   title="@(titleOverride ?? socialLink.Title)"
+                   Variant="@Variant.Filled"
+                   Color="@Color.Primary"
+                   EndIcon="@socialLink.Icon">
+            @(nameOverride ?? socialLink.Name)
+        </MudButton>
+    </MudText>
 ;
 }

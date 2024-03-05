@@ -20,15 +20,12 @@
     @resumeModel.Email
 </MudLink>
 
-<MudText Typo="@Typo.body1">
-    <MudButton Href="https://github.com/codemonkey85/"
-               Target="_blank"
-               Variant="@Variant.Filled"
-               Color="@Color.Primary"
-               EndIcon="@Icons.Custom.Brands.GitHub">
-        Follow me on GitHub
-    </MudButton>
-</MudText>
+<div class="my-3">
+    <SocialLinkComponent SocialLink="@SocialLink.MyGitHub"
+                         CompactMode="@true"
+                         NameOverride="Follow me on GitHub"
+                         TitleOverride="Follow me on GitHub" />
+</div>
 
 <MudDivider DividerType="@DividerType.FullWidth"
             Class="my-2" />

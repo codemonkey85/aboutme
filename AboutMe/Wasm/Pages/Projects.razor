@@ -8,13 +8,12 @@
     My Projects
 </MudText>
 
-<MudText Typo="@Typo.subtitle1">
-    <MudLink Href="https://www.github.com/codemonkey85/"
-             Target="_blank"
-             title="Michael Bond's GitHub">
-        Find more on my GitHub!
-    </MudLink>
-</MudText>
+<div class="my-3">
+    <SocialLinkComponent SocialLink="@SocialLink.MyGitHub"
+                         CompactMode="@true"
+                         NameOverride="Find more on my GitHub!"
+                         TitleOverride="Find more on my GitHub!" />
+</div>
 
 <MudGrid Class="mb-3"
          Spacing="1">

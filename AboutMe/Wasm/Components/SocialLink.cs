@@ -21,4 +21,12 @@ public struct SocialLink
         Title = "Email me",
         Icon = Icons.Material.Filled.Email,
     };
+
+    public static SocialLink MyGitHub { get; } = new()
+    {
+        Name = "Michael Bond on GitHub",
+        Url = Constants.MyGitHubBaseUrl,
+        Title = "Michael Bond on GitHub",
+        Icon = Icons.Custom.Brands.GitHub,
+    };
 }
