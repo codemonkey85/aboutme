@@ -18,7 +18,7 @@ public partial class Projects
         {
             Name = "Sound Test",
             Description = "Messing around with the JavaScript tone APIs in Blazor",
-            Url = $"{GitHubPagesBaseUrl}SoundTest/",
+            Url = $"{GitHubPagesBaseUrl}/SoundTest/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/SoundTest",
             Screenshots = [],
         }, // Sound Test
@@ -26,7 +26,7 @@ public partial class Projects
         {
             Name = "Tic Tac Toe Blazor",
             Description = "A Tic Tac Toe game for web, built with Blazor",
-            Url = $"{GitHubPagesBaseUrl}TicTacToeBlazor/",
+            Url = $"{GitHubPagesBaseUrl}/TicTacToeBlazor/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/TicTacToeBlazor",
             Screenshots = [],
         }, // Tic Tac Toe Blazor
@@ -34,7 +34,7 @@ public partial class Projects
         {
             Name = "Four Is The Magic Number!",
             Description = "A neat party trick, built with Blazor",
-            Url = $"{GitHubPagesBaseUrl}FourMagicNumberGame/",
+            Url = $"{GitHubPagesBaseUrl}/FourMagicNumberGame/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/FourMagicNumberGame",
             Screenshots = [],
         }, // Four Is The Magic Number!
@@ -42,7 +42,7 @@ public partial class Projects
         {
             Name = "Barcode Helper",
             Description = "Solve the missing digit in a UPC-12",
-            Url = $"{GitHubPagesBaseUrl}BarcodeHelper/",
+            Url = $"{GitHubPagesBaseUrl}/BarcodeHelper/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/BarcodeHelper",
             Screenshots = [],
         }, // Barcode Helper
@@ -50,7 +50,7 @@ public partial class Projects
         {
             Name = "Tired Doctor Manhattan",
             Description = "Doctor Manhattan is tired of stuff",
-            Url = $"{GitHubPagesBaseUrl}TiredDoctorManhattan/",
+            Url = $"{GitHubPagesBaseUrl}/TiredDoctorManhattan/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/TiredDoctorManhattan",
             Screenshots = [],
         }, // Tired Doctor Manhattan
@@ -58,7 +58,7 @@ public partial class Projects
         {
             Name = "Minecraft Command Builder",
             Description = "A tool to help build Minecraft commands",
-            Url = $"{GitHubPagesBaseUrl}MinecraftCommandBuilder/",
+            Url = $"{GitHubPagesBaseUrl}/MinecraftCommandBuilder/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/MinecraftCommandBuilder",
             Screenshots = [],
         }, // Minecraft Command Builder
