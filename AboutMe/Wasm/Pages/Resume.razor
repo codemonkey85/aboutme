@@ -44,7 +44,7 @@
                            Color="@Color.Default"
                            Size="@Size.Small"
                            Icon="@Icons.Material.Filled.Clear"
-                           Title="Clear Selection" />
+                           title="Clear Selection" />
         }
     </MudStack>
     @SkillsFragment(resumeModel.Skills)
@@ -123,7 +123,8 @@
         @foreach (var skill in skills.OrderBy(skill => skill.Name))
     {
         <MudItem>
-            <MudChip title="@skill.Name"
+            <MudChip T="string"
+                     title="@skill.Name"
                      OnClick="@(() => OnSelectSkill(skill))"
                      Color="@GetSkillColor(skill)">
                 @skill.Name
