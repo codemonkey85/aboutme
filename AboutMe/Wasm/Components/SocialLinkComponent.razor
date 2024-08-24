@@ -8,10 +8,10 @@
     public bool CompactMode { get; set; }
 
     [Parameter]
-    public string? NameOverride { get; set; } = null;
+    public string? NameOverride { get; set; }
 
     [Parameter]
-    public string? TitleOverride { get; set; } = null;
+    public string? TitleOverride { get; set; }
 
     private static RenderFragment SocialLinkFragmentExpanded(SocialLink socialLink, string? nameOverride = null, string? titleOverride = null) =>
     @<MudCard>

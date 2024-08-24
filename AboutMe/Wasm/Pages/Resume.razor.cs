@@ -2,7 +2,7 @@ namespace AboutMe.Wasm.Pages;
 
 public partial class Resume
 {
-    private List<Skill> SelectedSkills { get; set; } = [];
+    private List<Skill> SelectedSkills { get; } = [];
 
     private void OnSelectSkill(Skill skill)
     {
@@ -22,7 +22,7 @@ public partial class Resume
         Name = "Michael Bond",
         Email = "michael@bondcodes.com",
         Summary = "Web / Windows / C# / ASP / .NET Developer",
-        Skills =
+        ResumeSkills =
         [
             Skills.DotNetCore,
             Skills.VisualStudio,
@@ -299,20 +299,20 @@ public partial class Resume
 
     private struct ResumeModel
     {
-        public required string Name { get; set; }
+        public required string Name { get; init; }
 
-        public required string Email { get; set; }
+        public required string Email { get; init; }
 
-        public required string Summary { get; set; }
+        public required string Summary { get; init; }
 
-        public required List<Skill> Skills { get; set; }
+        public required List<Skill> ResumeSkills { get; init; }
 
-        public required List<Job> Jobs { get; set; }
+        public required List<Job> Jobs { get; init; }
     }
 
-    private struct Skill
+    private record struct Skill
     {
-        public required string Name { get; set; }
+        public required string Name { get; init; }
 
         public string? Description { get; set; }
     }
@@ -325,127 +325,127 @@ public partial class Resume
 
         public string? Address { get; set; }
 
-        public required string Summary { get; set; }
+        public required string Summary { get; init; }
 
-        public required string Title { get; set; }
+        public required string Title { get; init; }
 
-        public required string Company { get; set; }
+        public required string Company { get; init; }
 
-        public required DateTime StartDate { get; set; }
+        public required DateTime StartDate { get; init; }
 
-        public DateTime? EndDate { get; set; }
+        public DateTime? EndDate { get; init; }
 
-        public List<Skill> SkillsUsed { get; set; }
+        public List<Skill> SkillsUsed { get; init; }
 
-        public required List<Duty> Duties { get; set; }
+        public required List<Duty> Duties { get; init; }
 
-        public bool PresentlyEmployed { get; set; }
+        public bool PresentlyEmployed { get; init; }
     }
 
     private struct Duty
     {
-        public required string Description { get; set; }
+        public required string Description { get; init; }
     }
 
     private static class Skills
     {
-        public static Skill DotNetCore = new()
+        public static readonly Skill DotNetCore = new()
         {
             Name = ".NET Core",
             Description = string.Empty,
         };
 
-        public static Skill VisualStudio = new()
+        public static readonly Skill VisualStudio = new()
         {
             Name = "Visual Studio",
             Description = string.Empty,
         };
 
-        public static Skill AspNet = new()
+        public static readonly Skill AspNet = new()
         {
             Name = "ASP.Net",
             Description = string.Empty,
         };
 
-        public static Skill Blazor = new()
+        public static readonly Skill Blazor = new()
         {
             Name = "Blazor",
             Description = string.Empty,
         };
 
-        public static Skill MudBlazor = new()
+        public static readonly Skill MudBlazor = new()
         {
             Name = "MudBlazor",
             Description = string.Empty,
         };
 
-        public static Skill DotNetMaui = new()
+        public static readonly Skill DotNetMaui = new()
         {
             Name = ".NET MAUI",
             Description = string.Empty,
         };
 
-        public static Skill MsSqlServer = new()
+        public static readonly Skill MsSqlServer = new()
         {
             Name = "MS SQL Server",
             Description = string.Empty,
         };
 
-        public static Skill Sql = new()
+        public static readonly Skill Sql = new()
         {
             Name = "SQL",
             Description = string.Empty,
         };
 
-        public static Skill Html = new()
+        public static readonly Skill Html = new()
         {
             Name = "HTML",
             Description = string.Empty,
         };
 
-        public static Skill Css = new()
+        public static readonly Skill Css = new()
         {
             Name = "CSS",
             Description = string.Empty,
         };
 
-        public static Skill JavaScript = new()
+        public static readonly Skill JavaScript = new()
         {
             Name = "JavaScript",
             Description = string.Empty,
         };
 
-        public static Skill Git = new()
+        public static readonly Skill Git = new()
         {
             Name = "Git",
             Description = string.Empty,
         };
 
-        public static Skill AzureDevOps = new()
+        public static readonly Skill AzureDevOps = new()
         {
             Name = "Azure DevOps",
             Description = string.Empty,
         };
 
-        public static Skill TelerikBlazor = new()
+        public static readonly Skill TelerikBlazor = new()
         {
             Name = "Telerik Blazor",
             Description = string.Empty,
         };
 
-        public static Skill DotNetFramework = new()
+        public static readonly Skill DotNetFramework = new()
         {
             Name = ".NET Framework",
             Description = string.Empty,
         };
 
-        public static Skill WindowsForms = new()
+        public static readonly Skill WindowsForms = new()
         {
             Name = "Windows Forms",
             Description = string.Empty,
         };
 
-        public static Skill TailwindCss = new()
+        public static readonly Skill TailwindCss = new()
         {
             Name = "Tailwind CSS",
             Description = string.Empty,

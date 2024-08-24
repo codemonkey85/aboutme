@@ -6,7 +6,7 @@ public partial class Projects
 
     private List<Project> ProjectsList { get; set; } =
     [
-        new()
+        new Project
         {
             Name = "PKMDS Blazor",
             Description = "A port of PKHeX for web, built wih Blazor",
@@ -14,7 +14,7 @@ public partial class Projects
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/PKMDS-Blazor",
             Screenshots = [],
         }, // PKMDS Blazor
-        new()
+        new Project
         {
             Name = "Sound Test",
             Description = "Messing around with the JavaScript tone APIs in Blazor",
@@ -22,7 +22,7 @@ public partial class Projects
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/SoundTest",
             Screenshots = [],
         }, // Sound Test
-        new()
+        new Project
         {
             Name = "Tic Tac Toe Blazor",
             Description = "A Tic Tac Toe game for web, built with Blazor",
@@ -30,7 +30,7 @@ public partial class Projects
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/TicTacToeBlazor",
             Screenshots = [],
         }, // Tic Tac Toe Blazor
-        new()
+        new Project
         {
             Name = "Four Is The Magic Number!",
             Description = "A neat party trick, built with Blazor",
@@ -38,7 +38,7 @@ public partial class Projects
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/FourMagicNumberGame",
             Screenshots = [],
         }, // Four Is The Magic Number!
-        new()
+        new Project
         {
             Name = "Barcode Helper",
             Description = "Solve the missing digit in a UPC-12",
@@ -46,7 +46,7 @@ public partial class Projects
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/BarcodeHelper",
             Screenshots = [],
         }, // Barcode Helper
-        new()
+        new Project
         {
             Name = "Tired Doctor Manhattan",
             Description = "Doctor Manhattan is tired of stuff",
@@ -54,7 +54,7 @@ public partial class Projects
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/TiredDoctorManhattan",
             Screenshots = [],
         }, // Tired Doctor Manhattan
-        new()
+        new Project
         {
             Name = "Minecraft Command Builder",
             Description = "A tool to help build Minecraft commands",
@@ -66,15 +66,15 @@ public partial class Projects
 
     private struct Project
     {
-        public required string Name { get; set; }
+        public required string Name { get; init; }
 
-        public string? Description { get; set; }
+        public string? Description { get; init; }
 
-        public string? Url { get; set; }
+        public string? Url { get; init; }
 
-        public string? GitHubUrl { get; set; }
+        public string? GitHubUrl { get; init; }
 
-        public List<ProductImage> Screenshots { get; set; }
+        public List<ProductImage> Screenshots { get; init; }
     }
 
     private struct ProductImage

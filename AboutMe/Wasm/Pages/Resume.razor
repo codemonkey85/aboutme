@@ -30,7 +30,7 @@
 <MudDivider DividerType="@DividerType.FullWidth"
             Class="my-2" />
 
-@if (resumeModel.Skills is { Count: > 0 })
+@if (resumeModel.ResumeSkills is { Count: > 0 })
 {
     <MudStack Row="@true">
         <MudText Typo="@Typo.h5"
@@ -47,7 +47,7 @@
                            title="Clear Selection" />
         }
     </MudStack>
-    @SkillsFragment(resumeModel.Skills)
+    @SkillsFragment(resumeModel.ResumeSkills)
 }
 
 @if (resumeModel.Jobs is { Count: > 0 })

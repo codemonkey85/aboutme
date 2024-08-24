@@ -2,9 +2,9 @@ namespace AboutMe.Wasm.Pages;
 
 public partial class Now
 {
-    private List<NowThing> NowThings { get; set; } =
+    private List<NowThing> NowThings { get; } =
     [
-        new()
+        new NowThing
         {
             Title = "Working on",
             Description = "This site",
@@ -14,10 +14,10 @@ public partial class Now
 
     private struct NowThing
     {
-        public string Title { get; set; }
+        public string Title { get; init; }
 
-        public string Description { get; set; }
+        public string Description { get; init; }
 
-        public string? Url { get; set; }
+        public string? Url { get; init; }
     }
 }

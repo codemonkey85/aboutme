@@ -6,13 +6,13 @@ public struct SocialLink
     {
     }
 
-    public string? Name { get; set; }
+    public string? Name { get; init; }
 
-    public string? Url { get; set; }
+    public string? Url { get; init; }
 
-    public string? Title { get; set; }
+    public string? Title { get; init; }
 
-    public string Icon { get; set; } = Icons.Material.Filled.OpenInBrowser;
+    public string Icon { get; init; } = Icons.Material.Filled.OpenInBrowser;
 
     public static SocialLink EmailMe { get; } = new()
     {

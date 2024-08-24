@@ -4,7 +4,7 @@ public partial class MainLayout
 {
     private const string AppTitle = "Michael Bond";
 
-    protected bool drawerOpen = true;
+    private bool drawerOpen = true;
     private bool isDarkMode;
     private MudThemeProvider? mudThemeProvider;
 
