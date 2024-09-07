@@ -86,12 +86,5 @@ public partial class Contact
             Title = "Michael Bond on Signal",
             Icon = SignalSvg,
         },
-        new()
-        {
-            Name = "Telegram",
-            Url = "https://t.me/codemonkey85",
-            Title = "Michael Bond on Telegram",
-            Icon = Icons.Custom.Brands.Telegram,
-        },
     ];
 }
