@@ -67,13 +67,6 @@ public partial class Contact
         },
         new()
         {
-            Name = "X (Formerly Twitter)",
-            Url = "https://twitter.com/codemonkey85",
-            Title = "Michael Bond on X (Formerly Twitter)",
-            Icon = Icons.Custom.Brands.X,
-        },
-        new()
-        {
             Name = "Bluesky",
             Url = "https://bsky.app/profile/codemonkey85.bsky.social",
             Title = "Michael Bond on BlueSky",
