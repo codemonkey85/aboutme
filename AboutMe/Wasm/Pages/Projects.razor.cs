@@ -8,7 +8,7 @@ public partial class Projects
     [
         new Project
         {
-            Name = "PKMDS Blazor",
+            Name = "PKMDS for Web",
             Description = "A port of PKHeX for web, built wih Blazor",
             Url = "https://www.pkmds.app/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/PKMDS-Blazor",
@@ -64,7 +64,7 @@ public partial class Projects
         }, // Minecraft Command Builder
     ];
 
-    private struct Project
+    private readonly struct Project
     {
         public required string Name { get; init; }
 
@@ -77,10 +77,10 @@ public partial class Projects
         public List<ProductImage> Screenshots { get; init; }
     }
 
-    private struct ProductImage
+    private readonly struct ProductImage
     {
-        public required string Url { get; set; }
+        public required string Url { get; init; }
 
-        public required string Title { get; set; }
+        public required string Title { get; init; }
     }
 }

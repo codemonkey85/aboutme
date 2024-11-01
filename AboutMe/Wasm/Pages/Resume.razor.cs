@@ -297,7 +297,7 @@ public partial class Resume
         ],
     };
 
-    private struct ResumeModel
+    private readonly struct ResumeModel
     {
         public required string Name { get; init; }
 
@@ -310,20 +310,20 @@ public partial class Resume
         public required List<Job> Jobs { get; init; }
     }
 
-    private record struct Skill
+    private readonly struct Skill
     {
         public required string Name { get; init; }
 
-        public string? Description { get; set; }
+        public string? Description { get; init; }
     }
 
-    private struct Job
+    private readonly struct Job
     {
-        public string? Email { get; set; }
+        public string? Email { get; init; }
 
-        public string? Phone { get; set; }
+        public string? Phone { get; init; }
 
-        public string? Address { get; set; }
+        public string? Address { get; init; }
 
         public required string Summary { get; init; }
 
@@ -342,7 +342,7 @@ public partial class Resume
         public bool PresentlyEmployed { get; init; }
     }
 
-    private struct Duty
+    private readonly struct Duty
     {
         public required string Description { get; init; }
     }

@@ -1,6 +1,6 @@
 ﻿namespace AboutMe.Wasm.Components;
 
-public struct SocialLink
+public readonly struct SocialLink
 {
     public SocialLink()
     {
