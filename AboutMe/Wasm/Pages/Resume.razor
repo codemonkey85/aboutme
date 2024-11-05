@@ -22,7 +22,7 @@
 
 <div class="my-3">
     <SocialLinkComponent SocialLink="@SocialLink.MyGitHub"
-                         CompactMode="@true"
+                         CompactMode
                          NameOverride="Follow me on GitHub"
                          TitleOverride="Follow me on GitHub" />
 </div>
@@ -32,19 +32,21 @@
 
 @if (resumeModel.ResumeSkills is { Count: > 0 })
 {
-    <MudStack Row="@true">
+    <MudStack Row>
         <MudText Typo="@Typo.h5"
                  Class="mb-3">
             Skills
         </MudText>
         @if (SelectedSkills.Any())
         {
-            <MudIconButton OnClick="@ClearSelectedSkills"
-                           Variant="@Variant.Filled"
-                           Color="@Color.Default"
-                           Size="@Size.Small"
-                           Icon="@Icons.Material.Filled.Clear"
-                           title="Clear Selection" />
+            <MudButton OnClick="@ClearSelectedSkills"
+                       Variant="@Variant.Filled"
+                       Color="@Color.Default"
+                       Size="@Size.Small"
+                       StartIcon="@Icons.Material.Filled.Clear"
+                       title="Clear Selection">
+                Clear Selection
+            </MudButton>
         }
     </MudStack>
     @SkillsFragment(resumeModel.ResumeSkills)
@@ -123,7 +125,7 @@
         @foreach (var skill in skills.OrderBy(skill => skill.Name))
     {
         <MudItem>
-            <MudChip T="string"
+            <MudChip T="@string"
                      title="@skill.Name"
                      OnClick="@(() => OnSelectSkill(skill))"
                      Color="@GetSkillColor(skill)">

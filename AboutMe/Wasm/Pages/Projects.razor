@@ -10,7 +10,7 @@
 
 <div class="my-3">
     <SocialLinkComponent SocialLink="@SocialLink.MyGitHub"
-                         CompactMode="@true"
+                         CompactMode
                          NameOverride="Find more on my GitHub!"
                          TitleOverride="Find more on my GitHub!" />
 </div>
@@ -50,15 +50,15 @@
                 }
                 <MudCardActions Class="d-flex gap-4">
                     <MudButton StartIcon="@Icons.Material.Filled.OpenInBrowser"
-                               Variant="Variant.Filled"
-                               Color="Color.Primary"
+                               Variant="@Variant.Filled"
+                               Color="@Color.Primary"
                                title="@($"'{@project.Name}' on the web")"
                                Href="@project.Url"
                                Target="_blank">
                         Open
                     </MudButton>
                     <MudButton StartIcon="@Icons.Custom.Brands.GitHub"
-                               Variant="Variant.Filled"
+                               Variant="@Variant.Filled"
                                title="@($"'{@project.Name}' on GitHub")"
                                Href="@project.GitHubUrl"
                                Target="_blank">

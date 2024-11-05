@@ -2,7 +2,7 @@
 
 <MudThemeProvider @ref="@mudThemeProvider"
                   @bind-IsDarkMode="@isDarkMode" />
-<MudPopoverProvider/>
+<MudPopoverProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
 
@@ -12,19 +12,22 @@
                        Color="@Color.Inherit"
                        Edge="@Edge.Start"
                        OnClick="@DrawerToggle" />
-        <MudText Typo="@Typo.h4" class="d-none d-lg-flex">
+        <MudText Typo="@Typo.h4"
+                 class="d-none d-lg-flex">
             @AppTitle
         </MudText>
-        <MudText Typo="@Typo.h6" class="d-none d-md-flex d-lg-none">
+        <MudText Typo="@Typo.h6"
+                 class="d-none d-md-flex d-lg-none">
             @AppTitle
         </MudText>
-        <MudText Typo="@Typo.inherit" class="d-xs-flex d-md-none">
+        <MudText Typo="@Typo.inherit"
+                 class="d-xs-flex d-md-none">
             @AppTitle
         </MudText>
         <MudSpacer />
-        <MudStack Row="@true">
+        <MudStack Row>
             <MudSwitch @bind-Value="@isDarkMode"
-                       Color="Color.Primary"
+                       Color="@Color.Primary"
                        Label="@(isDarkMode ? "Dark" : "Light")" />
             <MudButton Class="d-none d-md-flex"
                        EndIcon="@Icons.Custom.Brands.GitHub"
@@ -62,7 +65,7 @@
         </MudContainer>
     </MudDrawer>
     <MudMainContent>
-        <MudContainer MaxWidth="MaxWidth.False">
+        <MudContainer MaxWidth="@MaxWidth.False">
             @Body
         </MudContainer>
     </MudMainContent>
