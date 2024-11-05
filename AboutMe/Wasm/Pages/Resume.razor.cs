@@ -345,6 +345,9 @@ public partial class Resume
             PresentlyEmployed || EndDate is null
                 ? (DateTime.Now - StartDate).Days / 365
                 : (EndDate.Value - StartDate).Days / 365;
+
+        public string DatesString =>
+            $"{StartDate:MMM yyyy} - {(EndDate is null ? "Present" : $"{EndDate:MMM yyyy}")} {(YearsAtJob > 0 ? $"({YearsAtJob} year{(YearsAtJob == 1 ? string.Empty : "s")})" : string.Empty)}";
     }
 
     private readonly struct Duty
