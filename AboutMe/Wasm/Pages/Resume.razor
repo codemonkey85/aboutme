@@ -34,7 +34,7 @@
 {
     <MudStack Row>
         <MudText Typo="@Typo.h5"
-                 Class="mb-3">
+                 Class="mb-1">
             Skills
         </MudText>
         @if (SelectedSkills.Any())
@@ -44,22 +44,27 @@
                        Color="@Color.Default"
                        Size="@Size.Small"
                        StartIcon="@Icons.Material.Filled.Clear"
+                       style="height: 30px;"
                        title="Clear Selection">
                 Clear Selection
             </MudButton>
         }
     </MudStack>
+    <MudAlert Severity="@Severity.Info"
+              Dense>
+        Click or tap a skill to filter.
+    </MudAlert>
     @SkillsFragment(resumeModel.ResumeSkills)
 }
 
 @if (resumeModel.Jobs is { Count: > 0 })
 {
     <MudText Typo="@Typo.h5"
-             Class="mb-3">
+             Class="mb-1">
         Experience
     </MudText>
     <MudStack Spacing="3"
-              Class="mb-3">
+              Class="mb-1">
         @foreach (var job in resumeModel.Jobs
        .Where(job => !SelectedSkills.Any() || SelectedSkills.All(job.SkillsUsed.Contains))
        .OrderByDescending(job => job.PresentlyEmployed)
@@ -83,7 +88,7 @@
                     @if (job.Summary is { Length: > 0 })
                     {
                         <MudText Typo="@Typo.body1"
-                                 Class="mb-3">
+                                 Class="mb-1">
                             @job.Summary
                         </MudText>
                     }
@@ -120,7 +125,7 @@
 
 @code {
     private RenderFragment SkillsFragment(IEnumerable<Skill> skills) =>
-    @<MudGrid Class="mb-3"
+    @<MudGrid Class="mb-1"
                   Spacing="0">
         @foreach (var skill in skills.OrderBy(skill => skill.Name))
     {
