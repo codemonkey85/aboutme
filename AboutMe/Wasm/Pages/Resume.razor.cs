@@ -340,6 +340,11 @@ public partial class Resume
         public required List<Duty> Duties { get; init; }
 
         public bool PresentlyEmployed { get; init; }
+
+        public int YearsAtJob =>
+            PresentlyEmployed || EndDate is null
+                ? (DateTime.Now - StartDate).Days / 365
+                : (EndDate.Value - StartDate).Days / 365;
     }
 
     private readonly struct Duty

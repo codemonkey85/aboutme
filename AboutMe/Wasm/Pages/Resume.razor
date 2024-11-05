@@ -73,7 +73,7 @@
                             @job.Company
                         </MudText>
                         <MudText Typo="@Typo.body2">
-                            @($"{job.StartDate:MMM yyyy} - {(job.EndDate is null ? "Present" : $"{job.EndDate:MMM yyyy}")}")
+                            @($"{job.StartDate:MMM yyyy} - {(job.EndDate is null ? "Present" : $"{job.EndDate:MMM yyyy}")} {(job.YearsAtJob > 0 ? $"({job.YearsAtJob} year{(job.YearsAtJob == 1 ? string.Empty : "s")})" : string.Empty)}")
                         </MudText>
                     </MudStack>
                 </MudCardHeader>
