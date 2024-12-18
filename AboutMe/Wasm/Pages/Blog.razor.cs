@@ -59,7 +59,7 @@ public class Item
     public string Id { get; set; } = "";
     [JsonPropertyName("title")]
     public string Title { get; set; } = "";
-    [JsonPropertyName("content_text")]
+    [JsonPropertyName("content_html")]
     public string ContentHtml { get; set; } = "";
     [JsonPropertyName("date_published")]
     public DateTime DatePublished { get; set; }
