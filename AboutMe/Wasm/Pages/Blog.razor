@@ -1,0 +1,15 @@
+﻿@page "/Blog"
+@inject HttpClient Http
+
+<h3>@feedTitle</h3>
+<ul>
+    @foreach (var post in posts)
+    {
+        <li>
+            <strong>@post.Title</strong><br/>
+            Date Published: @post.DatePublished.ToLocalTime().ToString("f")
+            <div>@(new MarkupString(post.ContentHtml))</div>
+            <a href="@post.Url" target="_blank">Read more</a>
+        </li>
+    }
+</ul>
