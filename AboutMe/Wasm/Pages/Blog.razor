@@ -4,28 +4,33 @@
     @FeedTitle
 </h3>
 
-<ul>
+<MudStack>
     @foreach (var post in Posts)
     {
-        <li>
-            
-            <strong>
-                @post.Title
-            </strong>
+        <MudCard>
 
-            <br/>
+            <MudCardHeader>
+                <MudStack>
+                    <MudText Typo="Typo.h6">
+                        @post.Title
+                    </MudText>
+                    <MudText Typo="Typo.subtitle2">
+                        Date Published: @post.DatePublished.ToLocalTime().ToString("f")
+                    </MudText>
+                </MudStack>
+            </MudCardHeader>
 
-            Date Published: @post.DatePublished.ToLocalTime().ToString("f")
-
-            <div>
+            <MudCardContent>
                 @(new MarkupString(post.ContentHtml))
-            </div>
+            </MudCardContent>
 
-            <a href="@post.Url"
-               target="_blank">
-                Read more
-            </a>
+            <MudCardActions>
+                <MudButton Href="@post.Url"
+                           Target="_blank">
+                    Read more
+                </MudButton>
+            </MudCardActions>
 
-        </li>
+        </MudCard>
     }
-</ul>
+</MudStack>
