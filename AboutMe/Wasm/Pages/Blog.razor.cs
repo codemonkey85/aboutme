@@ -1,28 +1,31 @@
-﻿using System.Text.Json;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace AboutMe.Wasm.Pages;
 
 // ReSharper disable once UnusedType.Global
-public partial class Blog
+public partial class Blog(HttpClient httpClient)
 {
-    private string feedTitle = string.Empty;
-    private List<Item> posts = [];
+    private string FeedTitle { get; set; } = string.Empty;
+
+    private List<Item> Posts { get; set; } = [];
+
+    private static readonly JsonSerializerOptions JsonSerializerOptions = new() { PropertyNameCaseInsensitive = true };
 
     protected override async Task OnInitializedAsync()
     {
+        const string feedUrl = "https://micro.bondcodes.com/feed.json";
         try
         {
-            const string feedUrl = "https://micro.bondcodes.com/feed.json";
-            var jsonResponse = await Http.GetStringAsync(feedUrl);
+            var jsonResponse = await httpClient.GetStringAsync(feedUrl);
 
-            var feed = JsonSerializer.Deserialize<Feed>(jsonResponse,
-                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            var feed = JsonSerializer.Deserialize<Feed>(jsonResponse, JsonSerializerOptions);
 
             if (feed != null)
             {
-                feedTitle = feed.Title;
-                posts = feed.Items.Take(10).ToList(); // Get the last 10 posts
+                FeedTitle = feed.Title;
+                Posts = feed.Items.Take(10).ToList(); // Get the last 10 posts
             }
         }
         catch (Exception ex)
@@ -35,34 +38,33 @@ public partial class Blog
 [JsonSerializable(typeof(Feed))]
 public class Feed
 {
-    [JsonPropertyName("version")]
-    public string Version { get; set; } = "";
-    [JsonPropertyName("title")]
-    public string Title { get; set; } = "";
-    [JsonPropertyName("icon")]
-    public string Icon { get; set; } = "";
-    [JsonPropertyName("home_page_url")]
-    public string HomePageUrl { get; set; } = "";
-    [JsonPropertyName("feed_url")]
-    public string FeedUrl { get; set; } = "";
+    [JsonPropertyName("version")] public string Version { get; init; } = string.Empty;
+
+    [JsonPropertyName("title")] public string Title { get; init; } = string.Empty;
+
+    [JsonPropertyName("icon")] public string Icon { get; init; } = string.Empty;
+
+    [JsonPropertyName("home_page_url")] public string HomePageUrl { get; init; } = string.Empty;
+
+    [JsonPropertyName("feed_url")] public string FeedUrl { get; init; } = string.Empty;
 
     // ReSharper disable once CollectionNeverUpdated.Global
-    [JsonPropertyName("items")]
-    public List<Item> Items { get; set; } = [];
+    [JsonPropertyName("items")] public List<Item> Items { get; init; } = [];
 }
 
 // ReSharper disable once ClassNeverInstantiated.Global
+[JsonSerializable(typeof(Item)), SuppressMessage("ReSharper", "AutoPropertyCanBeMadeGetOnly.Global")]
 public class Item
 {
     // ReSharper disable once UnusedMember.Global
-    [JsonPropertyName("id")]
-    public string Id { get; set; } = "";
-    [JsonPropertyName("title")]
-    public string Title { get; set; } = "";
-    [JsonPropertyName("content_html")]
-    public string ContentHtml { get; set; } = "";
-    [JsonPropertyName("date_published")]
-    public DateTime DatePublished { get; set; }
-    [JsonPropertyName("url")]
-    public string Url { get; set; } = "";
+    [JsonPropertyName("id")] public string Id { get; init; } = string.Empty;
+
+    [JsonPropertyName("title")] public string Title { get; init; } = string.Empty;
+
+    [JsonPropertyName("content_html")] public string ContentHtml { get; init; } = string.Empty;
+
+    // ReSharper disable once UnusedAutoPropertyAccessor.Global
+    [JsonPropertyName("date_published")] public DateTime DatePublished { get; init; }
+
+    [JsonPropertyName("url")] public string Url { get; init; } = string.Empty;
 }
