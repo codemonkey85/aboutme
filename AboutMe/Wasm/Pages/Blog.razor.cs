@@ -7,8 +7,6 @@ namespace AboutMe.Wasm.Pages;
 // ReSharper disable once UnusedType.Global
 public partial class Blog(HttpClient httpClient)
 {
-    private string FeedTitle { get; set; } = string.Empty;
-
     private List<Item> Posts { get; set; } = [];
 
     private static readonly JsonSerializerOptions JsonSerializerOptions = new() { PropertyNameCaseInsensitive = true };
@@ -24,7 +22,6 @@ public partial class Blog(HttpClient httpClient)
 
             if (feed != null)
             {
-                FeedTitle = feed.Title;
                 Posts = feed.Items.Take(10).ToList(); // Get the last 10 posts
             }
         }

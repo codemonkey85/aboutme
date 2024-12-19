@@ -1,14 +1,25 @@
 ﻿@page "/Blog"
 
-<h3>
-    @FeedTitle
-</h3>
+<PageTitle>
+    Michael Bond - Blog
+</PageTitle>
+
+<MudText Typo="@Typo.h3">
+    Blog
+</MudText>
+
+<MudText>
+    View more at
+    <MudLink Href="https://micro.bondcodes.com" Target="_blank">micro.bondcodes.com</MudLink>
+    (powered by
+    <MudLink Href="https://micro.blog/" Target="_blank">Micro.blog</MudLink>
+    )
+</MudText>
 
 <MudStack>
     @foreach (var post in Posts)
     {
         <MudCard>
-
             <MudCardHeader>
                 <MudStack>
                     <MudText Typo="Typo.h6">
@@ -19,18 +30,15 @@
                     </MudText>
                 </MudStack>
             </MudCardHeader>
-
             <MudCardContent>
                 @(new MarkupString(post.ContentHtml))
             </MudCardContent>
-
             <MudCardActions>
                 <MudButton Href="@post.Url"
                            Target="_blank">
                     Read more
                 </MudButton>
             </MudCardActions>
-
         </MudCard>
     }
 </MudStack>
