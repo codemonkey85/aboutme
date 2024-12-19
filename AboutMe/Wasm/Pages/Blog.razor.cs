@@ -11,6 +11,9 @@ public partial class Blog(HttpClient httpClient)
 
     private static readonly JsonSerializerOptions JsonSerializerOptions = new() { PropertyNameCaseInsensitive = true };
 
+    [StringSyntax(StringSyntaxAttribute.DateTimeFormat)]
+    private const string DateFormat = "ddd MMM dd yyyy hh:mm tt";
+    
     protected override async Task OnInitializedAsync()
     {
         const string feedUrl = "https://micro.bondcodes.com/feed.json";

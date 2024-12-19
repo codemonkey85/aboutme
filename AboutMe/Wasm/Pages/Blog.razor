@@ -10,9 +10,15 @@
 
 <MudText>
     View more at
-    <MudLink Href="https://micro.bondcodes.com" Target="_blank">micro.bondcodes.com</MudLink>
+    <MudLink Href="https://micro.bondcodes.com"
+             Target="_blank">
+        micro.bondcodes.com
+    </MudLink>
     (powered by
-    <MudLink Href="https://micro.blog/" Target="_blank">Micro.blog</MudLink>
+    <MudLink Href="https://micro.blog/"
+             Target="_blank">
+        Micro.blog
+    </MudLink>
     )
 </MudText>
 
@@ -21,23 +27,23 @@
     {
         <MudCard>
             <MudCardHeader>
-                <MudStack>
-                    <MudText Typo="Typo.h6">
+                <MudText Typo="Typo.h6">
+                    <a href="@post.Url"
+                       target="_blank">
                         @post.Title
-                    </MudText>
-                    <MudText Typo="Typo.subtitle2">
-                        Date Published: @post.DatePublished.ToLocalTime().ToString("f")
-                    </MudText>
-                </MudStack>
+                    </a>
+                </MudText>
             </MudCardHeader>
             <MudCardContent>
                 @(new MarkupString(post.ContentHtml))
             </MudCardContent>
             <MudCardActions>
-                <MudButton Href="@post.Url"
-                           Target="_blank">
-                    Read more
-                </MudButton>
+                <MudText Typo="Typo.subtitle2">
+                    <a href="@post.Url"
+                       target="_blank">
+                        @post.DatePublished.ToLocalTime().ToString(DateFormat)
+                    </a>
+                </MudText>
             </MudCardActions>
         </MudCard>
     }
