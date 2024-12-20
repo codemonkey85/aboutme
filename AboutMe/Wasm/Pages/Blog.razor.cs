@@ -35,7 +35,6 @@ public partial class Blog(HttpClient httpClient)
     }
 }
 
-[JsonSerializable(typeof(Feed))]
 public class Feed
 {
     [JsonPropertyName("version")] public string Version { get; init; } = string.Empty;
@@ -53,7 +52,7 @@ public class Feed
 }
 
 // ReSharper disable once ClassNeverInstantiated.Global
-[JsonSerializable(typeof(Item)), SuppressMessage("ReSharper", "AutoPropertyCanBeMadeGetOnly.Global")]
+[SuppressMessage("ReSharper", "AutoPropertyCanBeMadeGetOnly.Global")]
 public class Item
 {
     // ReSharper disable once UnusedMember.Global
