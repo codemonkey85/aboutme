@@ -8,43 +8,52 @@
     Blog
 </MudText>
 
-<MudText>
-    View more at
-    <MudLink Href="https://micro.bondcodes.com"
-             Target="_blank">
-        micro.bondcodes.com
-    </MudLink>
-    (powered by
-    <MudLink Href="https://micro.blog/"
-             Target="_blank">
-        Micro.blog
-    </MudLink>
-    )
-</MudText>
+@if (!Posts.Any() || IsLoading)
+{
+    <MudText>
+        Loading...
+    </MudText>
+}
+else
+{
+    <MudText>
+        View more at
+        <MudLink Href="https://micro.bondcodes.com"
+                 Target="_blank">
+            micro.bondcodes.com
+        </MudLink>
+        (powered by
+        <MudLink Href="https://micro.blog/"
+                 Target="_blank">
+            Micro.blog
+        </MudLink>
+        )
+    </MudText>
 
-<MudStack>
-    @foreach (var post in Posts)
-    {
-        <MudCard>
-            <MudCardHeader>
-                <MudText Typo="Typo.h6">
-                    <a href="@post.Url"
-                       target="_blank">
-                        @post.Title
-                    </a>
-                </MudText>
-            </MudCardHeader>
-            <MudCardContent>
-                @(new MarkupString(post.ContentHtml))
-            </MudCardContent>
-            <MudCardActions>
-                <MudText Typo="Typo.subtitle2">
-                    <a href="@post.Url"
-                       target="_blank">
-                        @post.DatePublished.ToLocalTime().ToString(DateFormat)
-                    </a>
-                </MudText>
-            </MudCardActions>
-        </MudCard>
-    }
-</MudStack>
+    <MudStack>
+        @foreach (var post in Posts)
+        {
+            <MudCard>
+                <MudCardHeader>
+                    <MudText Typo="Typo.h6">
+                        <a href="@post.Url"
+                           target="_blank">
+                            @post.Title
+                        </a>
+                    </MudText>
+                </MudCardHeader>
+                <MudCardContent>
+                    @(new MarkupString(post.ContentHtml))
+                </MudCardContent>
+                <MudCardActions>
+                    <MudText Typo="Typo.subtitle2">
+                        <a href="@post.Url"
+                           target="_blank">
+                            @post.DatePublished.ToLocalTime().ToString(DateFormat)
+                        </a>
+                    </MudText>
+                </MudCardActions>
+            </MudCard>
+        }
+    </MudStack>
+}

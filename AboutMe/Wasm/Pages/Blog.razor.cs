@@ -1,32 +1,32 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-
-namespace AboutMe.Wasm.Pages;
+﻿namespace AboutMe.Wasm.Pages;
 
 // ReSharper disable once UnusedType.Global
 public partial class Blog(HttpClient httpClient)
 {
     private List<Item> Posts { get; set; } = [];
 
-    private static readonly JsonSerializerOptions JsonSerializerOptions = new() { PropertyNameCaseInsensitive = true };
+    private bool IsLoading { get; set; }
+
+    private static readonly JsonSerializerOptions JsonSerializerOptions =
+        new() { PropertyNameCaseInsensitive = true, TypeInfoResolver = FeedJsonContext.Default };
 
     [StringSyntax(StringSyntaxAttribute.DateTimeFormat)]
     private const string DateFormat = "ddd MMM dd yyyy hh:mm tt";
-    
+
     protected override async Task OnInitializedAsync()
     {
         const string feedUrl = "https://micro.bondcodes.com/feed.json";
         try
         {
-            var jsonResponse = await httpClient.GetStringAsync(feedUrl);
-
-            var feed = JsonSerializer.Deserialize<Feed>(jsonResponse, JsonSerializerOptions);
+            IsLoading = true;
+            var feed = await httpClient.GetFromJsonAsync<Feed>(feedUrl, JsonSerializerOptions);
 
             if (feed != null)
             {
                 Posts = feed.Items.Take(10).ToList(); // Get the last 10 posts
             }
+
+            IsLoading = false;
         }
         catch (Exception ex)
         {
@@ -34,6 +34,10 @@ public partial class Blog(HttpClient httpClient)
         }
     }
 }
+
+[JsonSerializable(typeof(Feed[]))]
+// ReSharper disable once ClassNeverInstantiated.Global
+internal partial class FeedJsonContext : JsonSerializerContext;
 
 public class Feed
 {
