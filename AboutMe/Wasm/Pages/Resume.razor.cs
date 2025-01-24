@@ -98,7 +98,7 @@ public partial class Resume
                     },
                 ],
                 StartDate = new DateTime(year: 2022, month: 09, day: 1),
-                EndDate = null,
+                EndDate = new DateTime(year: 2025, month: 01, day: 24),
                 PresentlyEmployed = true,
             }, // Fusion Worldwide
             new Job
