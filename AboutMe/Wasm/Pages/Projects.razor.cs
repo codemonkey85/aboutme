@@ -42,7 +42,7 @@ public partial class Projects
         new()
         {
             Name = "Barcode Helper",
-            Description = "Solve the missing digit in a UPC-12",
+            Description = "Solve the missing digit in a UPC-12, built with Blazor",
             Url = $"{GitHubPagesBaseUrl}/BarcodeHelper/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/BarcodeHelper",
             Screenshots = []
@@ -50,7 +50,7 @@ public partial class Projects
         new()
         {
             Name = "Tired Doctor Manhattan",
-            Description = "Doctor Manhattan is tired of stuff",
+            Description = "Doctor Manhattan is tired of stuff, built with Blazor",
             Url = $"{GitHubPagesBaseUrl}/TiredDoctorManhattan/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/TiredDoctorManhattan",
             Screenshots = []
@@ -58,7 +58,7 @@ public partial class Projects
         new()
         {
             Name = "Minecraft Command Builder",
-            Description = "A tool to help build Minecraft commands",
+            Description = "A tool to help build Minecraft commands, built with Blazor",
             Url = $"{GitHubPagesBaseUrl}/MinecraftCommandBuilder/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/MinecraftCommandBuilder",
             Screenshots = []
