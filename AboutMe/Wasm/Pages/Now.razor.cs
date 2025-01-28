@@ -1,5 +1,6 @@
 namespace AboutMe.Wasm.Pages;
 
+// ReSharper disable once UnusedType.Global
 public partial class Now
 {
     private List<NowThing> NowThings { get; } =
@@ -7,7 +8,7 @@ public partial class Now
         new() { Title = "Working on", Description = "This site", Url = null }
     ];
 
-    private struct NowThing
+    private readonly record struct NowThing
     {
         public string Title { get; init; }
 

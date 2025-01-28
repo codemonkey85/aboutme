@@ -21,7 +21,7 @@ public partial class Blog(HttpClient httpClient)
             IsLoading = true;
             var feed = await httpClient.GetFromJsonAsync<Feed>(feedUrl, JsonSerializerOptions);
 
-            if (feed != null)
+            if (feed.Items.Count != 0)
             {
                 Posts = feed.Items.Take(10).ToList(); // Get the last 10 posts
             }
@@ -39,46 +39,46 @@ public partial class Blog(HttpClient httpClient)
 // ReSharper disable once ClassNeverInstantiated.Global
 internal partial class FeedJsonContext : JsonSerializerContext;
 
-public class Feed
+internal readonly record struct Feed
 {
     [JsonPropertyName("version")]
-    public string Version { get; init; } = string.Empty;
+    public string Version { get; init; }
 
     [JsonPropertyName("title")]
-    public string Title { get; init; } = string.Empty;
+    public string Title { get; init; }
 
     [JsonPropertyName("icon")]
-    public string Icon { get; init; } = string.Empty;
+    public string Icon { get; init; }
 
     [JsonPropertyName("home_page_url")]
-    public string HomePageUrl { get; init; } = string.Empty;
+    public string HomePageUrl { get; init; }
 
     [JsonPropertyName("feed_url")]
-    public string FeedUrl { get; init; } = string.Empty;
+    public string FeedUrl { get; init; }
 
     // ReSharper disable once CollectionNeverUpdated.Global
     [JsonPropertyName("items")]
-    public List<Item> Items { get; init; } = [];
+    public List<Item> Items { get; init; }
 }
 
 // ReSharper disable once ClassNeverInstantiated.Global
 [SuppressMessage("ReSharper", "AutoPropertyCanBeMadeGetOnly.Global")]
-public class Item
+internal readonly record struct Item
 {
     // ReSharper disable once UnusedMember.Global
     [JsonPropertyName("id")]
-    public string Id { get; init; } = string.Empty;
+    public string Id { get; init; }
 
     [JsonPropertyName("title")]
-    public string Title { get; init; } = string.Empty;
+    public string Title { get; init; }
 
     [JsonPropertyName("content_html")]
-    public string ContentHtml { get; init; } = string.Empty;
+    public string ContentHtml { get; init; }
 
     // ReSharper disable once UnusedAutoPropertyAccessor.Global
     [JsonPropertyName("date_published")]
     public DateTime DatePublished { get; init; }
 
     [JsonPropertyName("url")]
-    public string Url { get; init; } = string.Empty;
+    public string Url { get; init; }
 }

@@ -1,5 +1,6 @@
 namespace AboutMe.Wasm.Pages;
 
+// ReSharper disable once UnusedType.Global
 public partial class Resume
 {
     private readonly ResumeModel resumeModel = new()
@@ -277,7 +278,7 @@ public partial class Resume
 
     private void ClearSelectedSkills() => SelectedSkills.Clear();
 
-    private readonly struct ResumeModel
+    private readonly record struct ResumeModel
     {
         public required string Name { get; init; }
 
@@ -290,14 +291,16 @@ public partial class Resume
         public required List<Job> Jobs { get; init; }
     }
 
-    private readonly struct Skill
+    private readonly record struct Skill
     {
         public required string Name { get; init; }
 
+        // ReSharper disable once UnusedAutoPropertyAccessor.Local
         public string? Description { get; init; }
     }
 
-    private readonly struct Job
+    [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Local")]
+    private readonly record struct Job
     {
         public string? Email { get; init; }
 
@@ -321,7 +324,7 @@ public partial class Resume
 
         public bool PresentlyEmployed { get; init; }
 
-        public int YearsAtJob =>
+        private int YearsAtJob =>
             PresentlyEmployed || EndDate is null
                 ? (DateTime.Now - StartDate).Days / 365
                 : (EndDate.Value - StartDate).Days / 365;
@@ -330,7 +333,7 @@ public partial class Resume
             $"{StartDate:MMM yyyy} - {(EndDate is null ? "Present" : $"{EndDate:MMM yyyy}")} {(YearsAtJob > 0 ? $"({YearsAtJob} year{(YearsAtJob == 1 ? string.Empty : "s")})" : string.Empty)}";
     }
 
-    private readonly struct Duty
+    private readonly record struct Duty
     {
         public required string Description { get; init; }
     }

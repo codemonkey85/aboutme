@@ -1,5 +1,6 @@
 namespace AboutMe.Wasm.Pages;
 
+// ReSharper disable once UnusedType.Global
 public partial class Contact
 {
     private const string MastodonSvg = """

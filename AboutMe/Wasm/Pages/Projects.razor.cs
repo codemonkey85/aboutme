@@ -1,5 +1,6 @@
 namespace AboutMe.Wasm.Pages;
 
+// ReSharper disable once UnusedType.Global
 public partial class Projects
 {
     private const string GitHubPagesBaseUrl = "https://codemonkey85.github.io";
@@ -64,7 +65,7 @@ public partial class Projects
         } // Minecraft Command Builder
     ];
 
-    private readonly struct Project
+    private readonly record struct Project
     {
         public required string Name { get; init; }
 
@@ -74,10 +75,12 @@ public partial class Projects
 
         public string? GitHubUrl { get; init; }
 
+        // ReSharper disable once CollectionNeverUpdated.Local
         public List<ProductImage> Screenshots { get; init; }
     }
 
-    private readonly struct ProductImage
+    [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Local")]
+    private readonly record struct ProductImage
     {
         public required string Url { get; init; }
 
