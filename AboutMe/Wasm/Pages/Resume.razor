@@ -24,11 +24,11 @@
     <SocialLinkComponent SocialLink="@SocialLink.MyGitHub"
                          CompactMode
                          NameOverride="Follow me on GitHub"
-                         TitleOverride="Follow me on GitHub" />
+                         TitleOverride="Follow me on GitHub"/>
 </div>
 
 <MudDivider DividerType="@DividerType.FullWidth"
-            Class="my-2" />
+            Class="my-2"/>
 
 @if (resumeModel.ResumeSkills is { Count: > 0 })
 {
@@ -66,9 +66,9 @@
     <MudStack Spacing="3"
               Class="mb-1">
         @foreach (var job in resumeModel.Jobs
-       .Where(job => !SelectedSkills.Any() || SelectedSkills.All(job.SkillsUsed.Contains))
-       .OrderByDescending(job => job.PresentlyEmployed)
-       .ThenByDescending(job => job.EndDate))
+                          .Where(job => !SelectedSkills.Any() || SelectedSkills.All(job.SkillsUsed.Contains))
+                          .OrderByDescending(job => job.PresentlyEmployed)
+                          .ThenByDescending(job => job.EndDate))
         {
             <MudCard>
                 <MudCardHeader>
@@ -124,19 +124,21 @@
 </style>
 
 @code {
+
     private RenderFragment SkillsFragment(IEnumerable<Skill> skills) =>
-    @<MudGrid Class="mb-1"
+        @<MudGrid Class="mb-1"
                   Spacing="0">
-        @foreach (var skill in skills.OrderBy(skill => skill.Name))
-    {
-        <MudItem>
-            <MudChip T="@string"
-                     title="@skill.Name"
-                     OnClick="@(() => OnSelectSkill(skill))"
-                     Color="@GetSkillColor(skill)">
-                @skill.Name
-            </MudChip>
-        </MudItem>
-    }
-    </MudGrid>;
+            @foreach (var skill in skills.OrderBy(skill => skill.Name))
+            {
+                <MudItem>
+                    <MudChip T="@string"
+                             title="@skill.Name"
+                             OnClick="@(() => OnSelectSkill(skill))"
+                             Color="@GetSkillColor(skill)">
+                        @skill.Name
+                    </MudChip>
+                </MudItem>
+            }
+        </MudGrid>;
+
 }

@@ -12,7 +12,7 @@
     <SocialLinkComponent SocialLink="@SocialLink.MyGitHub"
                          CompactMode
                          NameOverride="Find more on my GitHub!"
-                         TitleOverride="Find more on my GitHub!" />
+                         TitleOverride="Find more on my GitHub!"/>
 </div>
 
 <MudGrid Class="mb-3"
@@ -44,7 +44,7 @@
                                  ItemsSource="@project.Screenshots">
                         <ItemTemplate>
                             <MudCardMedia Image="@productImage.Url"
-                                          Title="@productImage.Title" />
+                                          Title="@productImage.Title"/>
                         </ItemTemplate>
                     </MudCarousel>
                 }
@@ -52,14 +52,14 @@
                     <MudButton StartIcon="@Icons.Material.Filled.OpenInBrowser"
                                Variant="@Variant.Filled"
                                Color="@Color.Primary"
-                               title="@($"'{@project.Name}' on the web")"
+                               title="@($"'{project.Name}' on the web")"
                                Href="@project.Url"
                                Target="_blank">
                         Open
                     </MudButton>
                     <MudButton StartIcon="@Icons.Custom.Brands.GitHub"
                                Variant="@Variant.Filled"
-                               title="@($"'{@project.Name}' on GitHub")"
+                               title="@($"'{project.Name}' on GitHub")"
                                Href="@project.GitHubUrl"
                                Target="_blank">
                         See source

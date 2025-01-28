@@ -8,10 +8,16 @@
     Blog
 </MudText>
 
-@if (!Posts.Any() || IsLoading)
+@if (IsLoading)
 {
     <MudText>
         Loading...
+    </MudText>
+}
+else if (!Posts.Any())
+{
+    <MudText>
+        No posts found.
     </MudText>
 }
 else

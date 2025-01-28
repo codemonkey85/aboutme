@@ -4,64 +4,64 @@ public partial class Projects
 {
     private const string GitHubPagesBaseUrl = "https://codemonkey85.github.io";
 
-    private List<Project> ProjectsList { get; set; } =
+    private List<Project> ProjectsList { get; } =
     [
-        new Project
+        new()
         {
             Name = "PKMDS for Web",
             Description = "A port of PKHeX for web, built wih Blazor",
             Url = "https://www.pkmds.app/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/PKMDS-Blazor",
-            Screenshots = [],
+            Screenshots = []
         }, // PKMDS Blazor
-        new Project
+        new()
         {
             Name = "Sound Test",
             Description = "Messing around with the JavaScript tone APIs in Blazor",
             Url = $"{GitHubPagesBaseUrl}/SoundTest/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/SoundTest",
-            Screenshots = [],
+            Screenshots = []
         }, // Sound Test
-        new Project
+        new()
         {
             Name = "Tic Tac Toe Blazor",
             Description = "A Tic Tac Toe game for web, built with Blazor",
             Url = $"{GitHubPagesBaseUrl}/TicTacToeBlazor/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/TicTacToeBlazor",
-            Screenshots = [],
+            Screenshots = []
         }, // Tic Tac Toe Blazor
-        new Project
+        new()
         {
             Name = "Four Is The Magic Number!",
             Description = "A neat party trick, built with Blazor",
             Url = $"{GitHubPagesBaseUrl}/FourMagicNumberGame/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/FourMagicNumberGame",
-            Screenshots = [],
+            Screenshots = []
         }, // Four Is The Magic Number!
-        new Project
+        new()
         {
             Name = "Barcode Helper",
             Description = "Solve the missing digit in a UPC-12",
             Url = $"{GitHubPagesBaseUrl}/BarcodeHelper/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/BarcodeHelper",
-            Screenshots = [],
+            Screenshots = []
         }, // Barcode Helper
-        new Project
+        new()
         {
             Name = "Tired Doctor Manhattan",
             Description = "Doctor Manhattan is tired of stuff",
             Url = $"{GitHubPagesBaseUrl}/TiredDoctorManhattan/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/TiredDoctorManhattan",
-            Screenshots = [],
+            Screenshots = []
         }, // Tired Doctor Manhattan
-        new Project
+        new()
         {
             Name = "Minecraft Command Builder",
             Description = "A tool to help build Minecraft commands",
             Url = $"{GitHubPagesBaseUrl}/MinecraftCommandBuilder/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/MinecraftCommandBuilder",
-            Screenshots = [],
-        }, // Minecraft Command Builder
+            Screenshots = []
+        } // Minecraft Command Builder
     ];
 
     private readonly struct Project

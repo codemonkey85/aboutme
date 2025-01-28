@@ -19,7 +19,7 @@ public readonly struct SocialLink
         Name = "Email me",
         Url = "mailto:michael@bondcodes.com",
         Title = "Email me",
-        Icon = Icons.Material.Filled.Email,
+        Icon = Icons.Material.Filled.Email
     };
 
     public static SocialLink MyGitHub { get; } = new()
@@ -27,6 +27,6 @@ public readonly struct SocialLink
         Name = "Michael Bond on GitHub",
         Url = Constants.MyGitHubBaseUrl,
         Title = "Michael Bond on GitHub",
-        Icon = Icons.Custom.Brands.GitHub,
+        Icon = Icons.Custom.Brands.GitHub
     };
 }

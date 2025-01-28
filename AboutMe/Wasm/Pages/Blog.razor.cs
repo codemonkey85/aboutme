@@ -3,15 +3,15 @@
 // ReSharper disable once UnusedType.Global
 public partial class Blog(HttpClient httpClient)
 {
-    private List<Item> Posts { get; set; } = [];
-
-    private bool IsLoading { get; set; }
+    [StringSyntax(StringSyntaxAttribute.DateTimeFormat)]
+    private const string DateFormat = "ddd MMM dd yyyy hh:mm tt";
 
     private static readonly JsonSerializerOptions JsonSerializerOptions =
         new() { PropertyNameCaseInsensitive = true, TypeInfoResolver = FeedJsonContext.Default };
 
-    [StringSyntax(StringSyntaxAttribute.DateTimeFormat)]
-    private const string DateFormat = "ddd MMM dd yyyy hh:mm tt";
+    private List<Item> Posts { get; set; } = [];
+
+    private bool IsLoading { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
