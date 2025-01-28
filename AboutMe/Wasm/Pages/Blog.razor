@@ -49,7 +49,9 @@ else
                     </MudText>
                 </MudCardHeader>
                 <MudCardContent>
-                    @(new MarkupString(post.ContentHtml))
+                    <div class="content-wrapper">
+                        @(new MarkupString(post.ContentHtml))
+                    </div>
                 </MudCardContent>
                 <MudCardActions>
                     <MudText Typo="Typo.subtitle2">
@@ -63,3 +65,11 @@ else
         }
     </MudStack>
 }
+
+<style>
+    .content-wrapper img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+</style>
