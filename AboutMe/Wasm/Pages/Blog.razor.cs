@@ -1,6 +1,7 @@
 ﻿namespace AboutMe.Wasm.Pages;
 
 // ReSharper disable once UnusedType.Global
+// ReSharper disable once ClassNeverInstantiated.Global
 public partial class Blog(HttpClient httpClient)
 {
     [StringSyntax(StringSyntaxAttribute.DateTimeFormat)]
