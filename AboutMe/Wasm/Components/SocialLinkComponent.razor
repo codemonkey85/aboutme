@@ -1,13 +1,18 @@
 ﻿@SocialLinkFragment(SocialLink, CompactMode, NameOverride, TitleOverride)
 
 @code {
-    [Parameter, EditorRequired] public SocialLink SocialLink { get; set; }
 
-    [Parameter] public bool CompactMode { get; set; }
+    [Parameter, EditorRequired]
+    public SocialLink SocialLink { get; set; }
 
-    [Parameter] public string? NameOverride { get; set; }
+    [Parameter]
+    public bool CompactMode { get; set; }
 
-    [Parameter] public string? TitleOverride { get; set; }
+    [Parameter]
+    public string? NameOverride { get; set; }
+
+    [Parameter]
+    public string? TitleOverride { get; set; }
 
     private static RenderFragment SocialLinkFragmentExpanded(SocialLink socialLink, string? nameOverride = null, string? titleOverride = null) =>
         @<MudCard>
