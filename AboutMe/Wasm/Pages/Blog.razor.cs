@@ -41,18 +41,24 @@ internal partial class FeedJsonContext : JsonSerializerContext;
 
 public class Feed
 {
-    [JsonPropertyName("version")] public string Version { get; init; } = string.Empty;
+    [JsonPropertyName("version")]
+    public string Version { get; init; } = string.Empty;
 
-    [JsonPropertyName("title")] public string Title { get; init; } = string.Empty;
+    [JsonPropertyName("title")]
+    public string Title { get; init; } = string.Empty;
 
-    [JsonPropertyName("icon")] public string Icon { get; init; } = string.Empty;
+    [JsonPropertyName("icon")]
+    public string Icon { get; init; } = string.Empty;
 
-    [JsonPropertyName("home_page_url")] public string HomePageUrl { get; init; } = string.Empty;
+    [JsonPropertyName("home_page_url")]
+    public string HomePageUrl { get; init; } = string.Empty;
 
-    [JsonPropertyName("feed_url")] public string FeedUrl { get; init; } = string.Empty;
+    [JsonPropertyName("feed_url")]
+    public string FeedUrl { get; init; } = string.Empty;
 
     // ReSharper disable once CollectionNeverUpdated.Global
-    [JsonPropertyName("items")] public List<Item> Items { get; init; } = [];
+    [JsonPropertyName("items")]
+    public List<Item> Items { get; init; } = [];
 }
 
 // ReSharper disable once ClassNeverInstantiated.Global
@@ -60,14 +66,19 @@ public class Feed
 public class Item
 {
     // ReSharper disable once UnusedMember.Global
-    [JsonPropertyName("id")] public string Id { get; init; } = string.Empty;
+    [JsonPropertyName("id")]
+    public string Id { get; init; } = string.Empty;
 
-    [JsonPropertyName("title")] public string Title { get; init; } = string.Empty;
+    [JsonPropertyName("title")]
+    public string Title { get; init; } = string.Empty;
 
-    [JsonPropertyName("content_html")] public string ContentHtml { get; init; } = string.Empty;
+    [JsonPropertyName("content_html")]
+    public string ContentHtml { get; init; } = string.Empty;
 
     // ReSharper disable once UnusedAutoPropertyAccessor.Global
-    [JsonPropertyName("date_published")] public DateTime DatePublished { get; init; }
+    [JsonPropertyName("date_published")]
+    public DateTime DatePublished { get; init; }
 
-    [JsonPropertyName("url")] public string Url { get; init; } = string.Empty;
+    [JsonPropertyName("url")]
+    public string Url { get; init; } = string.Empty;
 }

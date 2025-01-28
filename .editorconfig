@@ -1,5 +1,5 @@
-# Remove the line below if you want to inherit .editorconfig settings from higher directories
 root = true
+# Remove the line below if you want to inherit .editorconfig settings from higher directories
 
 # C# files
 [*.cs]
@@ -20,9 +20,8 @@ insert_final_newline = true
 # Organize usings
 dotnet_separate_import_directive_groups = false
 dotnet_sort_system_directives_first = false
-file_header_template = unset
+file_header_template = # this. and Me. preferences
 
-# this. and Me. preferences
 dotnet_style_qualification_for_event = false:suggestion
 dotnet_style_qualification_for_field = false
 dotnet_style_qualification_for_method = false:suggestion
@@ -230,6 +229,9 @@ csharp_style_allow_blank_line_after_token_in_arrow_expression_clause_experimenta
 csharp_style_allow_blank_line_after_token_in_conditional_expression_experimental = true:silent
 csharp_prefer_static_anonymous_function = true:suggestion
 csharp_prefer_system_threading_lock = true:suggestion
+
+# ReSharper properties
+resharper_place_accessorholder_attribute_on_same_line = false
 
 [*.{cs,vb}]
 dotnet_style_coalesce_expression = true:suggestion
