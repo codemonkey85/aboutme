@@ -65,7 +65,7 @@ public partial class Contact
         new()
         {
             Name = "Bluesky",
-            Url = "https://bsky.app/profile/codemonkey85.bsky.social",
+            Url = "https://bsky.app/profile/bondcodes.com",
             Title = "Michael Bond on BlueSky",
             Icon = BlueskySvg
         },
