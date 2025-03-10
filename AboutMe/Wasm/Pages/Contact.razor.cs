@@ -54,6 +54,7 @@ public partial class Contact
     private List<SocialLink> SocialLinksList { get; } =
     [
         SocialLink.EmailMe,
+        SocialLink.SupportMe,
         SocialLink.MyGitHub with { Name = "GitHub" },
         new()
         {

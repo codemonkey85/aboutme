@@ -23,7 +23,7 @@
             </MudCardHeader>
             <MudCardActions Class="d-flex gap-4">
                 <MudButton Href="@socialLink.Url"
-                           Target="_blank"
+                           Target="@(socialLink.OpenInNewWindow ? "_blank" : string.Empty)"
                            title="@(titleOverride ?? socialLink.Title)"
                            Variant="@Variant.Filled"
                            Color="@Color.Primary"
@@ -36,7 +36,7 @@
     private static RenderFragment SocialLinkFragmentCompact(SocialLink socialLink, string? nameOverride = null, string? titleOverride = null) =>
         @<MudText Typo="@Typo.body1">
             <MudButton Href="@socialLink.Url"
-                       Target="_blank"
+                       Target="@(socialLink.OpenInNewWindow ? "_blank" : string.Empty)"
                        title="@(titleOverride ?? socialLink.Title)"
                        Variant="@Variant.Filled"
                        Color="@Color.Primary"

@@ -14,6 +14,8 @@ public readonly record struct SocialLink
 
     public string Icon { get; init; } = Icons.Material.Filled.OpenInBrowser;
 
+    public bool OpenInNewWindow { get; init; } = true;
+
     public static SocialLink EmailMe { get; } = new()
     {
         Name = "Email me",
@@ -28,5 +30,14 @@ public readonly record struct SocialLink
         Url = Constants.MyGitHubBaseUrl,
         Title = "Michael Bond on GitHub",
         Icon = Icons.Custom.Brands.GitHub
+    };
+
+    public static SocialLink SupportMe { get; } = new()
+    {
+        Name = "Support me",
+        Url = "support",
+        Title = "Support me",
+        OpenInNewWindow = false,
+        Icon = Icons.Material.Filled.Coffee
     };
 }
