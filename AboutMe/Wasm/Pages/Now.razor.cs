@@ -5,7 +5,12 @@ public partial class Now
 {
     private List<NowThing> NowThings { get; } =
     [
-        new() { Title = "Working on", Description = "This site", Url = null }
+        new()
+        {
+            Title = "Working on",
+            Description = "This site",
+            Url = null
+        }
     ];
 
     private readonly record struct NowThing

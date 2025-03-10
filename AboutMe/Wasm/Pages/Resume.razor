@@ -132,7 +132,9 @@
             {
                 <MudItem>
                     <MudChip T="@string"
-                             title="@(string.IsNullOrEmpty(skill.Description) ? skill.Name : skill.Description)"
+                             title="@(string.IsNullOrEmpty(skill.Description)
+                                        ? skill.Name
+                                        : skill.Description)"
                              OnClick="@(() => OnSelectSkill(skill))"
                              Color="@GetSkillColor(skill)">
                         @skill.Name

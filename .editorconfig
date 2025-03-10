@@ -241,6 +241,7 @@ resharper_parentheses_redundancy_style = remove
 resharper_place_accessorholder_attribute_on_same_line = false
 resharper_place_attribute_on_same_line = false
 resharper_use_indent_from_vs = false
+resharper_wrap_object_and_collection_initializer_style = chop_always
 resharper_xml_attribute_style = first_attribute_on_single_line
 resharper_xml_pi_attribute_style = first_attribute_on_single_line
 

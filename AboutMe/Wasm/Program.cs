@@ -3,7 +3,10 @@ var services = builder.Services;
 
 services
     .AddMudServices()
-    .AddScoped(_ => new HttpClient { BaseAddress = new(builder.HostEnvironment.BaseAddress) });
+    .AddScoped(_ => new HttpClient
+    {
+        BaseAddress = new(builder.HostEnvironment.BaseAddress)
+    });
 
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");

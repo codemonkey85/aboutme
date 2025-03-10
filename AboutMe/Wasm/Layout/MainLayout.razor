@@ -28,7 +28,9 @@
         <MudStack Row>
             <MudSwitch @bind-Value="@isDarkMode"
                        Color="@Color.Primary"
-                       Label="@(isDarkMode ? "Dark" : "Light")"/>
+                       Label="@(isDarkMode
+                                  ? "Dark"
+                                  : "Light")"/>
             <MudButton Class="d-none d-md-flex"
                        EndIcon="@Icons.Custom.Brands.GitHub"
                        Href="@($"{Constants.MyGitHubBaseUrl}/aboutme")"

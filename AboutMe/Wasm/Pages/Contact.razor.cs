@@ -55,7 +55,10 @@ public partial class Contact
     [
         SocialLink.EmailMe,
         SocialLink.SupportMe,
-        SocialLink.MyGitHub with { Name = "GitHub" },
+        SocialLink.MyGitHub with
+        {
+            Name = "GitHub"
+        },
         new()
         {
             Name = "Mastodon",

@@ -68,7 +68,10 @@ public partial class Resume
                         Description =
                             "Reviewed code written by other developers in peer review, pointing out potential bugs, optimizations, and styling fixes"
                     },
-                    new Duty { Description = "Azure: worked with Azure-hosted app, web, and SQL servers" },
+                    new Duty
+                    {
+                        Description = "Azure: worked with Azure-hosted app, web, and SQL servers"
+                    },
                     new Duty
                     {
                         Description =
@@ -141,15 +144,27 @@ public partial class Resume
                         Description =
                             "Developed and improved tools used to design pages / sections / mappers / forms that form our web application, including designing and coding brand new modules to our tools"
                     },
-                    new Duty { Description = "Developed schema update scripts, views, stored procedures, etc." },
-                    new Duty { Description = "Azure: worked with Azure-hosted app, web, and SQL servers" },
-                    new Duty { Description = "Designed and coded static HTML templates and CSS styling" },
+                    new Duty
+                    {
+                        Description = "Developed schema update scripts, views, stored procedures, etc."
+                    },
+                    new Duty
+                    {
+                        Description = "Azure: worked with Azure-hosted app, web, and SQL servers"
+                    },
+                    new Duty
+                    {
+                        Description = "Designed and coded static HTML templates and CSS styling"
+                    },
                     new Duty
                     {
                         Description =
                             "Developed JavaScript front-end functionality that communicates with C# back-end"
                     },
-                    new Duty { Description = "Developed and tested jQuery included in JS for manipulating DOM" },
+                    new Duty
+                    {
+                        Description = "Developed and tested jQuery included in JS for manipulating DOM"
+                    },
                     new Duty
                     {
                         Description = "Designed and developed more modern / updated UI using Angular and TypeScript"
@@ -159,7 +174,10 @@ public partial class Resume
                         Description =
                             "Handled debugging for support cases, diagnosing and fixing bugs, fixing data in SQL Server, deploying patches to production sites"
                     },
-                    new Duty { Description = "SQL Server, deploying patches to production sites" }
+                    new Duty
+                    {
+                        Description = "SQL Server, deploying patches to production sites"
+                    }
                 ],
                 StartDate = new(2015, 02, 1),
                 EndDate = new DateTime(2021, 09, 1),
@@ -186,11 +204,26 @@ public partial class Resume
                 ],
                 Duties =
                 [
-                    new Duty { Description = "Develop services backend using AWS Lambda, Amplify, ASP.NET Core" },
-                    new Duty { Description = "Develop web frontend using React" },
-                    new Duty { Description = "Collaborate using Jira, Azure DevOps, and Git" },
-                    new Duty { Description = "Manage code branches, merges, and cherry-picks" },
-                    new Duty { Description = "Review code submitted by other developers" }
+                    new Duty
+                    {
+                        Description = "Develop services backend using AWS Lambda, Amplify, ASP.NET Core"
+                    },
+                    new Duty
+                    {
+                        Description = "Develop web frontend using React"
+                    },
+                    new Duty
+                    {
+                        Description = "Collaborate using Jira, Azure DevOps, and Git"
+                    },
+                    new Duty
+                    {
+                        Description = "Manage code branches, merges, and cherry-picks"
+                    },
+                    new Duty
+                    {
+                        Description = "Review code submitted by other developers"
+                    }
                 ],
                 StartDate = new(2022, 04, 1),
                 EndDate = new DateTime(2022, 09, 1),
@@ -250,7 +283,10 @@ public partial class Resume
                         Description =
                             "Provided client with custom DLLs developed with C#, and accompanying documentation"
                     },
-                    new Duty { Description = "Developed Datacap applications based on specific client requirements" },
+                    new Duty
+                    {
+                        Description = "Developed Datacap applications based on specific client requirements"
+                    },
                     new Duty
                     {
                         Description = "Configured FileNet and WorkplaceXT for client to search and modify documents"
@@ -274,7 +310,9 @@ public partial class Resume
     }
 
     private Color GetSkillColor(Skill skill) =>
-        SelectedSkills.Contains(skill) ? Color.Primary : Color.Default;
+        SelectedSkills.Contains(skill)
+            ? Color.Primary
+            : Color.Default;
 
     private void ClearSelectedSkills() => SelectedSkills.Clear();
 
@@ -340,38 +378,106 @@ public partial class Resume
 
     private static class Skills
     {
-        public static readonly Skill DotNetCore = new() { Name = ".NET Core", Description = null };
+        public static readonly Skill DotNetCore = new()
+        {
+            Name = ".NET Core",
+            Description = null
+        };
 
-        public static readonly Skill VisualStudio = new() { Name = "Visual Studio", Description = null };
+        public static readonly Skill VisualStudio = new()
+        {
+            Name = "Visual Studio",
+            Description = null
+        };
 
-        public static readonly Skill AspNet = new() { Name = "ASP.Net", Description = null };
+        public static readonly Skill AspNet = new()
+        {
+            Name = "ASP.Net",
+            Description = null
+        };
 
-        public static readonly Skill Blazor = new() { Name = "Blazor", Description = null };
+        public static readonly Skill Blazor = new()
+        {
+            Name = "Blazor",
+            Description = null
+        };
 
-        public static readonly Skill MudBlazor = new() { Name = "MudBlazor", Description = null };
+        public static readonly Skill MudBlazor = new()
+        {
+            Name = "MudBlazor",
+            Description = null
+        };
 
-        public static readonly Skill DotNetMaui = new() { Name = ".NET MAUI", Description = null };
+        public static readonly Skill DotNetMaui = new()
+        {
+            Name = ".NET MAUI",
+            Description = null
+        };
 
-        public static readonly Skill MsSqlServer = new() { Name = "MS SQL Server", Description = null };
+        public static readonly Skill MsSqlServer = new()
+        {
+            Name = "MS SQL Server",
+            Description = null
+        };
 
-        public static readonly Skill Sql = new() { Name = "SQL", Description = null };
+        public static readonly Skill Sql = new()
+        {
+            Name = "SQL",
+            Description = null
+        };
 
-        public static readonly Skill Html = new() { Name = "HTML", Description = null };
+        public static readonly Skill Html = new()
+        {
+            Name = "HTML",
+            Description = null
+        };
 
-        public static readonly Skill Css = new() { Name = "CSS", Description = null };
+        public static readonly Skill Css = new()
+        {
+            Name = "CSS",
+            Description = null
+        };
 
-        public static readonly Skill JavaScript = new() { Name = "JavaScript", Description = null };
+        public static readonly Skill JavaScript = new()
+        {
+            Name = "JavaScript",
+            Description = null
+        };
 
-        public static readonly Skill Git = new() { Name = "Git", Description = null };
+        public static readonly Skill Git = new()
+        {
+            Name = "Git",
+            Description = null
+        };
 
-        public static readonly Skill AzureDevOps = new() { Name = "Azure DevOps", Description = null };
+        public static readonly Skill AzureDevOps = new()
+        {
+            Name = "Azure DevOps",
+            Description = null
+        };
 
-        public static readonly Skill TelerikBlazor = new() { Name = "Telerik Blazor", Description = null };
+        public static readonly Skill TelerikBlazor = new()
+        {
+            Name = "Telerik Blazor",
+            Description = null
+        };
 
-        public static readonly Skill DotNetFramework = new() { Name = ".NET Framework", Description = null };
+        public static readonly Skill DotNetFramework = new()
+        {
+            Name = ".NET Framework",
+            Description = null
+        };
 
-        public static readonly Skill WindowsForms = new() { Name = "Windows Forms", Description = null };
+        public static readonly Skill WindowsForms = new()
+        {
+            Name = "Windows Forms",
+            Description = null
+        };
 
-        public static readonly Skill TailwindCss = new() { Name = "Tailwind CSS", Description = null };
+        public static readonly Skill TailwindCss = new()
+        {
+            Name = "Tailwind CSS",
+            Description = null
+        };
     }
 }

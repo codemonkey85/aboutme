@@ -8,7 +8,11 @@ public partial class Blog(HttpClient httpClient)
     private const string DateFormat = "ddd MMM dd yyyy hh:mm tt";
 
     private static readonly JsonSerializerOptions JsonSerializerOptions =
-        new() { PropertyNameCaseInsensitive = true, TypeInfoResolver = FeedJsonContext.Default };
+        new()
+        {
+            PropertyNameCaseInsensitive = true,
+            TypeInfoResolver = FeedJsonContext.Default
+        };
 
     private List<Item> Posts { get; set; } = [];
 
