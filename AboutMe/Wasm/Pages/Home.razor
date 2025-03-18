@@ -3,3 +3,98 @@
 <PageTitle>
     @Constants.SiteName
 </PageTitle>
+
+<MudContainer MaxWidth="@MaxWidth.Medium">
+    <MudPaper Elevation="4"
+              Class="pa-6">
+        <MudText Typo="@Typo.h3"
+                 GutterBottom>
+            Bond Codes LLC
+        </MudText>
+        <MudText Typo="@Typo.h6"
+                 Color="@Color.Secondary">
+            Crafting Scalable and Efficient Software Solutions with .NET
+        </MudText>
+        <MudDivider Class="my-4"/>
+
+        <MudText Typo="@Typo.body1"
+                 GutterBottom>
+            Welcome to <strong>Bond Codes LLC</strong>, your trusted partner in software development.
+            I'm <strong>Michael Bond</strong>, a full-stack developer specializing in the .NET ecosystem.
+            Whether you need a dynamic web application, a robust web API, or a reliable desktop solution, I have the
+            expertise to bring your vision to life.
+        </MudText>
+    </MudPaper>
+
+    <MudGrid Class="mt-6">
+        <MudItem xs="12"
+                 sm="6">
+            <MudCard Elevation="3">
+                <MudCardContent>
+                    <MudText Typo="@Typo.h6">
+                        Full-Stack Web Development
+                    </MudText>
+                    <MudText Typo="@Typo.body2">
+                        Modern, responsive, and performant web applications.
+                    </MudText>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12"
+                 sm="6">
+            <MudCard Elevation="3">
+                <MudCardContent>
+                    <MudText Typo="@Typo.h6">
+                        Web APIs
+                    </MudText>
+                    <MudText Typo="@Typo.body2">
+                        Secure, scalable, and efficient API development.
+                    </MudText>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12"
+                 sm="6">
+            <MudCard Elevation="3">
+                <MudCardContent>
+                    <MudText Typo="@Typo.h6">
+                        Windows Applications
+                    </MudText>
+                    <MudText Typo="@Typo.body2">
+                        Legacy modernization and new application development with Windows Forms and .NET.
+                    </MudText>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12"
+                 sm="6">
+            <MudCard Elevation="3">
+                <MudCardContent>
+                    <MudText Typo="@Typo.h6">
+                        Database Solutions
+                    </MudText>
+                    <MudText Typo="@Typo.body2">
+                        MS SQL Server design, optimization, and integration.
+                    </MudText>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+
+    <MudPaper Elevation="4"
+              Class="pa-6 mt-6 text-center">
+        <MudText Typo="@Typo.h5"
+                 GutterBottom>
+            Let's Build Something Great
+        </MudText>
+        <MudText Typo="@Typo.body1">
+            Whether you're a startup, small business, or enterprise, I can help you build software that works.
+        </MudText>
+        <MudButton Variant="@Variant.Filled"
+                   Color="@Color.Primary"
+                   Class="mt-4"
+                   Href="contact">
+            Contact Me
+        </MudButton>
+    </MudPaper>
+</MudContainer>
