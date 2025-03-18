@@ -12,18 +12,27 @@
                        Color="@Color.Inherit"
                        Edge="@Edge.Start"
                        OnClick="@DrawerToggle"/>
-        <MudText Typo="@Typo.h4"
-                 class="d-none d-lg-flex">
-            @AppTitle
-        </MudText>
-        <MudText Typo="@Typo.h6"
-                 class="d-none d-md-flex d-lg-none">
-            @AppTitle
-        </MudText>
-        <MudText Typo="@Typo.inherit"
-                 class="d-xs-flex d-md-none">
-            @AppTitle
-        </MudText>
+        <MudStack Row
+                  AlignItems="@AlignItems.Center">
+            <MudImage Src="images/icon-192.png"
+                      Alt="Bond Codes, LLC"
+                      title="Bond Codes, LLC"
+                      Width="32"
+                      Height="32"
+                      Class="rounded-lg"/>
+            <MudText Typo="@Typo.h4"
+                     class="d-none d-lg-flex">
+                @Constants.SiteName
+            </MudText>
+            <MudText Typo="@Typo.h6"
+                     class="d-none d-md-flex d-lg-none">
+                @Constants.SiteName
+            </MudText>
+            <MudText Typo="@Typo.inherit"
+                     class="d-xs-flex d-md-none">
+                @Constants.SiteName
+            </MudText>
+        </MudStack>
         <MudSpacer/>
         <MudStack Row>
             <MudSwitch @bind-Value="@isDarkMode"
