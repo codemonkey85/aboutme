@@ -1,47 +1,5 @@
 ﻿@page "/"
 
 <PageTitle>
-    Michael Bond
+    @Constants.SiteName
 </PageTitle>
-
-<MudStack Spacing="1">
-    <MudText Typo="@Typo.h3">
-        My name is Michael Bond.
-    </MudText>
-
-    <MudImage Src="images/mbond.png"
-              Alt="Michael Bond"
-              title="Michael Bond"
-              Width="200"
-              Class="rounded-lg"/>
-
-    <MudText Typo="@Typo.body1">
-        I'm an autistic obsessive software developer and Pokémon fan.
-    </MudText>
-
-    <MudText Typo="@Typo.body1">
-        My pronouns are he / him / his.
-    </MudText>
-
-    <MudText Typo="@Typo.h5">
-        I am now looking for work!
-        <MudLink Href="resume">
-            <MudText Typo="@Typo.h5">
-                See my resumé here.
-            </MudText>
-        </MudLink>
-    </MudText>
-
-    <MudPaper Width="235px">
-        <SocialLinkComponent SocialLink="@SocialLink.EmailMe"/>
-    </MudPaper>
-
-    <MudPaper Width="235px">
-        <SocialLinkComponent SocialLink="@SocialLink.SupportMe"/>
-    </MudPaper>
-
-    <MudLink Href="contact"
-             title="Other ways to contact me">
-        Other ways to contact me!
-    </MudLink>
-</MudStack>
