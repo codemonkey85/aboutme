@@ -62,7 +62,15 @@ public partial class Projects
             Url = $"{GitHubPagesBaseUrl}/MinecraftCommandBuilder/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/MinecraftCommandBuilder",
             Screenshots = []
-        } // Minecraft Command Builder
+        }, // Minecraft Command Builder
+        new()
+        {
+            Name = "D&D Critical Hit Calculator",
+            Description = "Honestly, this is just for me and my D&D friends.",
+            Url = $"{GitHubPagesBaseUrl}/DnDCritCalculator/",
+            GitHubUrl = $"{Constants.MyGitHubBaseUrl}/DnDCritCalculator",
+            Screenshots = []
+        } // D&D Critical Hit Calculator
     ];
 
     private readonly record struct Project
