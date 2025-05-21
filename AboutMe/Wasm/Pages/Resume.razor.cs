@@ -8,26 +8,7 @@ public partial class Resume
         Name = "Michael Bond",
         Email = "michael@bondcodes.com",
         Summary = "Web / Windows / C# / ASP / .NET Developer",
-        ResumeSkills =
-        [
-            Skills.DotNetCore,
-            Skills.VisualStudio,
-            Skills.AspNet,
-            Skills.Blazor,
-            Skills.MudBlazor,
-            Skills.DotNetMaui,
-            Skills.MsSqlServer,
-            Skills.Sql,
-            Skills.Html,
-            Skills.Css,
-            Skills.JavaScript,
-            Skills.Git,
-            Skills.AzureDevOps,
-            Skills.TelerikBlazor,
-            Skills.DotNetFramework,
-            Skills.WindowsForms,
-            Skills.TailwindCss
-        ],
+        ResumeSkills = [],
         Jobs =
         [
             new Job
@@ -41,6 +22,17 @@ public partial class Resume
                 Address = null,
                 SkillsUsed =
                 [
+                    Skills.DotNetCore,
+                    Skills.VisualStudio,
+                    Skills.AspNet,
+                    Skills.Blazor,
+                    Skills.MsSqlServer,
+                    Skills.Sql,
+                    Skills.Html,
+                    Skills.Css,
+                    Skills.Git,
+                    Skills.TelerikBlazor,
+                    Skills.DotNetFramework
                 ],
                 Duties = [],
                 StartDate = new(2025, 05, 12),
@@ -323,6 +315,42 @@ public partial class Resume
 
     private List<Skill> SelectedSkills { get; } = [];
 
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        List<Skill> skillList =
+        [
+            Skills.DotNetCore,
+            Skills.VisualStudio,
+            Skills.AspNet,
+            Skills.Blazor,
+            Skills.MudBlazor,
+            Skills.DotNetMaui,
+            Skills.MsSqlServer,
+            Skills.Sql,
+            Skills.Html,
+            Skills.Css,
+            Skills.JavaScript,
+            Skills.Git,
+            Skills.AzureDevOps,
+            Skills.TelerikBlazor,
+            Skills.DotNetFramework,
+            Skills.WindowsForms,
+            Skills.TailwindCss
+        ];
+
+        foreach (var skill in skillList)
+        {
+            resumeModel.ResumeSkills.Add(skill with
+            {
+                YearsUsed = (int)resumeModel.Jobs
+                    .Where(j => j.SkillsUsed.Contains(skill))
+                    .Sum(j => j.YearsAtJob)
+            });
+        }
+    }
+
     private void OnSelectSkill(Skill skill)
     {
         if (!SelectedSkills.Remove(skill))
@@ -351,12 +379,29 @@ public partial class Resume
         public required List<Job> Jobs { get; init; }
     }
 
-    private readonly record struct Skill
+    private readonly struct Skill
     {
         public required string Name { get; init; }
 
         // ReSharper disable once UnusedAutoPropertyAccessor.Local
         public string? Description { get; init; }
+
+        public int YearsUsed { get; init; }
+
+        public bool Equals(Skill other) =>
+            string.Equals(Name, other.Name, StringComparison.Ordinal) &&
+            string.Equals(Description, other.Description, StringComparison.Ordinal);
+
+        public override bool Equals(object? obj) =>
+            obj is Skill other && Equals(other);
+
+        public override int GetHashCode() => HashCode.Combine(
+            Name,
+            Description
+        );
+
+        public static bool operator ==(Skill left, Skill right) => left.Equals(right);
+        public static bool operator !=(Skill left, Skill right) => !left.Equals(right);
     }
 
     [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Local")]
@@ -392,7 +437,7 @@ public partial class Resume
 
         private int TotalDaysAtJob => (EffectiveEndDate - StartDate).Days;
 
-        private decimal YearsAtJob => Math.Round(TotalDaysAtJob / 365M, 1);
+        internal decimal YearsAtJob => Math.Round(TotalDaysAtJob / 365M, 1);
 
         private int MonthsAtJob => TotalDaysAtJob / 30;
 

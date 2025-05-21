@@ -54,7 +54,7 @@
               Dense>
         Click or tap a skill to filter.
     </MudAlert>
-    @SkillsFragment(resumeModel.ResumeSkills)
+    @ResumeSkillsFragment(resumeModel.ResumeSkills)
 }
 
 @if (resumeModel.Jobs is { Count: > 0 })
@@ -105,7 +105,7 @@
                     }
                     @if (job.SkillsUsed is { Count: > 0 })
                     {
-                        @SkillsFragment(job.SkillsUsed)
+                        @JobSkillsFragment(job.SkillsUsed)
                     }
                     @if (job.Duties is { Count: > 0 })
                     {
@@ -138,7 +138,25 @@
 
 @code {
 
-    private RenderFragment SkillsFragment(IEnumerable<Skill> skills) =>
+    private RenderFragment ResumeSkillsFragment(IEnumerable<Skill> skills) =>
+        @<MudGrid Class="mb-1"
+                  Spacing="0">
+            @foreach (var skill in skills.OrderBy(skill => skill.Name))
+            {
+                <MudItem>
+                    <MudChip T="@string"
+                             title="@(string.IsNullOrEmpty(skill.Description)
+                                        ? skill.Name
+                                        : skill.Description)"
+                             OnClick="@(() => OnSelectSkill(skill))"
+                             Color="@GetSkillColor(skill)">
+                        @skill.Name
+                    </MudChip>
+                </MudItem>
+            }
+        </MudGrid>;
+
+    private RenderFragment JobSkillsFragment(IEnumerable<Skill> skills) =>
         @<MudGrid Class="mb-1"
                   Spacing="0">
             @foreach (var skill in skills.OrderBy(skill => skill.Name))
