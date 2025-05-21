@@ -32,6 +32,22 @@ public partial class Resume
         [
             new Job
             {
+                Title = "Senior Software Developer I",
+                Company = "SETWorks",
+                Summary = string.Empty,
+                Email = null,
+                Phone = null,
+                Address = null,
+                SkillsUsed =
+                [
+                ],
+                Duties = [],
+                StartDate = new(2025, 05, 12),
+                EndDate = null,
+                PresentlyEmployed = true
+            }, // SETWorks
+            new Job
+            {
                 Title = "Full Stack Developer",
                 Company = "Fusion Worldwide",
                 Summary = string.Empty,
@@ -90,7 +106,7 @@ public partial class Resume
                 ],
                 StartDate = new(2022, 09, 1),
                 EndDate = new DateTime(2025, 01, 24),
-                PresentlyEmployed = true
+                PresentlyEmployed = false
             }, // Fusion Worldwide
             new Job
             {
@@ -362,13 +378,23 @@ public partial class Resume
 
         public bool PresentlyEmployed { get; init; }
 
-        private int YearsAtJob =>
-            PresentlyEmployed || EndDate is null
-                ? (DateTime.Now - StartDate).Days / 365
-                : (EndDate.Value - StartDate).Days / 365;
+        private DateTime EffectiveEndDate => (PresentlyEmployed || EndDate is null) ? DateTime.Now : EndDate.Value;
+
+        private int TotalDaysAtJob => (EffectiveEndDate - StartDate).Days;
+
+        private decimal YearsAtJob => Math.Round(TotalDaysAtJob / 365M, 1);
+
+        private int MonthsAtJob => TotalDaysAtJob / 30;
+
+        private string YearsOrMonthsAtJob =>
+            YearsAtJob >= 1
+                ? $"({YearsAtJob} year{(YearsAtJob == 1 ? "" : "s")})"
+                : MonthsAtJob > 0
+                    ? $"({MonthsAtJob} month{(MonthsAtJob == 1 ? "" : "s")})"
+                    : string.Empty;
 
         public string DatesString =>
-            $"{StartDate:MMM yyyy} - {(EndDate is null ? "Present" : $"{EndDate:MMM yyyy}")} {(YearsAtJob > 0 ? $"({YearsAtJob} year{(YearsAtJob == 1 ? string.Empty : "s")})" : string.Empty)}";
+            $"{StartDate:MMM yyyy} - {(EndDate is null ? "Present" : $"{EndDate:MMM yyyy}")} {YearsOrMonthsAtJob}";
     }
 
     private readonly record struct Duty
