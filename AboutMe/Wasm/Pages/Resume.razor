@@ -54,7 +54,7 @@
               Dense>
         Click or tap a skill to filter.
     </MudAlert>
-    @ResumeSkillsFragment(resumeModel.ResumeSkills)
+    @SkillsFragment(resumeModel.ResumeSkills, showYearsUsed: true)
 }
 
 @if (resumeModel.Jobs is { Count: > 0 })
@@ -105,7 +105,7 @@
                     }
                     @if (job.SkillsUsed is { Count: > 0 })
                     {
-                        @JobSkillsFragment(job.SkillsUsed)
+                        @SkillsFragment(job.SkillsUsed)
                     }
                     @if (job.Duties is { Count: > 0 })
                     {
@@ -138,37 +138,34 @@
 
 @code {
 
-    private RenderFragment ResumeSkillsFragment(IEnumerable<Skill> skills) =>
+    private RenderFragment SkillsFragment(IEnumerable<Skill> skills, bool showYearsUsed = false) =>
         @<MudGrid Class="mb-1"
                   Spacing="0">
             @foreach (var skill in skills.OrderBy(skill => skill.Name))
             {
                 <MudItem>
                     <MudChip T="@string"
-                             title="@(string.IsNullOrEmpty(skill.Description)
-                                        ? skill.Name
-                                        : skill.Description)"
+                             title="@skill.Title"
                              OnClick="@(() => OnSelectSkill(skill))"
-                             Color="@GetSkillColor(skill)">
-                        @skill.Name
-                    </MudChip>
-                </MudItem>
-            }
-        </MudGrid>;
-
-    private RenderFragment JobSkillsFragment(IEnumerable<Skill> skills) =>
-        @<MudGrid Class="mb-1"
-                  Spacing="0">
-            @foreach (var skill in skills.OrderBy(skill => skill.Name))
-            {
-                <MudItem>
-                    <MudChip T="@string"
-                             title="@(string.IsNullOrEmpty(skill.Description)
-                                        ? skill.Name
-                                        : skill.Description)"
-                             OnClick="@(() => OnSelectSkill(skill))"
-                             Color="@GetSkillColor(skill)">
-                        @skill.Name
+                             Color="@GetSkillColor(skill)"
+                             Size="@(showYearsUsed
+                                       ? Size.Large
+                                       : null)">
+                        <MudStack Spacing="0">
+                            @if (showYearsUsed && skill.YearsUsed > 0)
+                            {
+                                <MudText Typo="@Typo.caption">
+                                    @skill.Name
+                                </MudText>
+                                <MudText Typo="@Typo.caption">
+                                    @skill.YearsUsedString
+                                </MudText>
+                            }
+                            else
+                            {
+                                @skill.Name
+                            }
+                        </MudStack>
                     </MudChip>
                 </MudItem>
             }

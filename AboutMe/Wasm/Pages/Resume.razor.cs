@@ -379,7 +379,7 @@ public partial class Resume
         public required List<Job> Jobs { get; init; }
     }
 
-    private readonly struct Skill
+    private readonly struct Skill : IEquatable<Skill>
     {
         public required string Name { get; init; }
 
@@ -387,6 +387,12 @@ public partial class Resume
         public string? Description { get; init; }
 
         public int YearsUsed { get; init; }
+
+        public string YearsUsedString => YearsUsed > 0
+            ? $"{YearsUsed} year{(YearsUsed == 1 ? string.Empty : "s")}"
+            : string.Empty;
+
+        public string Title => $"{(string.IsNullOrEmpty(Description) ? Name : Description)}{(YearsUsed > 0 ? $" ({YearsUsedString})" : string.Empty)}";
 
         public bool Equals(Skill other) =>
             string.Equals(Name, other.Name, StringComparison.Ordinal) &&
