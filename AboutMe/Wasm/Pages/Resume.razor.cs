@@ -34,6 +34,7 @@ public partial class Resume
             {
                 Title = "Senior Software Developer I",
                 Company = "SETWorks",
+                CompanyUrl = "https://set-works.com/",
                 Summary = string.Empty,
                 Email = null,
                 Phone = null,
@@ -50,6 +51,7 @@ public partial class Resume
             {
                 Title = "Full Stack Developer",
                 Company = "Fusion Worldwide",
+                CompanyUrl = "https://www.fusionww.com/",
                 Summary = string.Empty,
                 Email = null,
                 Phone = null,
@@ -112,6 +114,7 @@ public partial class Resume
             {
                 Title = "Software Developer",
                 Company = "3 Story Software",
+                CompanyUrl = "https://www.3storysoftware.com/",
                 Summary = string.Empty,
                 Email = null,
                 Phone = null,
@@ -203,6 +206,7 @@ public partial class Resume
             {
                 Title = "Senior Blazor Developer",
                 Company = "AmericanEagle.com",
+                CompanyUrl = "https://www.americaneagle.com/",
                 Summary = string.Empty,
                 Email = null,
                 Phone = null,
@@ -249,6 +253,7 @@ public partial class Resume
             {
                 Title = "Senior Software Engineer",
                 Company = "LTi Technology Solutions",
+                CompanyUrl = "https://www.ltisolutions.com/",
                 Summary = string.Empty,
                 Email = null,
                 Phone = null,
@@ -278,6 +283,7 @@ public partial class Resume
             {
                 Title = "Programmer Analyst",
                 Company = "Fairfax Data Systems",
+                CompanyUrl = "https://www.fairfaxdatasystems.com/",
                 Summary = string.Empty,
                 Email = null,
                 Phone = null,
@@ -368,6 +374,8 @@ public partial class Resume
 
         public required string Company { get; init; }
 
+        public string? CompanyUrl { get; init; }
+
         public required DateTime StartDate { get; init; }
 
         public DateTime? EndDate { get; init; }
@@ -378,7 +386,9 @@ public partial class Resume
 
         public bool PresentlyEmployed { get; init; }
 
-        private DateTime EffectiveEndDate => (PresentlyEmployed || EndDate is null) ? DateTime.Now : EndDate.Value;
+        private DateTime EffectiveEndDate => PresentlyEmployed || EndDate is null
+            ? DateTime.Now
+            : EndDate.Value;
 
         private int TotalDaysAtJob => (EffectiveEndDate - StartDate).Days;
 

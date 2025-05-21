@@ -76,9 +76,20 @@
                         <MudText Typo="@Typo.h5">
                             @job.Title
                         </MudText>
-                        <MudText Typo="@Typo.subtitle1">
-                            @job.Company
-                        </MudText>
+                        @if (job.CompanyUrl is { Length: > 0 } url)
+                        {
+                            <MudLink Typo="@Typo.subtitle1"
+                                     Href="@url"
+                                     Target="_blank">
+                                @job.Company
+                            </MudLink>
+                        }
+                        else
+                        {
+                            <MudText Typo="@Typo.subtitle1">
+                                @job.Company
+                            </MudText>
+                        }
                         <MudText Typo="@Typo.body2">
                             @job.DatesString
                         </MudText>
@@ -101,12 +112,14 @@
                         <ul>
                             @foreach (var duty in job.Duties)
                             {
-                                if (duty.Description is { Length: > 0 })
+                                if (duty.Description is not { Length: > 0 })
                                 {
-                                    <li>
-                                        @duty.Description
-                                    </li>
+                                    continue;
                                 }
+
+                                <li>
+                                    @duty.Description
+                                </li>
                             }
                         </ul>
                     }
