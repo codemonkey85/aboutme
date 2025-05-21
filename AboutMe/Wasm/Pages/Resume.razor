@@ -54,7 +54,7 @@
               Dense>
         Click or tap a skill to filter.
     </MudAlert>
-    @SkillsFragment(resumeModel.ResumeSkills)
+    @SkillsFragment(resumeModel.ResumeSkills, showYearsUsed: true)
 }
 
 @if (resumeModel.Jobs is { Count: > 0 })
@@ -76,9 +76,20 @@
                         <MudText Typo="@Typo.h5">
                             @job.Title
                         </MudText>
-                        <MudText Typo="@Typo.subtitle1">
-                            @job.Company
-                        </MudText>
+                        @if (job.CompanyUrl is { Length: > 0 } url)
+                        {
+                            <MudLink Typo="@Typo.subtitle1"
+                                     Href="@url"
+                                     Target="_blank">
+                                @job.Company
+                            </MudLink>
+                        }
+                        else
+                        {
+                            <MudText Typo="@Typo.subtitle1">
+                                @job.Company
+                            </MudText>
+                        }
                         <MudText Typo="@Typo.body2">
                             @job.DatesString
                         </MudText>
@@ -101,12 +112,14 @@
                         <ul>
                             @foreach (var duty in job.Duties)
                             {
-                                if (duty.Description is { Length: > 0 })
+                                if (duty.Description is not { Length: > 0 })
                                 {
-                                    <li>
-                                        @duty.Description
-                                    </li>
+                                    continue;
                                 }
+
+                                <li>
+                                    @duty.Description
+                                </li>
                             }
                         </ul>
                     }
@@ -125,19 +138,34 @@
 
 @code {
 
-    private RenderFragment SkillsFragment(IEnumerable<Skill> skills) =>
+    private RenderFragment SkillsFragment(IEnumerable<Skill> skills, bool showYearsUsed = false) =>
         @<MudGrid Class="mb-1"
                   Spacing="0">
             @foreach (var skill in skills.OrderBy(skill => skill.Name))
             {
                 <MudItem>
                     <MudChip T="@string"
-                             title="@(string.IsNullOrEmpty(skill.Description)
-                                        ? skill.Name
-                                        : skill.Description)"
+                             title="@skill.Title"
                              OnClick="@(() => OnSelectSkill(skill))"
-                             Color="@GetSkillColor(skill)">
-                        @skill.Name
+                             Color="@GetSkillColor(skill)"
+                             Size="@(showYearsUsed
+                                       ? Size.Large
+                                       : null)">
+                        <MudStack Spacing="0">
+                            @if (showYearsUsed && skill.YearsUsed > 0)
+                            {
+                                <MudText Typo="@Typo.caption">
+                                    @skill.Name
+                                </MudText>
+                                <MudText Typo="@Typo.caption">
+                                    @skill.YearsUsedString
+                                </MudText>
+                            }
+                            else
+                            {
+                                @skill.Name
+                            }
+                        </MudStack>
                     </MudChip>
                 </MudItem>
             }

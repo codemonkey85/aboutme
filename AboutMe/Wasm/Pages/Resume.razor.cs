@@ -8,32 +8,42 @@ public partial class Resume
         Name = "Michael Bond",
         Email = "michael@bondcodes.com",
         Summary = "Web / Windows / C# / ASP / .NET Developer",
-        ResumeSkills =
-        [
-            Skills.DotNetCore,
-            Skills.VisualStudio,
-            Skills.AspNet,
-            Skills.Blazor,
-            Skills.MudBlazor,
-            Skills.DotNetMaui,
-            Skills.MsSqlServer,
-            Skills.Sql,
-            Skills.Html,
-            Skills.Css,
-            Skills.JavaScript,
-            Skills.Git,
-            Skills.AzureDevOps,
-            Skills.TelerikBlazor,
-            Skills.DotNetFramework,
-            Skills.WindowsForms,
-            Skills.TailwindCss
-        ],
+        ResumeSkills = [],
         Jobs =
         [
             new Job
             {
+                Title = "Senior Software Developer I",
+                Company = "SETWorks",
+                CompanyUrl = "https://set-works.com/",
+                Summary = string.Empty,
+                Email = null,
+                Phone = null,
+                Address = null,
+                SkillsUsed =
+                [
+                    Skills.DotNetCore,
+                    Skills.VisualStudio,
+                    Skills.AspNet,
+                    Skills.Blazor,
+                    Skills.MsSqlServer,
+                    Skills.Sql,
+                    Skills.Html,
+                    Skills.Css,
+                    Skills.Git,
+                    Skills.TelerikBlazor,
+                    Skills.DotNetFramework
+                ],
+                Duties = [],
+                StartDate = new(2025, 05, 12),
+                EndDate = null,
+                PresentlyEmployed = true
+            }, // SETWorks
+            new Job
+            {
                 Title = "Full Stack Developer",
                 Company = "Fusion Worldwide",
+                CompanyUrl = "https://www.fusionww.com/",
                 Summary = string.Empty,
                 Email = null,
                 Phone = null,
@@ -90,12 +100,13 @@ public partial class Resume
                 ],
                 StartDate = new(2022, 09, 1),
                 EndDate = new DateTime(2025, 01, 24),
-                PresentlyEmployed = true
+                PresentlyEmployed = false
             }, // Fusion Worldwide
             new Job
             {
                 Title = "Software Developer",
                 Company = "3 Story Software",
+                CompanyUrl = "https://www.3storysoftware.com/",
                 Summary = string.Empty,
                 Email = null,
                 Phone = null,
@@ -187,6 +198,7 @@ public partial class Resume
             {
                 Title = "Senior Blazor Developer",
                 Company = "AmericanEagle.com",
+                CompanyUrl = "https://www.americaneagle.com/",
                 Summary = string.Empty,
                 Email = null,
                 Phone = null,
@@ -233,6 +245,7 @@ public partial class Resume
             {
                 Title = "Senior Software Engineer",
                 Company = "LTi Technology Solutions",
+                CompanyUrl = "https://www.ltisolutions.com/",
                 Summary = string.Empty,
                 Email = null,
                 Phone = null,
@@ -262,6 +275,7 @@ public partial class Resume
             {
                 Title = "Programmer Analyst",
                 Company = "Fairfax Data Systems",
+                CompanyUrl = "https://www.fairfaxdatasystems.com/",
                 Summary = string.Empty,
                 Email = null,
                 Phone = null,
@@ -301,6 +315,42 @@ public partial class Resume
 
     private List<Skill> SelectedSkills { get; } = [];
 
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        List<Skill> skillList =
+        [
+            Skills.DotNetCore,
+            Skills.VisualStudio,
+            Skills.AspNet,
+            Skills.Blazor,
+            Skills.MudBlazor,
+            Skills.DotNetMaui,
+            Skills.MsSqlServer,
+            Skills.Sql,
+            Skills.Html,
+            Skills.Css,
+            Skills.JavaScript,
+            Skills.Git,
+            Skills.AzureDevOps,
+            Skills.TelerikBlazor,
+            Skills.DotNetFramework,
+            Skills.WindowsForms,
+            Skills.TailwindCss
+        ];
+
+        foreach (var skill in skillList)
+        {
+            resumeModel.ResumeSkills.Add(skill with
+            {
+                YearsUsed = (int)resumeModel.Jobs
+                    .Where(j => j.SkillsUsed.Contains(skill))
+                    .Sum(j => j.YearsAtJob)
+            });
+        }
+    }
+
     private void OnSelectSkill(Skill skill)
     {
         if (!SelectedSkills.Remove(skill))
@@ -329,12 +379,35 @@ public partial class Resume
         public required List<Job> Jobs { get; init; }
     }
 
-    private readonly record struct Skill
+    private readonly struct Skill : IEquatable<Skill>
     {
         public required string Name { get; init; }
 
         // ReSharper disable once UnusedAutoPropertyAccessor.Local
         public string? Description { get; init; }
+
+        public int YearsUsed { get; init; }
+
+        public string YearsUsedString => YearsUsed > 0
+            ? $"{YearsUsed} year{(YearsUsed == 1 ? string.Empty : "s")}"
+            : string.Empty;
+
+        public string Title => $"{(string.IsNullOrEmpty(Description) ? Name : Description)}{(YearsUsed > 0 ? $" ({YearsUsedString})" : string.Empty)}";
+
+        public bool Equals(Skill other) =>
+            string.Equals(Name, other.Name, StringComparison.Ordinal) &&
+            string.Equals(Description, other.Description, StringComparison.Ordinal);
+
+        public override bool Equals(object? obj) =>
+            obj is Skill other && Equals(other);
+
+        public override int GetHashCode() => HashCode.Combine(
+            Name,
+            Description
+        );
+
+        public static bool operator ==(Skill left, Skill right) => left.Equals(right);
+        public static bool operator !=(Skill left, Skill right) => !left.Equals(right);
     }
 
     [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Local")]
@@ -352,6 +425,8 @@ public partial class Resume
 
         public required string Company { get; init; }
 
+        public string? CompanyUrl { get; init; }
+
         public required DateTime StartDate { get; init; }
 
         public DateTime? EndDate { get; init; }
@@ -362,13 +437,25 @@ public partial class Resume
 
         public bool PresentlyEmployed { get; init; }
 
-        private int YearsAtJob =>
-            PresentlyEmployed || EndDate is null
-                ? (DateTime.Now - StartDate).Days / 365
-                : (EndDate.Value - StartDate).Days / 365;
+        private DateTime EffectiveEndDate => PresentlyEmployed || EndDate is null
+            ? DateTime.Now
+            : EndDate.Value;
+
+        private int TotalDaysAtJob => (EffectiveEndDate - StartDate).Days;
+
+        internal decimal YearsAtJob => Math.Round(TotalDaysAtJob / 365M, 1);
+
+        private int MonthsAtJob => TotalDaysAtJob / 30;
+
+        private string YearsOrMonthsAtJob =>
+            YearsAtJob >= 1
+                ? $"({YearsAtJob} year{(YearsAtJob == 1 ? "" : "s")})"
+                : MonthsAtJob > 0
+                    ? $"({MonthsAtJob} month{(MonthsAtJob == 1 ? "" : "s")})"
+                    : string.Empty;
 
         public string DatesString =>
-            $"{StartDate:MMM yyyy} - {(EndDate is null ? "Present" : $"{EndDate:MMM yyyy}")} {(YearsAtJob > 0 ? $"({YearsAtJob} year{(YearsAtJob == 1 ? string.Empty : "s")})" : string.Empty)}";
+            $"{StartDate:MMM yyyy} - {(EndDate is null ? "Present" : $"{EndDate:MMM yyyy}")} {YearsOrMonthsAtJob}";
     }
 
     private readonly record struct Duty
