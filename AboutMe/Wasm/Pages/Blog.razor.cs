@@ -20,6 +20,8 @@ public partial class Blog(HttpClient httpClient)
 
     protected override async Task OnInitializedAsync()
     {
+        await base.OnInitializedAsync();
+
         const string feedUrl = "https://micro.bondcodes.com/feed.json";
         try
         {
