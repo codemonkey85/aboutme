@@ -20,6 +20,8 @@ public partial class Blog(HttpClient httpClient)
 
     protected override async Task OnInitializedAsync()
     {
+        await base.OnInitializedAsync();
+
         const string feedUrl = "https://micro.bondcodes.com/feed.json";
         try
         {
@@ -28,7 +30,7 @@ public partial class Blog(HttpClient httpClient)
 
             if (feed.Items.Count != 0)
             {
-                Posts = feed.Items.Take(10).ToList(); // Get the last 10 posts
+                Posts = [.. feed.Items.Take(10)]; // Get the last 10 posts
             }
 
             IsLoading = false;

@@ -14,6 +14,11 @@
     [Parameter]
     public string? TitleOverride { get; set; }
 
+    private static RenderFragment SocialLinkFragment(SocialLink socialLink, bool compactMode = false,
+        string? nameOverride = null, string? titleOverride = null) => compactMode
+        ? SocialLinkFragmentCompact(socialLink, nameOverride, titleOverride)
+        : SocialLinkFragmentExpanded(socialLink, nameOverride, titleOverride);
+
     private static RenderFragment SocialLinkFragmentExpanded(SocialLink socialLink, string? nameOverride = null, string? titleOverride = null) =>
         @<MudCard>
             <MudCardHeader>
