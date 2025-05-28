@@ -392,7 +392,8 @@ public partial class Resume
             ? $"{YearsUsed} year{(YearsUsed == 1 ? string.Empty : "s")}"
             : string.Empty;
 
-        public string Title => $"{(string.IsNullOrEmpty(Description) ? Name : Description)}{(YearsUsed > 0 ? $" ({YearsUsedString})" : string.Empty)}";
+        public string Title =>
+            $"{(string.IsNullOrEmpty(Description) ? Name : Description)}{(YearsUsed > 0 ? $" ({YearsUsedString})" : string.Empty)}";
 
         public bool Equals(Skill other) =>
             string.Equals(Name, other.Name, StringComparison.Ordinal) &&
