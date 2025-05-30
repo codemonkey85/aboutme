@@ -5,8 +5,8 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1B6B7623-01F6-4401-97FE-B498B96E2166}"
 	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-		global.json = global.json
+		..\.editorconfig = ..\.editorconfig
+		..\global.json = ..\global.json
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AboutMe.AppHost", "AboutMe\AboutMe.AppHost\AboutMe.AppHost.csproj", "{1C3CD9A8-D939-44CD-B77B-406B12F8761D}"
