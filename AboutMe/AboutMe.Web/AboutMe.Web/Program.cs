@@ -1,5 +1,3 @@
-using AboutMe.Web.Components;
-using MudBlazor.Services;
 using _Imports = AboutMe.Web.Client._Imports;
 
 var builder = WebApplication.CreateBuilder(args);
