@@ -20,6 +20,8 @@ jobs:
     name: Build and Deploy
     # use ubuntu-latest image to run steps on
     runs-on: ubuntu-latest
+    env:
+      AZURE_ENV_NAME: aboutme
 
     steps:
       # uses GitHub's checkout action to checkout code form the main branch
