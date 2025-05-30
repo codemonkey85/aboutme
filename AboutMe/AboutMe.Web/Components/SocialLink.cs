@@ -1,6 +1,4 @@
-﻿using MudBlazor;
-
-namespace AboutMe.Web.Components;
+﻿namespace AboutMe.Web.Components;
 
 public readonly record struct SocialLink
 {

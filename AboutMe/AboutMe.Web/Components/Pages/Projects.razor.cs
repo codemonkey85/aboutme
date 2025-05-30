@@ -1,6 +1,3 @@
-using AboutMe.Web;
-using System.Diagnostics.CodeAnalysis;
-
 namespace AboutMe.Web.Components.Pages;
 
 // ReSharper disable once UnusedType.Global

@@ -1,5 +1,3 @@
-using AboutMe.Web.Components;
-
 namespace AboutMe.Web.Components.Pages;
 
 // ReSharper disable once UnusedType.Global
