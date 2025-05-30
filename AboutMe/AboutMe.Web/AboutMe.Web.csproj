@@ -6,10 +6,6 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-	</PropertyGroup>
-
 	<ItemGroup>
 		<PackageReference Include="MudBlazor" Version="8.7.0" />
 	</ItemGroup>

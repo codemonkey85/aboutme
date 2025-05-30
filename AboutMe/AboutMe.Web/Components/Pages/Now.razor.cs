@@ -1,4 +1,6 @@
-namespace AboutMe.Wasm.Pages;
+using System.Text.Json;
+
+namespace AboutMe.Web.Components.Pages;
 
 // ReSharper disable once UnusedType.Global
 public partial class Now(HttpClient httpClient)
@@ -11,13 +13,7 @@ public partial class Now(HttpClient httpClient)
     {
         await base.OnInitializedAsync();
 
-        const string TestApiBaseUrl =
-#if DEBUG
-"https://localhost:7239/"
-#else
-"https://codemonkey85.azurewebsites.net/"
-#endif
-            ;
+        const string TestApiBaseUrl = "https://codemonkey85.azurewebsites.net/";
 
         try
         {

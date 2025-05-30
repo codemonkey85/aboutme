@@ -1,4 +1,6 @@
-namespace AboutMe.Wasm.Pages;
+using AboutMe.Web.Components;
+
+namespace AboutMe.Web.Components.Pages;
 
 // ReSharper disable once UnusedType.Global
 public partial class Contact

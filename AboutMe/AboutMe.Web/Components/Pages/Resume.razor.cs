@@ -1,4 +1,7 @@
-namespace AboutMe.Wasm.Pages;
+using MudBlazor;
+using System.Diagnostics.CodeAnalysis;
+
+namespace AboutMe.Web.Components.Pages;
 
 // ReSharper disable once UnusedType.Global
 public partial class Resume
