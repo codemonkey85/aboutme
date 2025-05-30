@@ -1,0 +1,113 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider @ref="@mudThemeProvider"
+                  @bind-IsDarkMode="@isDarkMode"/>
+<MudPopoverProvider/>
+<MudDialogProvider/>
+<MudSnackbarProvider/>
+
+<MudLayout>
+    <MudAppBar>
+        <MudIconButton Icon="@Icons.Material.Filled.Menu"
+                       Color="@Color.Inherit"
+                       Edge="@Edge.Start"
+                       OnClick="@DrawerToggle"/>
+        <MudStack Row
+                  AlignItems="@AlignItems.Center">
+            <MudImage Src="images/icon-192.png"
+                      Alt="Bond Codes, LLC"
+                      title="Bond Codes, LLC"
+                      Width="32"
+                      Height="32"
+                      Class="rounded-lg"/>
+            <MudText Typo="@Typo.h4"
+                     class="d-none d-lg-flex">
+                @Constants.SiteName
+            </MudText>
+            <MudText Typo="@Typo.h6"
+                     class="d-none d-md-flex d-lg-none">
+                @Constants.SiteName
+            </MudText>
+            <MudText Typo="@Typo.inherit"
+                     class="d-xs-flex d-md-none">
+                @Constants.SiteName
+            </MudText>
+        </MudStack>
+        <MudSpacer/>
+        <MudStack Row>
+            <MudSwitch @bind-Value="@isDarkMode"
+                       Color="@Color.Primary"
+                       Label="@(isDarkMode
+                                  ? "Dark"
+                                  : "Light")"/>
+            <MudButton Class="d-none d-md-flex"
+                       EndIcon="@Icons.Custom.Brands.GitHub"
+                       Href="@($"{Constants.MyGitHubBaseUrl}/aboutme")"
+                       Target="_blank"
+                       title="Source code on GitHub"
+                       Color="@Color.Inherit"
+                       Variant="@Variant.Outlined">
+                Source code on GitHub
+            </MudButton>
+            <MudIconButton Class="d-md-none"
+                           Icon="@Icons.Custom.Brands.GitHub"
+                           Href="@($"{Constants.MyGitHubBaseUrl}/aboutme")"
+                           Target="_blank"
+                           title="Source code on GitHub"
+                           Color="@Color.Inherit"
+                           Variant="@Variant.Outlined"/>
+        </MudStack>
+    </MudAppBar>
+    <MudDrawer @bind-Open="@drawerOpen">
+        <NavMenu/>
+        <MudSpacer/>
+        <MudContainer Class="mx-0 my-3 mb-16">
+            <MudText Typo="@Typo.body1">
+                This site is built with
+                <MudLink Href="https://blazor.net"
+                         Target="_blank"
+                         title="Blazor">
+                    Blazor
+                </MudLink>
+                and
+                <MudLink Href="https://mudblazor.com"
+                         Target="_blank"
+                         title="MudBlazor">
+                    MudBlazor
+                </MudLink>
+                Logo designed with the assistance of AI-powered tools by Michael Bond for 'Bond Codes'.
+            </MudText>
+        </MudContainer>
+    </MudDrawer>
+    <MudMainContent>
+        <MudContainer MaxWidth="@MaxWidth.False">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    private bool drawerOpen = true;
+    private bool isDarkMode;
+    private MudThemeProvider? mudThemeProvider;
+
+    protected void DrawerToggle() => drawerOpen = !drawerOpen;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && mudThemeProvider is not null)
+        {
+            isDarkMode = await mudThemeProvider.GetSystemPreference();
+            await mudThemeProvider.WatchSystemPreference(OnSystemPreferenceChanged);
+            StateHasChanged();
+        }
+    }
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
+    private async Task OnSystemPreferenceChanged(bool newValue)
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
+    {
+        isDarkMode = newValue;
+        StateHasChanged();
+    }
+
+}

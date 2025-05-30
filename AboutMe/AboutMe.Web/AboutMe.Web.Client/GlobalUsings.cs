@@ -1,0 +1,8 @@
+﻿global using AboutMe.Web.Client.Components;
+global using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+global using MudBlazor;
+global using MudBlazor.Services;
+global using System.Diagnostics.CodeAnalysis;
+global using System.Net.Http.Json;
+global using System.Text.Json;
+global using System.Text.Json.Serialization;
