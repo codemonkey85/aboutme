@@ -1,0 +1,6 @@
+name: aboutme
+services:
+  web:
+    project: src/AboutMe/AboutMe.AppHost/AboutMe.AppHost.csproj
+    language: dotnet
+    host: appservice
