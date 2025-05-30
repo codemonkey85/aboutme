@@ -1,4 +1,4 @@
-﻿namespace AboutMe.Wasm;
+﻿namespace AboutMe.Web;
 
 public static class Constants
 {
