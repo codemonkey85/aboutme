@@ -1,0 +1,24 @@
+﻿@page "/contact"
+
+<PageTitle>
+    @Constants.SiteName - Contact Me
+</PageTitle>
+
+<MudText Typo="@Typo.h3">
+    Contact Me
+</MudText>
+
+<MudGrid Class="mb-3"
+         Spacing="1">
+    @foreach (var socialLink in SocialLinksList)
+    {
+        <MudItem xs="12"
+                 sm="6"
+                 md="4"
+                 lg="3"
+                 xl="2"
+                 xxl="2">
+            <SocialLinkComponent SocialLink="@socialLink"/>
+        </MudItem>
+    }
+</MudGrid>

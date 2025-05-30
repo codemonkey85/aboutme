@@ -1,0 +1,57 @@
+﻿@SocialLinkFragment(SocialLink, CompactMode, NameOverride, TitleOverride)
+
+@code {
+
+    [Parameter, EditorRequired]
+    public SocialLink SocialLink { get; set; }
+
+    [Parameter]
+    public bool CompactMode { get; set; }
+
+    [Parameter]
+    public string? NameOverride { get; set; }
+
+    [Parameter]
+    public string? TitleOverride { get; set; }
+
+    private static RenderFragment SocialLinkFragment(SocialLink socialLink, bool compactMode = false,
+        string? nameOverride = null, string? titleOverride = null) => compactMode
+        ? SocialLinkFragmentCompact(socialLink, nameOverride, titleOverride)
+        : SocialLinkFragmentExpanded(socialLink, nameOverride, titleOverride);
+
+    private static RenderFragment SocialLinkFragmentExpanded(SocialLink socialLink, string? nameOverride = null, string? titleOverride = null) =>
+        @<MudCard>
+            <MudCardHeader>
+                <MudText Typo="@Typo.h5">
+                    @(nameOverride ?? socialLink.Name)
+                </MudText>
+            </MudCardHeader>
+            <MudCardActions Class="d-flex gap-4">
+                <MudButton Href="@socialLink.Url"
+                           Target="@(socialLink.OpenInNewWindow
+                                       ? "_blank"
+                                       : string.Empty)"
+                           title="@(titleOverride ?? socialLink.Title)"
+                           Variant="@Variant.Filled"
+                           Color="@Color.Primary"
+                           StartIcon="@socialLink.Icon">
+                    Open
+                </MudButton>
+            </MudCardActions>
+        </MudCard>;
+
+    private static RenderFragment SocialLinkFragmentCompact(SocialLink socialLink, string? nameOverride = null, string? titleOverride = null) =>
+        @<MudText Typo="@Typo.body1">
+            <MudButton Href="@socialLink.Url"
+                       Target="@(socialLink.OpenInNewWindow
+                                   ? "_blank"
+                                   : string.Empty)"
+                       title="@(titleOverride ?? socialLink.Title)"
+                       Variant="@Variant.Filled"
+                       Color="@Color.Primary"
+                       EndIcon="@socialLink.Icon">
+                @(nameOverride ?? socialLink.Name)
+            </MudButton>
+        </MudText>;
+
+}
