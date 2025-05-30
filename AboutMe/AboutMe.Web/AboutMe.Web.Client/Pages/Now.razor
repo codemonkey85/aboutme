@@ -8,7 +8,13 @@
     What I'm Doing Now
 </MudText>
 
-@if (NowThings is { Count: > 0 })
+@if (IsLoading)
+{
+    <MudText>
+        Loading...
+    </MudText>
+}
+else if (NowThings is { Count: > 0 })
 {
     <MudStack Spacing="3"
               Class="mb-3">
