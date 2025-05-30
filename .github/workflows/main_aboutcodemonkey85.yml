@@ -41,8 +41,9 @@ jobs:
       - name: Run tests
         run: dotnet test --configuration Release --no-build
   
-      - name: Install Azure Developer CLI (azd)
-        run: sudo apt-get update && sudo apt-get install -y dotnet-sdk-9.0 && dotnet tool install -g azure-dev-cli
+      - name: Install Azure Developer CLI
+        run: |
+          curl -fsSL https://aka.ms/install-azd.sh | bash
 
       - name: Authenticate with Azure
         uses: azure/login@v2.3.0
