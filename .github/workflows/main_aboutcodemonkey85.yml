@@ -41,21 +41,29 @@ jobs:
       - name: Run tests
         run: dotnet test --configuration Release --no-build
   
-      # publishes Blazor project to the release-folder
-      - name: Publish .NET Core Project
-        run: dotnet publish AboutMe/Wasm/AboutMe.Wasm.csproj -c Release -o release --nologo
+      - name: Install Azure Developer CLI (azd)
+        run: sudo apt-get update && sudo apt-get install -y dotnet-sdk-9.0 && dotnet tool install -g azure-dev-cli
 
-      # copy index.html to 404.html to serve the same file when a file is not found
-      - name: copy index.html to 404.html
-        run: cp release/wwwroot/index.html release/wwwroot/404.html
-
-      # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
-      - name: Add .nojekyll file
-        run: touch release/wwwroot/.nojekyll
-
-      - name: Commit wwwroot to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4.7.3
+      - name: Authenticate with Azure
+        uses: azure/login@v2.3.0
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: gh-pages
-          folder: release/wwwroot
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Provision resources
+        run: azd provision --no-prompt
+        env:
+          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }} # Replace with your client ID
+          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }} # Replace with your client secret
+          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }} # Replace with your tenant ID
+
+      - name: Deploy application
+        run: azd deploy --no-prompt
+        env:
+          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+
+      - name: Logout from Azure
+        run: az logout
