@@ -38,7 +38,7 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
 
-      - name: Build Web
+      - name: Build Solution
         run: dotnet build --configuration Release --no-restore
 
       - name: Run tests
