@@ -54,19 +54,15 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      - name: Explicit federated login with azd
-        run: azd auth login --federated
-        env:
-          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-          AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-          AZD_AUTH_TYPE: federated
+      - name: azd login with service principal
+        run: azd auth login --client-id ${{ fromJson(secrets.AZURE_CREDENTIALS).clientId }} `
+                            --client-secret ${{ fromJson(secrets.AZURE_CREDENTIALS).clientSecret }} `
+                            --tenant-id ${{ fromJson(secrets.AZURE_CREDENTIALS).tenantId }}
 
       - name: Provision resources
         run: azd provision --no-prompt
         env:
           AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
           AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
           AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           AZURE_ENV_NAME: aboutme
@@ -76,7 +72,6 @@ jobs:
         run: azd deploy --no-prompt
         env:
           AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
           AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
           AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           AZURE_ENV_NAME: aboutme
