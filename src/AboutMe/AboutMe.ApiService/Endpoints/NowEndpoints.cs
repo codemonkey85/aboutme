@@ -11,11 +11,11 @@ public static class NowEndpoints
         return app;
     }
 
-    private static async Task<IResult> GetNowThings(AirTableClientSettings? appSettings)
+    private static async Task<IResult> GetNowThings(AirTableClientSettings? airtableClientSettings)
     {
-        if (appSettings is not { AppKey: { } appKey, BaseId: { } baseId })
+        if (airtableClientSettings is not { AppKey: { } appKey, BaseId: { } baseId })
         {
-            return Results.InternalServerError();
+            return Results.InternalServerError("AirTable client settings improperly configured.");
         }
 
         using var airtableBase = new AirtableBase(appKey, baseId);
