@@ -55,9 +55,7 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: azd login with service principal
-        run: azd auth login --client-id ${{ fromJson(secrets.AZURE_CREDENTIALS).clientId }} `
-                            --client-secret ${{ fromJson(secrets.AZURE_CREDENTIALS).clientSecret }} `
-                            --tenant-id ${{ fromJson(secrets.AZURE_CREDENTIALS).tenantId }}
+        run: azd auth login --client-id ${{ fromJson(secrets.AZURE_CREDENTIALS).clientId }} --client-secret ${{ fromJson(secrets.AZURE_CREDENTIALS).clientSecret }} --tenant-id ${{ fromJson(secrets.AZURE_CREDENTIALS).tenantId }}
 
       - name: Provision resources
         run: azd provision --no-prompt
