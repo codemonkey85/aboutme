@@ -12,19 +12,17 @@ services.AddProblemDetails();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 services.AddOpenApi();
 
-var config = builder.Configuration;
-
 if (!builder.Environment.IsDevelopment())
 {
-    var keyVaultName = config["AzureKeyVault:Vault"];
+    var keyVaultName = Environment.GetEnvironmentVariable("AzureKeyVault__Vault");
     if (!string.IsNullOrEmpty(keyVaultName))
     {
         var keyVaultUri = new Uri($"https://{keyVaultName}.vault.azure.net/");
-        config.AddAzureKeyVault(keyVaultUri, new DefaultAzureCredential());
+        builder.Configuration.AddAzureKeyVault(keyVaultUri, new DefaultAzureCredential());
     }
 }
 
-var airtableClientSettings = config
+var airtableClientSettings = builder.Configuration
     .GetSection(nameof(AirTableClientSettings))
     .Get<AirTableClientSettings>();
 
