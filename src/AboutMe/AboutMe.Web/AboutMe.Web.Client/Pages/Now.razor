@@ -14,7 +14,13 @@
         Loading...
     </MudText>
 }
-else if (nowThings is { Count: > 0 })
+else if (!nowThings.Any())
+{
+    <MudText>
+        No now things found.
+    </MudText>
+}
+else
 {
     <ul>
         @foreach (var nowThing in nowThings)
