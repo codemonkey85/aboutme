@@ -15,6 +15,13 @@ services.AddOpenApi();
 if (!builder.Environment.IsDevelopment())
 {
     var keyVaultName = Environment.GetEnvironmentVariable("AzureKeyVault__Vault");
+
+    if (keyVaultName is not { Length: > 0 })
+    {
+        throw new InvalidOperationException(
+            "Azure Key Vault name is not set in environment variables.");
+    }
+
     if (!string.IsNullOrEmpty(keyVaultName))
     {
         var keyVaultUri = new Uri($"https://{keyVaultName}.vault.azure.net/");
