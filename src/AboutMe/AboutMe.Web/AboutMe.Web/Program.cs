@@ -1,4 +1,3 @@
-using AboutMe.Web.Client;
 using _Imports = AboutMe.Web.Client._Imports;
 
 var builder = WebApplication.CreateBuilder(args);

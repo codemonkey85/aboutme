@@ -14,11 +14,21 @@
         Loading...
     </MudText>
 }
-else if (NowThings is { Count: > 0 })
+else if (nowThings is { Count: > 0 })
 {
+    <ul>
+        @foreach (var nowThing in nowThings)
+        {
+            <li>
+                @nowThing.Title @nowThing.Description
+            </li>
+        }
+    </ul>
+
+@* 
     <MudStack Spacing="3"
               Class="mb-3">
-        @foreach (var nowThing in NowThings)
+        @foreach (var nowThing in nowThings)
         {
             <MudCard>
                 <MudCardHeader>
@@ -47,4 +57,5 @@ else if (NowThings is { Count: > 0 })
             </MudCard>
         }
     </MudStack>
+ *@
 }

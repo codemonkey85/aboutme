@@ -7,10 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Include="..\AboutMe.Web.Client\Pages\Weather.razor.cs" Link="Weather.razor.cs" />
-    </ItemGroup>
-
-    <ItemGroup>
         <ProjectReference Include="..\..\AboutMe.ServiceDefaults\AboutMe.ServiceDefaults.csproj" />
         <ProjectReference Include="..\AboutMe.Web.Client\AboutMe.Web.Client.csproj" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="9.0.5" />

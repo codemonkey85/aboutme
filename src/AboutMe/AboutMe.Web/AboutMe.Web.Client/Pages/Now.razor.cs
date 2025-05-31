@@ -1,9 +1,10 @@
+using static AboutMe.Web.Client.NowApiClient;
+
 namespace AboutMe.Web.Client.Pages;
 
-// ReSharper disable once UnusedType.Global
-public partial class Now(HttpClient httpClient)
+public partial class Now(NowApiClient httpClient)
 {
-    private List<NowThing> NowThings { get; set; } = [];
+    private List<NowThing> nowThings = [];
 
     private bool IsLoading { get; set; }
 
@@ -11,25 +12,14 @@ public partial class Now(HttpClient httpClient)
     {
         await base.OnInitializedAsync();
 
-        const string TestApiBaseUrl = "https://codemonkey85.azurewebsites.net/";
-
         try
         {
             IsLoading = true;
-            var nowThings = await httpClient.GetFromJsonAsync<NowThing[]>(
-                TestApiBaseUrl + "now",
-                new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                });
+            var feed = await httpClient.GetNowThings();
 
-            if (nowThings is not null && nowThings.Length > 0)
+            if (feed?.Length is > 0)
             {
-                NowThings = [.. nowThings]; // Copy the array to the list
-            }
-            else
-            {
-                Console.WriteLine("No 'now' items found.");
+                nowThings = [.. feed];
             }
 
             IsLoading = false;
@@ -38,14 +28,5 @@ public partial class Now(HttpClient httpClient)
         {
             Console.WriteLine($"Error loading feed: {ex.Message}");
         }
-    }
-
-    private readonly record struct NowThing
-    {
-        public string Title { get; init; }
-
-        public string Description { get; init; }
-
-        public string? Url { get; init; }
     }
 }

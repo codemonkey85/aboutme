@@ -1,8 +1,6 @@
-using Microsoft.AspNetCore.Components;
-
 namespace AboutMe.Web.Client.Pages;
 
-public partial class Weather(WeatherApiClient WeatherApi) : ComponentBase
+public partial class Weather(WeatherApiClient WeatherApi)
 {
     private List<WeatherForecast> forecasts = [];
 

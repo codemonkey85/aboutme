@@ -9,6 +9,10 @@ builder.Services.AddProblemDetails();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+var airtableClientSettings = builder.Configuration
+    .GetSection(nameof(AirTableClientSettings))
+    .Get<AirTableClientSettings>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -34,6 +38,8 @@ app.MapGet("/weatherforecast", () =>
         return forecast;
     })
     .WithName("GetWeatherForecast");
+
+app.MapNowEndpoints(airtableClientSettings);
 
 app.MapDefaultEndpoints();
 
