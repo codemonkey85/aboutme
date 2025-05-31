@@ -22,16 +22,6 @@ else if (!nowThings.Any())
 }
 else
 {
-    <ul>
-        @foreach (var nowThing in nowThings)
-        {
-            <li>
-                @nowThing.Title @nowThing.Description
-            </li>
-        }
-    </ul>
-
-@* 
     <MudStack Spacing="3"
               Class="mb-3">
         @foreach (var nowThing in nowThings)
@@ -63,5 +53,4 @@ else
             </MudCard>
         }
     </MudStack>
- *@
 }
