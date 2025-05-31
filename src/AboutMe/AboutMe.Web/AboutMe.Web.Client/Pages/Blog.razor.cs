@@ -1,6 +1,6 @@
 ﻿namespace AboutMe.Web.Client.Pages;
 
-public partial class Blog(HttpClient httpClient)
+public partial class Blog(BlogApiClient BlogApiClient)
 {
     [StringSyntax(StringSyntaxAttribute.DateTimeFormat)]
     private const string DateFormat = "ddd MMM dd yyyy hh:mm tt";
@@ -31,17 +31,16 @@ public partial class Blog(HttpClient httpClient)
 
         async Task LoadFeedAsync()
         {
-            const string feedUrl = "https://micro.bondcodes.com/feed.json";
             try
             {
                 IsLoading = true;
                 StateHasChanged();
 
-                var feed = await httpClient.GetFromJsonAsync<Feed>(feedUrl, JsonSerializerOptions);
+                var feed = await BlogApiClient.GetNowThings();
 
-                if (feed.Items.Count != 0)
+                if (feed?.Length is > 0)
                 {
-                    Posts = [.. feed.Items.Take(10)]; // Get the last 10 posts
+                    Posts = [.. feed.Take(10)]; // Get the last 10 posts
                 }
 
                 IsLoading = false;

@@ -1,7 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Text.Json.Serialization;
-
-namespace AboutMe.Shared.Models;
+﻿namespace AboutMe.Shared.Models;
 [JsonSerializable(typeof(Feed[]))]
 // ReSharper disable once ClassNeverInstantiated.Global
 public partial class FeedJsonContext : JsonSerializerContext;

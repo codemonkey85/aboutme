@@ -23,7 +23,9 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.MapNowEndpoints(airtableClientSettings);
+app
+    .MapNowEndpoints(airtableClientSettings)
+    .MapBlogEndpoints();
 
 app.MapDefaultEndpoints();
 

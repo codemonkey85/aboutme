@@ -15,6 +15,12 @@ public class NowApiClient(HttpClient httpClient)
             {
                 break;
             }
+
+            if (nowThing is null)
+            {
+                continue;
+            }
+
             nowThings ??= [];
             nowThings.Add(nowThing);
         }
