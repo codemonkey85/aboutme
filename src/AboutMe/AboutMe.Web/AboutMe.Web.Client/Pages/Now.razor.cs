@@ -32,12 +32,14 @@ public partial class Now(NowApiClient NowApiClient)
                 {
                     nowThings = [.. feed];
                 }
-
-                IsLoading = false;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error loading feed: {ex.Message}");
+            }
+            finally
+            {
+                IsLoading = false;
             }
         }
     }
