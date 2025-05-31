@@ -1,27 +1,30 @@
 using Azure.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
+var services = builder.Services;
 
 // Add service defaults & Aspire client integrations.
 builder.AddServiceDefaults();
 
 // Add services to the container.
-builder.Services.AddProblemDetails();
+services.AddProblemDetails();
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+services.AddOpenApi();
+
+var config = builder.Configuration;
 
 if (!builder.Environment.IsDevelopment())
 {
-    var keyVaultName = builder.Configuration["AzureKeyVault:Vault"];
+    var keyVaultName = config["AzureKeyVault:Vault"];
     if (!string.IsNullOrEmpty(keyVaultName))
     {
         var keyVaultUri = new Uri($"https://{keyVaultName}.vault.azure.net/");
-        builder.Configuration.AddAzureKeyVault(keyVaultUri, new DefaultAzureCredential());
+        config.AddAzureKeyVault(keyVaultUri, new DefaultAzureCredential());
     }
 }
 
-var airtableClientSettings = builder.Configuration
+var airtableClientSettings = config
     .GetSection(nameof(AirTableClientSettings))
     .Get<AirTableClientSettings>();
 
