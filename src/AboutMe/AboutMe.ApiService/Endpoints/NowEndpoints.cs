@@ -39,13 +39,4 @@ public static class NowEndpoints
 
         return Results.Problem(response.AirtableApiError.Message ?? "Failed to load now things.");
     }
-
-    internal record NowThing
-    {
-        public string Title { get; set; } = string.Empty;
-
-        public string Description { get; set; } = string.Empty;
-
-        public string? Url { get; set; }
-    }
 }
