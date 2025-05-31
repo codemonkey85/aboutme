@@ -1,6 +1,0 @@
-name: aboutme
-services:
-  web:
-    project: src/AboutMe/AboutMe.AppHost
-    language: dotnet
-    host: containerapp
