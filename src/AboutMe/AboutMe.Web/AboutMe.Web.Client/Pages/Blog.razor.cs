@@ -25,11 +25,11 @@ public partial class Blog(BlogApiClient BlogApiClient)
         if (firstRender && !HasLoaded)
         {
             HasLoaded = true;
-            await LoadFeedAsync();
+            await LoadData();
             StateHasChanged();
         }
 
-        async Task LoadFeedAsync()
+        async Task LoadData()
         {
             try
             {
@@ -42,12 +42,14 @@ public partial class Blog(BlogApiClient BlogApiClient)
                 {
                     Posts = [.. feed.Take(10)]; // Get the last 10 posts
                 }
-
-                IsLoading = false;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error loading feed: {ex.Message}");
+                Console.WriteLine($"Error loading data: {ex}");
+            }
+            finally
+            {
+                IsLoading = false;
             }
         }
     }
