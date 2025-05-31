@@ -1,7 +1,5 @@
 ﻿namespace AboutMe.Web.Client.Pages;
 
-// ReSharper disable once UnusedType.Global
-// ReSharper disable once ClassNeverInstantiated.Global
 public partial class Blog(HttpClient httpClient)
 {
     [StringSyntax(StringSyntaxAttribute.DateTimeFormat)]
@@ -18,26 +16,40 @@ public partial class Blog(HttpClient httpClient)
 
     private bool IsLoading { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    private bool HasLoaded { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await base.OnInitializedAsync();
+        await base.OnAfterRenderAsync(firstRender);
 
-        const string feedUrl = "https://micro.bondcodes.com/feed.json";
-        try
+        if (firstRender && !HasLoaded)
         {
-            IsLoading = true;
-            var feed = await httpClient.GetFromJsonAsync<Feed>(feedUrl, JsonSerializerOptions);
-
-            if (feed.Items.Count != 0)
-            {
-                Posts = [.. feed.Items.Take(10)]; // Get the last 10 posts
-            }
-
-            IsLoading = false;
+            HasLoaded = true;
+            await LoadFeedAsync();
+            StateHasChanged();
         }
-        catch (Exception ex)
+
+        async Task LoadFeedAsync()
         {
-            Console.WriteLine($"Error loading feed: {ex.Message}");
+            const string feedUrl = "https://micro.bondcodes.com/feed.json";
+            try
+            {
+                IsLoading = true;
+                StateHasChanged();
+
+                var feed = await httpClient.GetFromJsonAsync<Feed>(feedUrl, JsonSerializerOptions);
+
+                if (feed.Items.Count != 0)
+                {
+                    Posts = [.. feed.Items.Take(10)]; // Get the last 10 posts
+                }
+
+                IsLoading = false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading feed: {ex.Message}");
+            }
         }
     }
 }

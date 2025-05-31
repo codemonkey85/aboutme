@@ -1,30 +1,44 @@
 namespace AboutMe.Web.Client.Pages;
 
-public partial class Weather(WeatherApiClient WeatherApi)
+public partial class Weather(WeatherApiClient WeatherApiClient)
 {
     private List<WeatherForecast> forecasts = [];
 
     private bool IsLoading { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    private bool HasLoaded { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await base.OnInitializedAsync();
+        await base.OnAfterRenderAsync(firstRender);
 
-        try
+        if (firstRender && !HasLoaded)
         {
-            IsLoading = true;
-            var feed = await WeatherApi.GetWeatherAsync();
-
-            if (feed?.Length is > 0)
-            {
-                forecasts = [.. feed];
-            }
-
-            IsLoading = false;
+            HasLoaded = true;
+            await LoadFeedAsync();
+            StateHasChanged();
         }
-        catch (Exception ex)
+
+        async Task LoadFeedAsync()
         {
-            Console.WriteLine($"Error loading feed: {ex.Message}");
+            try
+            {
+                IsLoading = true;
+                StateHasChanged();
+
+                var feed = await WeatherApiClient.GetWeatherAsync();
+
+                if (feed?.Length is > 0)
+                {
+                    forecasts = [.. feed];
+                }
+
+                IsLoading = false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading feed: {ex.Message}");
+            }
         }
     }
 }

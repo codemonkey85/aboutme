@@ -1,32 +1,44 @@
-using static AboutMe.Web.Client.NowApiClient;
-
 namespace AboutMe.Web.Client.Pages;
 
-public partial class Now(NowApiClient httpClient)
+public partial class Now(NowApiClient NowApiClient)
 {
     private List<NowThing> nowThings = [];
 
     private bool IsLoading { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    private bool HasLoaded { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await base.OnInitializedAsync();
+        await base.OnAfterRenderAsync(firstRender);
 
-        try
+        if (firstRender && !HasLoaded)
         {
-            IsLoading = true;
-            var feed = await httpClient.GetNowThings();
-
-            if (feed?.Length is > 0)
-            {
-                nowThings = [.. feed];
-            }
-
-            IsLoading = false;
+            HasLoaded = true;
+            await LoadFeedAsync();
+            StateHasChanged();
         }
-        catch (Exception ex)
+
+        async Task LoadFeedAsync()
         {
-            Console.WriteLine($"Error loading feed: {ex.Message}");
+            try
+            {
+                IsLoading = true;
+                StateHasChanged();
+
+                var feed = await NowApiClient.GetNowThings();
+
+                if (feed?.Length is > 0)
+                {
+                    nowThings = [.. feed];
+                }
+
+                IsLoading = false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading feed: {ex.Message}");
+            }
         }
     }
 }
