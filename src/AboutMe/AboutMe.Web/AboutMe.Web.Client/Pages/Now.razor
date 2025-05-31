@@ -14,11 +14,17 @@
         Loading...
     </MudText>
 }
-else if (NowThings is { Count: > 0 })
+else if (!nowThings.Any())
+{
+    <MudText>
+        No now things found.
+    </MudText>
+}
+else
 {
     <MudStack Spacing="3"
               Class="mb-3">
-        @foreach (var nowThing in NowThings)
+        @foreach (var nowThing in nowThings)
         {
             <MudCard>
                 <MudCardHeader>

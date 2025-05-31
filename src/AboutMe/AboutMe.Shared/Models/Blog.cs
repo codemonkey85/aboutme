@@ -1,0 +1,48 @@
+﻿namespace AboutMe.Shared.Models;
+[JsonSerializable(typeof(Feed[]))]
+// ReSharper disable once ClassNeverInstantiated.Global
+public partial class FeedJsonContext : JsonSerializerContext;
+
+public readonly record struct Feed
+{
+    [JsonPropertyName("version")]
+    public string Version { get; init; }
+
+    [JsonPropertyName("title")]
+    public string Title { get; init; }
+
+    [JsonPropertyName("icon")]
+    public string Icon { get; init; }
+
+    [JsonPropertyName("home_page_url")]
+    public string HomePageUrl { get; init; }
+
+    [JsonPropertyName("feed_url")]
+    public string FeedUrl { get; init; }
+
+    // ReSharper disable once CollectionNeverUpdated.Global
+    [JsonPropertyName("items")]
+    public List<Item> Items { get; init; }
+}
+
+// ReSharper disable once ClassNeverInstantiated.Global
+[SuppressMessage("ReSharper", "AutoPropertyCanBeMadeGetOnly.Global")]
+public readonly record struct Item
+{
+    // ReSharper disable once UnusedMember.Global
+    [JsonPropertyName("id")]
+    public string Id { get; init; }
+
+    [JsonPropertyName("title")]
+    public string Title { get; init; }
+
+    [JsonPropertyName("content_html")]
+    public string ContentHtml { get; init; }
+
+    // ReSharper disable once UnusedAutoPropertyAccessor.Global
+    [JsonPropertyName("date_published")]
+    public DateTime DatePublished { get; init; }
+
+    [JsonPropertyName("url")]
+    public string Url { get; init; }
+}

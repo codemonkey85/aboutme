@@ -4,14 +4,20 @@
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <UserSecretsId>1563b827-9f6c-4ee2-8bdb-0aa63f066313</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\AboutMe.ServiceDefaults\AboutMe.ServiceDefaults.csproj"/>
+        <ProjectReference Include="..\AboutMe.ServiceDefaults\AboutMe.ServiceDefaults.csproj" />
+        <ProjectReference Include="..\AboutMe.Shared\AboutMe.Shared.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0"/>
-    </ItemGroup>
+        <PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.4.0" />
+        <PackageReference Include="Azure.Identity" Version="1.14.0" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.5" />
+		<PackageReference Include="Airtable" Version="1.5.0" />
+		<PackageReference Include="System.Text.Json" Version="9.0.5" />
+	</ItemGroup>
 
 </Project>

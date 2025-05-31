@@ -1,51 +1,44 @@
 namespace AboutMe.Web.Client.Pages;
 
-// ReSharper disable once UnusedType.Global
-public partial class Now(HttpClient httpClient)
+public partial class Now(NowApiClient NowApiClient)
 {
-    private List<NowThing> NowThings { get; set; } = [];
+    private List<NowThing> nowThings = [];
 
     private bool IsLoading { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    private bool HasLoaded { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await base.OnInitializedAsync();
+        await base.OnAfterRenderAsync(firstRender);
 
-        const string TestApiBaseUrl = "https://codemonkey85.azurewebsites.net/";
-
-        try
+        if (firstRender && !HasLoaded)
         {
-            IsLoading = true;
-            var nowThings = await httpClient.GetFromJsonAsync<NowThing[]>(
-                TestApiBaseUrl + "now",
-                new JsonSerializerOptions
+            HasLoaded = true;
+            await LoadFeedAsync();
+            StateHasChanged();
+        }
+
+        async Task LoadFeedAsync()
+        {
+            try
+            {
+                IsLoading = true;
+                StateHasChanged();
+
+                var feed = await NowApiClient.GetNowThings();
+
+                if (feed?.Length is > 0)
                 {
-                    PropertyNameCaseInsensitive = true
-                });
+                    nowThings = [.. feed];
+                }
 
-            if (nowThings is not null && nowThings.Length > 0)
-            {
-                NowThings = [.. nowThings]; // Copy the array to the list
+                IsLoading = false;
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine("No 'now' items found.");
+                Console.WriteLine($"Error loading feed: {ex.Message}");
             }
-
-            IsLoading = false;
         }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error loading feed: {ex.Message}");
-        }
-    }
-
-    private readonly record struct NowThing
-    {
-        public string Title { get; init; }
-
-        public string Description { get; init; }
-
-        public string? Url { get; init; }
     }
 }
