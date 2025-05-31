@@ -15,11 +15,11 @@ public partial class Now(NowApiClient NowApiClient)
         if (firstRender && !HasLoaded)
         {
             HasLoaded = true;
-            await LoadFeedAsync();
+            await LoadData();
             StateHasChanged();
         }
 
-        async Task LoadFeedAsync()
+        async Task LoadData()
         {
             try
             {
@@ -35,7 +35,7 @@ public partial class Now(NowApiClient NowApiClient)
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error loading feed: {ex.Message}");
+                Console.WriteLine($"Error loading data: {ex}");
             }
             finally
             {
