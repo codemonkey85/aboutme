@@ -1,7 +1,4 @@
 name: Deploy to GitHub Pages
-permissions:
-  id-token: write
-  contents: read
 
 # Run workflow on every push to the main branch
 on:
@@ -20,8 +17,6 @@ jobs:
     name: Build and Deploy
     # use ubuntu-latest image to run steps on
     runs-on: ubuntu-latest
-    env:
-      AZURE_ENV_NAME: aboutme
 
     steps:
       # uses GitHub's checkout action to checkout code form the main branch
@@ -38,42 +33,29 @@ jobs:
         run: dotnet workload install wasm-tools
   
       - name: Restore dependencies
-        run: dotnet restore src/aboutme.sln
+        run: dotnet restore
 
       - name: Build
-        run: dotnet build src/aboutme.sln --configuration Release --no-restore
+        run: dotnet build --configuration Release --no-restore
 
-      - name: Install Azure Developer CLI
-        run: |
-          curl -fsSL https://aka.ms/install-azd.sh | bash
+      - name: Run tests
+        run: dotnet test --configuration Release --no-build
+  
+      # publishes Blazor project to the release-folder
+      - name: Publish .NET Core Project
+        run: dotnet publish AboutMe/Wasm/AboutMe.Wasm.csproj -c Release -o release --nologo
 
-      - name: Authenticate with Azure
-        uses: azure/login@v2.3.0
+      # copy index.html to 404.html to serve the same file when a file is not found
+      - name: copy index.html to 404.html
+        run: cp release/wwwroot/index.html release/wwwroot/404.html
+
+      # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
+      - name: Add .nojekyll file
+        run: touch release/wwwroot/.nojekyll
+
+      - name: Commit wwwroot to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.7.3
         with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-
-      - name: azd login with service principal
-        run: azd auth login --client-id ${{ fromJson(secrets.AZURE_CREDENTIALS).clientId }} --client-secret ${{ fromJson(secrets.AZURE_CREDENTIALS).clientSecret }} --tenant-id ${{ fromJson(secrets.AZURE_CREDENTIALS).tenantId }}
-
-      - name: Provision resources
-        run: azd provision --no-prompt
-        env:
-          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-          AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-          AZURE_ENV_NAME: aboutme
-          AZD_AUTH_TYPE: federated
-
-      - name: Deploy application
-        run: azd deploy --no-prompt
-        env:
-          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-          AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-          AZURE_ENV_NAME: aboutme
-          AZD_AUTH_TYPE: federated
-
-      - name: Logout from Azure
-        run: az logout
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: release/wwwroot
