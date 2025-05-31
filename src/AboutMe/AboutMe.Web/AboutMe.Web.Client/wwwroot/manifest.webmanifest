@@ -1,0 +1,21 @@
+{
+  "name": "About Me",
+  "short_name": "AboutMe",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#3E4EB8",
+  "icons": [
+    {
+      "src": "_content/Pkmds.Rcl/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "_content/Pkmds.Rcl/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
