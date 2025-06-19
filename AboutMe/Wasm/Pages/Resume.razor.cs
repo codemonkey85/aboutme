@@ -34,7 +34,29 @@ public partial class Resume
                     Skills.TelerikBlazor,
                     Skills.DotNetFramework
                 ],
-                Duties = [],
+                Duties =
+                [
+                    new Duty
+                    {
+                        Description =
+                            "Build out Blazor server-side application with clean architecture and modular monolith structures"
+                    },
+                    new Duty
+                    {
+                        Description =
+                            "Leverage code generation and XML templates to build modules"
+                    },
+                    new Duty
+                    {
+                        Description =
+                            "Create relational databases in SQL Server using XML templates and custom code"
+                    },
+                    new Duty
+                    {
+                        Description =
+                            "Build on and use custom CRM"
+                    }
+                ],
                 StartDate = new(2025, 05, 12),
                 EndDate = null,
                 PresentlyEmployed = true
