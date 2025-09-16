@@ -91,7 +91,7 @@
                             </MudText>
                         }
                         <MudText Typo="@Typo.body2">
-                            @job.DatesString
+                            @job.TimeAtJobString
                         </MudText>
                     </MudStack>
                 </MudCardHeader>
@@ -151,21 +151,23 @@
                              Size="@(showYearsUsed
                                        ? Size.Large
                                        : null)">
-                        <MudStack Spacing="0">
-                            @if (showYearsUsed && skill.YearsUsed > 0)
-                            {
-                                <MudText Typo="@Typo.caption">
+                        @if (showYearsUsed)
+                        {
+                            <MudStack Spacing="0">
+                                <MudText Typo="Typo.caption">
                                     @skill.Name
                                 </MudText>
-                                <MudText Typo="@Typo.caption">
-                                    @skill.YearsUsedString
+                                <MudText Typo="Typo.caption">
+                                    @skill.TimeUsedString
                                 </MudText>
-                            }
-                            else
-                            {
+                            </MudStack>
+                        }
+                        else
+                        {
+                            <MudText Typo="Typo.caption">
                                 @skill.Name
-                            }
-                        </MudStack>
+                            </MudText>
+                        }
                     </MudChip>
                 </MudItem>
             }

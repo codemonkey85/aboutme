@@ -58,8 +58,8 @@ public partial class Resume
                     }
                 ],
                 StartDate = new(2025, 05, 12),
-                EndDate = null,
-                PresentlyEmployed = true
+                EndDate = new(2025, 07, 11),
+                PresentlyEmployed = false
             }, // SETWorks
             new Job
             {
@@ -121,8 +121,8 @@ public partial class Resume
                     }
                 ],
                 StartDate = new(2022, 09, 1),
-                EndDate = new DateTime(2025, 01, 24),
-                PresentlyEmployed = false
+                EndDate = null,
+                PresentlyEmployed = true
             }, // Fusion Worldwide
             new Job
             {
@@ -366,9 +366,11 @@ public partial class Resume
         {
             resumeModel.ResumeSkills.Add(skill with
             {
-                YearsUsed = (int)resumeModel.Jobs
+                TimeUsed = resumeModel.Jobs
                     .Where(j => j.SkillsUsed.Contains(skill))
-                    .Sum(j => j.YearsAtJob)
+                    .Aggregate(TimeSpan.Zero, (total, job) => total + (job.EndDate is null && job.PresentlyEmployed
+                        ? DateTime.Now - job.StartDate
+                        : (job.EndDate ?? DateTime.Now) - job.StartDate)),
             });
         }
     }
@@ -408,14 +410,13 @@ public partial class Resume
         // ReSharper disable once UnusedAutoPropertyAccessor.Local
         public string? Description { get; init; }
 
-        public int YearsUsed { get; init; }
+        public TimeSpan TimeUsed { get; init; }
 
-        public string YearsUsedString => YearsUsed > 0
-            ? $"{YearsUsed} year{(YearsUsed == 1 ? string.Empty : "s")}"
-            : string.Empty;
+        public string TimeUsedString =>
+            TimeUsed.Humanize(precision: 2, maxUnit: TimeUnit.Year, minUnit: TimeUnit.Year);
 
         public string Title =>
-            $"{(string.IsNullOrEmpty(Description) ? Name : Description)}{(YearsUsed > 0 ? $" ({YearsUsedString})" : string.Empty)}";
+            $"{(string.IsNullOrEmpty(Description) ? Name : Description)} {TimeUsedString}";
 
         public bool Equals(Skill other) =>
             string.Equals(Name, other.Name, StringComparison.Ordinal) &&
@@ -430,6 +431,7 @@ public partial class Resume
         );
 
         public static bool operator ==(Skill left, Skill right) => left.Equals(right);
+
         public static bool operator !=(Skill left, Skill right) => !left.Equals(right);
     }
 
@@ -464,21 +466,10 @@ public partial class Resume
             ? DateTime.Now
             : EndDate.Value;
 
-        private int TotalDaysAtJob => (EffectiveEndDate - StartDate).Days;
+        private TimeSpan TimeAtJob => EffectiveEndDate - StartDate;
 
-        internal decimal YearsAtJob => Math.Round(TotalDaysAtJob / 365M, 1);
-
-        private int MonthsAtJob => TotalDaysAtJob / 30;
-
-        private string YearsOrMonthsAtJob =>
-            YearsAtJob >= 1
-                ? $"({YearsAtJob} year{(YearsAtJob == 1 ? "" : "s")})"
-                : MonthsAtJob > 0
-                    ? $"({MonthsAtJob} month{(MonthsAtJob == 1 ? "" : "s")})"
-                    : string.Empty;
-
-        public string DatesString =>
-            $"{StartDate:MMM yyyy} - {(EndDate is null ? "Present" : $"{EndDate:MMM yyyy}")} {YearsOrMonthsAtJob}";
+        public string TimeAtJobString =>
+            TimeAtJob.Humanize(precision: 2, maxUnit: TimeUnit.Year, minUnit: TimeUnit.Month);
     }
 
     private readonly record struct Duty
