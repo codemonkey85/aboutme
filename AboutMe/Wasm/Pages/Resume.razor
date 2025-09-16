@@ -151,7 +151,7 @@
                              Size="@(showYearsUsed
                                        ? Size.Large
                                        : null)">
-                        @if (showYearsUsed)
+                        @if (showYearsUsed && skill.TimeUsed.Days >= 31)
                         {
                             <MudStack Spacing="0">
                                 <MudText Typo="Typo.caption">
