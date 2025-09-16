@@ -470,6 +470,9 @@ public partial class Resume
 
         public string TimeAtJobString =>
             TimeAtJob.Humanize(precision: 2, maxUnit: TimeUnit.Year, minUnit: TimeUnit.Month);
+
+        public string DatesString =>
+            $"{StartDate:MMM yyyy} - {(EndDate is null ? "Present" : $"{EndDate:MMM yyyy}")} ({TimeAtJobString})";
     }
 
     private readonly record struct Duty
