@@ -13,7 +13,7 @@ public partial class Now(HttpClient httpClient)
 
         const string TestApiBaseUrl =
 #if DEBUG
-"https://localhost:7239/"
+                "https://localhost:7239/"
 #else
 "https://codemonkey85.azurewebsites.net/"
 #endif

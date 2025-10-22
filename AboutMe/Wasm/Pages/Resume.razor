@@ -54,7 +54,7 @@
               Dense>
         Click or tap a skill to filter.
     </MudAlert>
-    @SkillsFragment(resumeModel.ResumeSkills, showYearsUsed: true)
+    @SkillsFragment(resumeModel.ResumeSkills, true)
 }
 
 @if (resumeModel.Jobs is { Count: > 0 })
