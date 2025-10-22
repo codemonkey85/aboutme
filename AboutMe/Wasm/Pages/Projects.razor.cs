@@ -1,6 +1,7 @@
 namespace AboutMe.Wasm.Pages;
 
 // ReSharper disable once UnusedType.Global
+// ReSharper disable once ClassNeverInstantiated.Global
 public partial class Projects
 {
     private const string GitHubPagesBaseUrl = "https://codemonkey85.github.io";
@@ -14,7 +15,7 @@ public partial class Projects
             Url = "https://www.pkmds.app/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/PKMDS-Blazor",
             Screenshots = []
-        }, // PKMDS Blazor
+        }, // PKMDS for Web
         new()
         {
             Name = "Sound Test",

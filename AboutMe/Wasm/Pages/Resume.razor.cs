@@ -1,6 +1,7 @@
 namespace AboutMe.Wasm.Pages;
 
 // ReSharper disable once UnusedType.Global
+// ReSharper disable once ClassNeverInstantiated.Global
 public partial class Resume
 {
     private readonly ResumeModel resumeModel = new()
@@ -468,7 +469,7 @@ public partial class Resume
 
         private TimeSpan TimeAtJob => EffectiveEndDate - StartDate;
 
-        public string TimeAtJobString =>
+        private string TimeAtJobString =>
             TimeAtJob.Humanize(2, maxUnit: TimeUnit.Year, minUnit: TimeUnit.Month);
 
         public string DatesString =>
