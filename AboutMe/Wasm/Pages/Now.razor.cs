@@ -1,6 +1,7 @@
 namespace AboutMe.Wasm.Pages;
 
 // ReSharper disable once UnusedType.Global
+// ReSharper disable once ClassNeverInstantiated.Global
 public partial class Now(HttpClient httpClient)
 {
     private List<NowThing> NowThings { get; set; } = [];
@@ -11,9 +12,9 @@ public partial class Now(HttpClient httpClient)
     {
         await base.OnInitializedAsync();
 
-        const string TestApiBaseUrl =
+        const string testApiBaseUrl =
 #if DEBUG
-"https://localhost:7239/"
+                "https://localhost:7239/"
 #else
 "https://codemonkey85.azurewebsites.net/"
 #endif
@@ -23,7 +24,7 @@ public partial class Now(HttpClient httpClient)
         {
             IsLoading = true;
             var nowThings = await httpClient.GetFromJsonAsync<NowThing[]>(
-                TestApiBaseUrl + "now",
+                $"{testApiBaseUrl}now",
                 new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
@@ -46,6 +47,7 @@ public partial class Now(HttpClient httpClient)
         }
     }
 
+    [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Local")]
     private readonly record struct NowThing
     {
         public string Title { get; init; }

@@ -1,6 +1,7 @@
 namespace AboutMe.Wasm.Pages;
 
 // ReSharper disable once UnusedType.Global
+// ReSharper disable once ClassNeverInstantiated.Global
 public partial class Resume
 {
     private readonly ResumeModel resumeModel = new()
@@ -11,7 +12,7 @@ public partial class Resume
         ResumeSkills = [],
         Jobs =
         [
-            new Job
+            new()
             {
                 Title = "Senior Software Developer I",
                 Company = "SETWorks",
@@ -36,22 +37,22 @@ public partial class Resume
                 ],
                 Duties =
                 [
-                    new Duty
+                    new()
                     {
                         Description =
                             "Build out Blazor server-side application with clean architecture and modular monolith structures"
                     },
-                    new Duty
+                    new()
                     {
                         Description =
                             "Leverage code generation and XML templates to build modules"
                     },
-                    new Duty
+                    new()
                     {
                         Description =
                             "Create relational databases in SQL Server using XML templates and custom code"
                     },
-                    new Duty
+                    new()
                     {
                         Description =
                             "Build on and use custom CRM"
@@ -61,7 +62,7 @@ public partial class Resume
                 EndDate = new(2025, 07, 11),
                 PresentlyEmployed = false
             }, // SETWorks
-            new Job
+            new()
             {
                 Title = "Full Stack Developer",
                 Company = "Fusion Worldwide",
@@ -90,31 +91,31 @@ public partial class Resume
                 ],
                 Duties =
                 [
-                    new Duty
+                    new()
                     {
                         Description =
                             "Read and convert .NET Framework code from WinForms app and translate logic to apply to ASP.NET Core web app using Blazor"
                     },
-                    new Duty
+                    new()
                     {
                         Description =
                             "Reviewed code written by other developers in peer review, pointing out potential bugs, optimizations, and styling fixes"
                     },
-                    new Duty
+                    new()
                     {
                         Description = "Azure: worked with Azure-hosted app, web, and SQL servers"
                     },
-                    new Duty
+                    new()
                     {
                         Description =
                             "Work in an agile development environment, managing feature branches and feature flags"
                     },
-                    new Duty
+                    new()
                     {
                         Description =
                             "Created new APIs, extensions, and source generators to streamline code and simplify tasks"
                     },
-                    new Duty
+                    new()
                     {
                         Description =
                             "Use MudBlazor and Tailwind CSS to design a pleasant and responsive user experience"
@@ -124,7 +125,7 @@ public partial class Resume
                 EndDate = null,
                 PresentlyEmployed = true
             }, // Fusion Worldwide
-            new Job
+            new()
             {
                 Title = "Software Developer",
                 Company = "3 Story Software",
@@ -147,67 +148,67 @@ public partial class Resume
                 ],
                 Duties =
                 [
-                    new Duty
+                    new()
                     {
                         Description =
                             "Full stack developer: worked on back-end .NET Framework / .NET Core / C# and SQL Server, Entity Framework, Azure-hosted app, web and SQL servers, front-end HTML, CSS, JavaScript, jQuery, and Angular / TypeScript"
                     },
-                    new Duty
+                    new()
                     {
                         Description =
                             "Designed and developed workforce management web application, supported across the globe"
                     },
-                    new Duty
+                    new()
                     {
                         Description =
                             "Designed high-level solutions as well as in-depth technical requirements for new feature requests and bug fixes"
                     },
-                    new Duty
+                    new()
                     {
                         Description =
                             "Reviewed code written by other developers in peer review, pointing out potential bugs, optimizations, and styling fixes"
                     },
-                    new Duty
+                    new()
                     {
                         Description =
                             "Developed core logic / framework code, client specific code, app extensions etc."
                     },
-                    new Duty
+                    new()
                     {
                         Description =
                             "Developed and improved tools used to design pages / sections / mappers / forms that form our web application, including designing and coding brand new modules to our tools"
                     },
-                    new Duty
+                    new()
                     {
                         Description = "Developed schema update scripts, views, stored procedures, etc."
                     },
-                    new Duty
+                    new()
                     {
                         Description = "Azure: worked with Azure-hosted app, web, and SQL servers"
                     },
-                    new Duty
+                    new()
                     {
                         Description = "Designed and coded static HTML templates and CSS styling"
                     },
-                    new Duty
+                    new()
                     {
                         Description =
                             "Developed JavaScript front-end functionality that communicates with C# back-end"
                     },
-                    new Duty
+                    new()
                     {
                         Description = "Developed and tested jQuery included in JS for manipulating DOM"
                     },
-                    new Duty
+                    new()
                     {
                         Description = "Designed and developed more modern / updated UI using Angular and TypeScript"
                     },
-                    new Duty
+                    new()
                     {
                         Description =
                             "Handled debugging for support cases, diagnosing and fixing bugs, fixing data in SQL Server, deploying patches to production sites"
                     },
-                    new Duty
+                    new()
                     {
                         Description = "SQL Server, deploying patches to production sites"
                     }
@@ -216,7 +217,7 @@ public partial class Resume
                 EndDate = new DateTime(2021, 09, 1),
                 PresentlyEmployed = false
             }, // 3 Story Software
-            new Job
+            new()
             {
                 Title = "Senior Blazor Developer",
                 Company = "AmericanEagle.com",
@@ -238,23 +239,23 @@ public partial class Resume
                 ],
                 Duties =
                 [
-                    new Duty
+                    new()
                     {
                         Description = "Develop services backend using AWS Lambda, Amplify, ASP.NET Core"
                     },
-                    new Duty
+                    new()
                     {
                         Description = "Develop web frontend using React"
                     },
-                    new Duty
+                    new()
                     {
                         Description = "Collaborate using Jira, Azure DevOps, and Git"
                     },
-                    new Duty
+                    new()
                     {
                         Description = "Manage code branches, merges, and cherry-picks"
                     },
-                    new Duty
+                    new()
                     {
                         Description = "Review code submitted by other developers"
                     }
@@ -263,7 +264,7 @@ public partial class Resume
                 EndDate = new DateTime(2022, 09, 1),
                 PresentlyEmployed = false
             }, // AmericanEagle.com
-            new Job
+            new()
             {
                 Title = "Senior Software Engineer",
                 Company = "LTi Technology Solutions",
@@ -283,7 +284,7 @@ public partial class Resume
                 ],
                 Duties =
                 [
-                    new Duty
+                    new()
                     {
                         Description =
                             "Developed full stack lease management application, including client, web API / services, and database, written with C# / VB.NET, MS SQL Server, and WPF / XAML."
@@ -293,7 +294,7 @@ public partial class Resume
                 EndDate = new DateTime(2022, 04, 1),
                 PresentlyEmployed = false
             }, // LTi Technology Solutions
-            new Job
+            new()
             {
                 Title = "Programmer Analyst",
                 Company = "Fairfax Data Systems",
@@ -309,21 +310,21 @@ public partial class Resume
                 ],
                 Duties =
                 [
-                    new Duty
+                    new()
                     {
                         Description =
                             "Developed custom DLLs, scripts within Microsoft .NET environment (C#, VB.NET, VBScript) to supplement Datacap / FileNet OOTB solutions, worked with custom FileNet objects"
                     },
-                    new Duty
+                    new()
                     {
                         Description =
                             "Provided client with custom DLLs developed with C#, and accompanying documentation"
                     },
-                    new Duty
+                    new()
                     {
                         Description = "Developed Datacap applications based on specific client requirements"
                     },
-                    new Duty
+                    new()
                     {
                         Description = "Configured FileNet and WorkplaceXT for client to search and modify documents"
                     }
@@ -370,7 +371,7 @@ public partial class Resume
                     .Where(j => j.SkillsUsed.Contains(skill))
                     .Aggregate(TimeSpan.Zero, (total, job) => total + (job.EndDate is null && job.PresentlyEmployed
                         ? DateTime.Now - job.StartDate
-                        : (job.EndDate ?? DateTime.Now) - job.StartDate)),
+                        : (job.EndDate ?? DateTime.Now) - job.StartDate))
             });
         }
     }
@@ -413,7 +414,7 @@ public partial class Resume
         public TimeSpan TimeUsed { get; init; }
 
         public string TimeUsedString =>
-            TimeUsed.Humanize(precision: 2, maxUnit: TimeUnit.Year, minUnit: TimeUnit.Year);
+            TimeUsed.Humanize(2, maxUnit: TimeUnit.Year, minUnit: TimeUnit.Year);
 
         public string Title =>
             $"{(string.IsNullOrEmpty(Description) ? Name : Description)} {TimeUsedString}";
@@ -468,8 +469,8 @@ public partial class Resume
 
         private TimeSpan TimeAtJob => EffectiveEndDate - StartDate;
 
-        public string TimeAtJobString =>
-            TimeAtJob.Humanize(precision: 2, maxUnit: TimeUnit.Year, minUnit: TimeUnit.Month);
+        private string TimeAtJobString =>
+            TimeAtJob.Humanize(2, maxUnit: TimeUnit.Year, minUnit: TimeUnit.Month);
 
         public string DatesString =>
             $"{StartDate:MMM yyyy} - {(EndDate is null ? "Present" : $"{EndDate:MMM yyyy}")} ({TimeAtJobString})";
