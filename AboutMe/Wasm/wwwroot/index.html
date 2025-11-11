@@ -22,8 +22,11 @@
           rel="me"/>
     <link href="https://vernissage.photos/@codemonkey85"
           rel="me"/>
+    <link id="webassembly"
+          rel="preload"/>
+    <script type="importmap"></script>
     <!-- If you add any scoped CSS files, uncomment the following to load them
-    <link href="AboutMe.Wasm.styles.css" rel="stylesheet" /> -->
+    <link href="AboutMe.Wasm.styles.css" rel="stylesheet"/> -->
 </head>
 
 <body>
@@ -42,10 +45,10 @@
 <div id="blazor-error-ui">
     An unhandled error has occurred.
     <a class="reload"
-       href="">Reload</a>
-    <a class="dismiss">🗙</a>
+       href=".">Reload</a>
+    <span class="dismiss">🗙</span>
 </div>
-<script src="_framework/blazor.webassembly.js"></script>
+<script src="_framework/blazor.webassembly#[.{fingerprint}].js"></script>
 <script src="_content/MudBlazor/MudBlazor.min.js"></script>
 </body>
 
