@@ -35,9 +35,8 @@ public readonly record struct SocialLink
     public static SocialLink SupportMe { get; } = new()
     {
         Name = "Support me",
-        Url = "support",
+        Url = "https://ko-fi.com/michaelbond",
         Title = "Support me",
-        OpenInNewWindow = false,
         Icon = Icons.Material.Filled.Coffee
     };
 }
