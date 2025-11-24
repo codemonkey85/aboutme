@@ -1,7 +1,6 @@
 ﻿global using AboutMe.Wasm;
 global using AboutMe.Wasm.Components;
 global using Humanizer;
-global using Humanizer.Localisation;
 global using Microsoft.AspNetCore.Components.Web;
 global using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 global using MudBlazor;
