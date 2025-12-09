@@ -40,14 +40,18 @@ else
         @foreach (var post in Posts)
         {
             <MudCard>
-                <MudCardHeader>
-                    <MudText Typo="Typo.h6">
-                        <a href="@post.Url"
-                           target="_blank">
-                            @post.Title
-                        </a>
-                    </MudText>
-                </MudCardHeader>
+                @if (!string.IsNullOrEmpty(post.Title))
+                {
+                    <MudCardHeader>
+                        <MudText Typo="Typo.h6">
+                            <MudLink Href="@post.Url"
+                                     Class="bold-text"
+                                     Target="_blank">
+                                @post.Title
+                            </MudLink>
+                        </MudText>
+                    </MudCardHeader>
+                }
                 <MudCardContent>
                     <div class="content-wrapper">
                         @(new MarkupString(post.ContentHtml))
@@ -55,10 +59,10 @@ else
                 </MudCardContent>
                 <MudCardActions>
                     <MudText Typo="Typo.subtitle2">
-                        <a href="@post.Url"
-                           target="_blank">
+                        <MudLink Href="@post.Url"
+                                 Target="_blank">
                             @post.DatePublished.ToLocalTime().ToString(DateFormat)
-                        </a>
+                        </MudLink>
                     </MudText>
                 </MudCardActions>
             </MudCard>
@@ -71,5 +75,50 @@ else
         max-width: 100%;
         height: auto;
         display: block;
+    }
+
+    .content-wrapper p {
+        margin-bottom: 1rem;
+    }
+
+    .content-wrapper a {
+        color: var(--mud-palette-primary);
+        text-decoration: underline;
+    }
+
+    .content-wrapper h1, .content-wrapper h2, .content-wrapper h3 {
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .content-wrapper ul, .content-wrapper ol {
+        margin-bottom: 1rem;
+        padding-left: 2rem;
+    }
+
+    .content-wrapper code {
+        background-color: var(--mud-palette-background-grey);
+        padding: 0.2rem 0.4rem;
+        border-radius: 3px;
+        font-family: monospace;
+    }
+
+    .content-wrapper pre {
+        background-color: var(--mud-palette-background-grey);
+        padding: 1rem;
+        border-radius: 4px;
+        overflow-x: auto;
+        margin-bottom: 1rem;
+    }
+
+    .content-wrapper blockquote {
+        border-left: 4px solid var(--mud-palette-primary);
+        padding-left: 1rem;
+        margin: 1rem 0;
+        font-style: italic;
+    }
+
+    .bold-text {
+        font-weight: bold;
     }
 </style>
