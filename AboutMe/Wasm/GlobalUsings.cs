@@ -3,6 +3,7 @@ global using AboutMe.Wasm.Components;
 global using Humanizer;
 global using Microsoft.AspNetCore.Components.Web;
 global using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+global using Microsoft.JSInterop;
 global using MudBlazor;
 global using MudBlazor.Services;
 global using System.Diagnostics.CodeAnalysis;
