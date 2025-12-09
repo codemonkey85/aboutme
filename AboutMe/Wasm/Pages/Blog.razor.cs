@@ -2,10 +2,10 @@
 
 // ReSharper disable once UnusedType.Global
 // ReSharper disable once ClassNeverInstantiated.Global
-public partial class Blog(HttpClient httpClient)
+public partial class Blog(HttpClient httpClient, IJSRuntime jsRuntime)
 {
     [StringSyntax(StringSyntaxAttribute.DateTimeFormat)]
-    private const string DateFormat = "ddd MMM dd yyyy hh:mm tt";
+    private const string DateFormat = "dddd, MMMM dd, yyyy 'at' hh:mm tt";
 
     private static readonly JsonSerializerOptions JsonSerializerOptions =
         new()
@@ -38,6 +38,18 @@ public partial class Blog(HttpClient httpClient)
         catch (Exception ex)
         {
             Console.WriteLine($"Error loading feed: {ex.Message}");
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+        
+        if (!IsLoading && Posts.Count > 0)
+        {
+            await jsRuntime.InvokeVoidAsync("eval", "Array.from(document.querySelectorAll('a')).forEach(a => a.setAttribute('target', '_blank'))");
+            await jsRuntime.InvokeVoidAsync("eval", 
+                "document.querySelectorAll('.content-wrapper a').forEach(a => { a.target = '_blank'; a.rel = 'noopener noreferrer'; });");
         }
     }
 
