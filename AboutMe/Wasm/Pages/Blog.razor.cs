@@ -47,7 +47,6 @@ public partial class Blog(HttpClient httpClient, IJSRuntime jsRuntime)
         
         if (!IsLoading && Posts.Count > 0)
         {
-            await jsRuntime.InvokeVoidAsync("eval", "Array.from(document.querySelectorAll('a')).forEach(a => a.setAttribute('target', '_blank'))");
             await jsRuntime.InvokeVoidAsync("eval", 
                 "document.querySelectorAll('.content-wrapper a').forEach(a => { a.target = '_blank'; a.rel = 'noopener noreferrer'; });");
         }
