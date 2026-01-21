@@ -38,10 +38,10 @@
                         }
                     </MudStack>
                 </MudCardHeader>
-                @if (project.Screenshots is { Count: > 0 })
+                @if (project.Thumbnails is { Count: > 0 })
                 {
                     <MudCarousel Context="productImage"
-                                 ItemsSource="@project.Screenshots">
+                                 ItemsSource="@project.Thumbnails">
                         <ItemTemplate>
                             <MudCardMedia Image="@productImage.Url"
                                           Title="@productImage.Title"/>
