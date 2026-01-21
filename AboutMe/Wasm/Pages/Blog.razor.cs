@@ -44,10 +44,10 @@ public partial class Blog(HttpClient httpClient, IJSRuntime jsRuntime)
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         await base.OnAfterRenderAsync(firstRender);
-        
+
         if (!IsLoading && Posts.Count > 0)
         {
-            await jsRuntime.InvokeVoidAsync("eval", 
+            await jsRuntime.InvokeVoidAsync("eval",
                 "document.querySelectorAll('.content-wrapper a').forEach(a => { a.target = '_blank'; a.rel = 'noopener noreferrer'; });");
         }
     }

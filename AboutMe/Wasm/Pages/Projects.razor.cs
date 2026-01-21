@@ -14,7 +14,7 @@ public partial class Projects
             Description = "A port of PKHeX for web, built wih Blazor",
             Url = "https://www.pkmds.app/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/PKMDS-Blazor",
-            Screenshots = []
+            Thumbnails = []
         }, // PKMDS for Web
         new()
         {
@@ -22,7 +22,7 @@ public partial class Projects
             Description = "Messing around with the JavaScript tone APIs in Blazor",
             Url = $"{GitHubPagesBaseUrl}/SoundTest/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/SoundTest",
-            Screenshots = []
+            Thumbnails = []
         }, // Sound Test
         new()
         {
@@ -30,7 +30,7 @@ public partial class Projects
             Description = "A Tic Tac Toe game for web, built with Blazor",
             Url = $"{GitHubPagesBaseUrl}/TicTacToeBlazor/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/TicTacToeBlazor",
-            Screenshots = []
+            Thumbnails = []
         }, // Tic Tac Toe Blazor
         new()
         {
@@ -38,7 +38,7 @@ public partial class Projects
             Description = "A neat party trick, built with Blazor",
             Url = $"{GitHubPagesBaseUrl}/FourMagicNumberGame/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/FourMagicNumberGame",
-            Screenshots = []
+            Thumbnails = []
         }, // Four Is The Magic Number!
         new()
         {
@@ -46,7 +46,7 @@ public partial class Projects
             Description = "Solve the missing digit in a UPC-12, built with Blazor",
             Url = $"{GitHubPagesBaseUrl}/BarcodeHelper/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/BarcodeHelper",
-            Screenshots = []
+            Thumbnails = []
         }, // Barcode Helper
         new()
         {
@@ -54,7 +54,7 @@ public partial class Projects
             Description = "Doctor Manhattan is tired of stuff, built with Blazor",
             Url = $"{GitHubPagesBaseUrl}/TiredDoctorManhattan/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/TiredDoctorManhattan",
-            Screenshots = []
+            Thumbnails = []
         }, // Tired Doctor Manhattan
         new()
         {
@@ -62,7 +62,7 @@ public partial class Projects
             Description = "A tool to help build Minecraft commands, built with Blazor",
             Url = $"{GitHubPagesBaseUrl}/MinecraftCommandBuilder/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/MinecraftCommandBuilder",
-            Screenshots = []
+            Thumbnails = []
         }, // Minecraft Command Builder
         new()
         {
@@ -70,7 +70,7 @@ public partial class Projects
             Description = "Honestly, this is just for me and my D&D friends.",
             Url = $"{GitHubPagesBaseUrl}/DnDCritCalculator/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/DnDCritCalculator",
-            Screenshots = []
+            Thumbnails = []
         } // D&D Critical Hit Calculator
     ];
 
@@ -85,11 +85,11 @@ public partial class Projects
         public string? GitHubUrl { get; init; }
 
         // ReSharper disable once CollectionNeverUpdated.Local
-        public List<ProductImage> Screenshots { get; init; }
+        public List<ProjectThumbnails> Thumbnails { get; init; }
     }
 
     [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Local")]
-    private readonly record struct ProductImage
+    private readonly record struct ProjectThumbnails
     {
         public required string Url { get; init; }
 
