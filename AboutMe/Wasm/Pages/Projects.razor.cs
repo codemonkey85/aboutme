@@ -10,6 +10,13 @@ public partial class Projects
     [
         new()
         {
+            Name = "BondCasts",
+            Description = "A podcast client for iPhone, iPad, Mac, and Apple Watch",
+            Url = "https://www.bondcasts.com/",
+            Thumbnails = []
+        }, // BondCasts
+        new()
+        {
             Name = "PKMDS for Web",
             Description = "A port of PKHeX for web, built wih Blazor",
             Url = "https://www.pkmds.app/",

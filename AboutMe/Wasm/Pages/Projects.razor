@@ -57,13 +57,16 @@
                                Target="_blank">
                         Open
                     </MudButton>
-                    <MudButton StartIcon="@Icons.Custom.Brands.GitHub"
-                               Variant="@Variant.Filled"
-                               title="@($"'{project.Name}' on GitHub")"
-                               Href="@project.GitHubUrl"
-                               Target="_blank">
-                        See source
-                    </MudButton>
+                    @if (project.GitHubUrl is { Length: > 0 })
+                    {
+                        <MudButton StartIcon="@Icons.Custom.Brands.GitHub"
+                        Variant="@Variant.Filled"
+                        title="@($"'{project.Name}' on GitHub")"
+                        Href="@project.GitHubUrl"
+                        Target="_blank">
+                            See source
+                        </MudButton>
+                    }
                 </MudCardActions>
             </MudCard>
         </MudItem>
