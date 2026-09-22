@@ -49,36 +49,12 @@ public partial class Projects
         }, // Four Is The Magic Number!
         new()
         {
-            Name = "Barcode Helper",
-            Description = "Solve the missing digit in a UPC-12, built with Blazor",
-            Url = $"{GitHubPagesBaseUrl}/BarcodeHelper/",
-            GitHubUrl = $"{Constants.MyGitHubBaseUrl}/BarcodeHelper",
-            Thumbnails = []
-        }, // Barcode Helper
-        new()
-        {
             Name = "Tired Doctor Manhattan",
             Description = "Doctor Manhattan is tired of stuff, built with Blazor",
             Url = $"{GitHubPagesBaseUrl}/TiredDoctorManhattan/",
             GitHubUrl = $"{Constants.MyGitHubBaseUrl}/TiredDoctorManhattan",
             Thumbnails = []
-        }, // Tired Doctor Manhattan
-        new()
-        {
-            Name = "Minecraft Command Builder",
-            Description = "A tool to help build Minecraft commands, built with Blazor",
-            Url = $"{GitHubPagesBaseUrl}/MinecraftCommandBuilder/",
-            GitHubUrl = $"{Constants.MyGitHubBaseUrl}/MinecraftCommandBuilder",
-            Thumbnails = []
-        }, // Minecraft Command Builder
-        new()
-        {
-            Name = "D&D Critical Hit Calculator",
-            Description = "Honestly, this is just for me and my D&D friends.",
-            Url = $"{GitHubPagesBaseUrl}/DnDCritCalculator/",
-            GitHubUrl = $"{Constants.MyGitHubBaseUrl}/DnDCritCalculator",
-            Thumbnails = []
-        } // D&D Critical Hit Calculator
+        } // Tired Doctor Manhattan
     ];
 
     private readonly record struct Project
