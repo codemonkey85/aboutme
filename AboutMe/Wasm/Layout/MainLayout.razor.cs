@@ -17,11 +17,18 @@ public partial class MainLayout
             StateHasChanged();
         }
     }
-#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
-    private async Task OnSystemPreferenceChanged(bool newValue)
-#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
+
+    private Task OnSystemPreferenceChanged(bool newValue)
     {
-        isDarkMode = newValue;
-        StateHasChanged();
+        try
+        {
+            isDarkMode = newValue;
+            StateHasChanged();
+            return Task.CompletedTask;
+        }
+        catch (Exception exception)
+        {
+            return Task.FromException(exception);
+        }
     }
 }

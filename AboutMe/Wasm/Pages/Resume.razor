@@ -141,7 +141,7 @@
     private RenderFragment SkillsFragment(IEnumerable<Skill> skills, bool showYearsUsed = false) =>
         @<MudGrid Class="mb-1"
                   Spacing="0">
-            @foreach (var skill in skills.OrderBy(skill => skill.Name))
+            @foreach (var skill in skills.OrderBy(skill => skill.Name, StringComparer.OrdinalIgnoreCase))
             {
                 <MudItem>
                     <MudChip T="@string"
@@ -154,17 +154,17 @@
                         @if (showYearsUsed && skill.TimeUsed.Days >= 31)
                         {
                             <MudStack Spacing="0">
-                                <MudText Typo="Typo.caption">
+                                <MudText Typo="@Typo.caption">
                                     @skill.Name
                                 </MudText>
-                                <MudText Typo="Typo.caption">
+                                <MudText Typo="@Typo.caption">
                                     @skill.TimeUsedString
                                 </MudText>
                             </MudStack>
                         }
                         else
                         {
-                            <MudText Typo="Typo.caption">
+                            <MudText Typo="@Typo.caption">
                                 @skill.Name
                             </MudText>
                         }
