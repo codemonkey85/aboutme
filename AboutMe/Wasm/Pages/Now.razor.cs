@@ -6,8 +6,6 @@ public partial class Now(HttpClient httpClient)
 {
     private List<NowThing> NowThings { get; set; } = [];
 
-    private bool IsLoading { get; set; }
-
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
@@ -22,7 +20,6 @@ public partial class Now(HttpClient httpClient)
 
         try
         {
-            IsLoading = true;
             var nowThings = await httpClient.GetFromJsonAsync<NowThing[]>(
                 $"{testApiBaseUrl}now",
                 new JsonSerializerOptions
@@ -38,8 +35,6 @@ public partial class Now(HttpClient httpClient)
             {
                 Console.WriteLine("No 'now' items found.");
             }
-
-            IsLoading = false;
         }
         catch (Exception ex)
         {

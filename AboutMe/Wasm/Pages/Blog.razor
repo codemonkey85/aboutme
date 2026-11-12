@@ -1,4 +1,5 @@
 ﻿@page "/Blog"
+@using System.Globalization
 
 <!--suppress CssUnresolvedCustomProperty -->
 <PageTitle>
@@ -62,7 +63,7 @@ else
                     <MudText Typo="Typo.subtitle2">
                         <MudLink Href="@post.Url"
                                  Target="_blank">
-                            @post.DatePublished.ToLocalTime().ToString(DateFormat)
+                            @post.DatePublished.ToLocalTime().ToString(DateFormat, CultureInfo.CurrentCulture)
                         </MudLink>
                     </MudText>
                 </MudCardActions>
