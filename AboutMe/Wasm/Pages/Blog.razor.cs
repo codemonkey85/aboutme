@@ -47,8 +47,15 @@ public partial class Blog(HttpClient httpClient, IJSRuntime jsRuntime)
 
         if (!IsLoading && Posts.Count > 0)
         {
-            await jsRuntime.InvokeVoidAsync("eval",
-                "document.querySelectorAll('.content-wrapper a').forEach(a => { a.target = '_blank'; a.rel = 'noopener noreferrer'; });");
+            try
+            {
+                await jsRuntime.InvokeVoidAsync("eval",
+                    "document.querySelectorAll('.content-wrapper a').forEach(a => { a.target = '_blank'; a.rel = 'noopener noreferrer'; });");
+            }
+            catch (JSException exception)
+            {
+                Console.WriteLine(exception);
+            }
         }
     }
 
@@ -79,7 +86,8 @@ public partial class Blog(HttpClient httpClient, IJSRuntime jsRuntime)
     }
 
 // ReSharper disable once ClassNeverInstantiated.Global
-    [SuppressMessage("ReSharper", "AutoPropertyCanBeMadeGetOnly.Global")]
+    [SuppressMessage("ReSharper", "AutoPropertyCanBeMadeGetOnly.Global"),
+     SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Local")]
     private readonly record struct Item
     {
         // ReSharper disable once UnusedMember.Global
